@@ -1,0 +1,25 @@
+{
+  "meta": {
+    "name": "Empty KGB Studio Project",
+    "created": "2026-06-28T00:00:00.000Z",
+    "updated": "2026-06-28T00:00:00.000Z",
+    "studioVersion": "0.2"
+  },
+  "mission": {
+    "note": ""
+  },
+  "assets": {
+    "sprites": [],
+    "animations": [],
+    "shapes": [],
+    "particles": [],
+    "sounds": [],
+    "tiles": [],
+    "palettes": [],
+    "maps": []
+  },
+  "settings": {
+    "theme": "kgb-neon",
+    "target": "web-pwa"
+  }
+}

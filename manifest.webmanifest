@@ -1,0 +1,11 @@
+{
+  "name": "KGB Studio",
+  "short_name": "KGB Studio",
+  "description": "Browser-native arcade development environment for KGB Arcade.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#020607",
+  "theme_color": "#00e5ff",
+  "icons": []
+}
