@@ -1,0 +1,1141 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>KGB Studio v0.8.2 - Workspace Fix + Shape Ops</title>
+<style>
+:root{--bg:#020607;--panel:#071014;--line:#1b3b42;--text:#d9fff8;--muted:#7aa7a6;--green:#b8ff19;--cyan:#00e5ff;--mag:#ff2bd6;--orange:#ff8a00}
+*{box-sizing:border-box}html,body{height:100%;margin:0;background:radial-gradient(circle at 50% 0%,#102124,#020607 45%,#000);color:var(--text);font:14px system-ui,Segoe UI,Arial;overflow:hidden}
+button,input,textarea,select{font:inherit}button{border:1px solid #22515b;background:#071014;color:var(--text);border-radius:12px;padding:8px 10px;font-weight:800;cursor:pointer}button:hover{border-color:var(--cyan)}button.active{border-color:var(--green);color:var(--green)}button.primary{background:linear-gradient(#d9ff63,#77d900);color:#071014;border-color:var(--green)}button.hot{border-color:var(--mag)}input,textarea,select{width:100%;background:#02080a;color:var(--text);border:1px solid #21464e;border-radius:12px;padding:9px}textarea{min-height:110px;font-family:monospace}label{display:block;margin:10px 0 5px;color:var(--muted);font-size:12px;font-weight:900;text-transform:uppercase;letter-spacing:.08em}
+.app{height:100%;display:grid;grid-template-rows:58px 54px 1fr}.top,.nav{display:flex;gap:8px;align-items:center;padding:8px 12px;border-bottom:1px solid var(--line);background:rgba(2,6,7,.92);overflow:auto}.brand{font-weight:1000;letter-spacing:.12em;white-space:nowrap}.pill{border:1px solid var(--green);color:var(--green);border-radius:99px;padding:2px 7px;font-size:11px}.status{margin-left:auto;color:var(--muted);white-space:nowrap}.shell{min-height:0;display:grid;grid-template-columns:320px 1fr 330px}.left,.right{min-height:0;overflow:auto;background:rgba(7,16,20,.88);padding:12px;border-right:1px solid var(--line)}.right{border-right:0;border-left:1px solid var(--line)}.center{min-width:0;min-height:0;display:grid;grid-template-rows:54px 1fr}.bar{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:9px 12px;border-bottom:1px solid var(--line);background:#02080a}.work{min-height:0;overflow:auto;padding:14px}.card{background:linear-gradient(#0b171c,#040a0c);border:1px solid #1a3c43;border-radius:16px;padding:14px;margin-bottom:12px}.row{display:flex;gap:8px;align-items:center;flex-wrap:wrap}.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.muted{color:var(--muted)}.treeHead{display:flex;justify-content:space-between;align-items:center;color:var(--green);font-weight:1000;border-bottom:1px solid #18373d;margin-top:10px;padding:7px 0}.treeItem{display:flex;justify-content:space-between;align-items:center;gap:8px;border:1px solid #18373d;border-radius:12px;background:#030b0e;margin:7px 0;padding:8px}.treeItem b{font-size:12px}.treeItem span{font-size:11px;color:var(--muted)}pre{white-space:pre-wrap;max-height:260px;overflow:auto;background:#02080a;border:1px solid #18373d;border-radius:12px;padding:10px;color:#bff}.stage{display:grid;place-items:center;min-height:520px;border:1px solid #18373d;border-radius:18px;background:#000;overflow:hidden}canvas{max-width:100%;height:auto;touch-action:none}.sprite{display:grid;grid-template-columns:1fr 270px;gap:12px}.tools{display:grid;grid-template-columns:1fr 1fr;gap:8px}.moduleCard{border:1px solid #21464e;border-radius:14px;padding:12px;background:#030b0e}.badge{background:var(--green);color:#071014;border-radius:99px;padding:2px 7px;font-size:11px;font-weight:1000}.modalBg{position:fixed;inset:0;display:none;place-items:center;background:rgba(0,0,0,.72);z-index:9;padding:18px}.modalBg.show{display:grid}.modal{max-width:880px;width:100%;max-height:88vh;overflow:auto;background:#061014;border:1px solid var(--cyan);border-radius:18px;padding:16px}.cmd{position:fixed;inset:0;display:none;place-items:start center;background:rgba(0,0,0,.65);z-index:10;padding-top:10vh}.cmd.show{display:grid}.cmdBox{width:min(760px,92vw);background:#061014;border:1px solid var(--cyan);border-radius:18px;padding:12px;box-shadow:0 0 40px rgba(0,229,255,.22)}.cmdItem{padding:10px;border:1px solid #18373d;border-radius:12px;margin-top:8px;background:#030b0e;cursor:pointer}.cmdItem:hover{border-color:var(--green)}.thumb{width:100%;aspect-ratio:1.6;border:1px solid #18373d;border-radius:14px;background:#000;display:grid;place-items:center;overflow:hidden;margin-bottom:10px}.thumb canvas{width:100%;height:100%}.mini{font-size:11px;color:var(--muted)}.tag{display:inline-block;border:1px solid #22515b;border-radius:99px;padding:2px 7px;margin:2px;color:var(--cyan);font-size:11px}.shapeShell{display:grid;grid-template-columns:1fr 280px;gap:12px}.shapeTools{display:grid;grid-template-columns:1fr 1fr;gap:8px}.shapeStage{display:grid;place-items:center;min-height:520px;border:1px solid #18373d;border-radius:18px;background:#000;overflow:hidden}@media(max-width:900px){.shapeShell{grid-template-columns:1fr}.shapeStage{min-height:48vh}}
+@media(max-width:900px){.shell{grid-template-columns:1fr;grid-template-rows:auto 1fr auto}.left,.right{max-height:28vh;border:0;border-bottom:1px solid var(--line)}.right{border-top:1px solid var(--line)}.grid,.grid3,.sprite{grid-template-columns:1fr}.status{display:none}.stage{min-height:48vh}}
+
+/*
+  Workspace Focus UI
+  ------------------
+  IMPORTANT FIX:
+  Do NOT use display:none on grid children here.
+
+  CSS grid auto-placement will remove display:none items from the grid flow.
+  When the left panel disappeared, the center workspace got auto-placed into
+  the first 0px column. That is why Explorer collapse created a tiny sliver.
+
+  Instead, keep the left/right grid items present, but collapse their columns
+  to 0 and visually hide their contents.
+*/
+body.left-collapsed .shell{grid-template-columns:0 minmax(0,1fr) 340px}
+body.right-collapsed .shell{grid-template-columns:330px minmax(0,1fr) 0}
+body.left-collapsed.right-collapsed .shell{grid-template-columns:0 minmax(0,1fr) 0}
+body.workspace-focus .shell{grid-template-columns:0 minmax(0,1fr) 0}
+
+body.left-collapsed .left,
+body.workspace-focus .left{
+  width:0;
+  min-width:0;
+  padding:0;
+  border:0;
+  overflow:hidden;
+  opacity:0;
+  pointer-events:none;
+}
+
+body.right-collapsed .right,
+body.workspace-focus .right{
+  width:0;
+  min-width:0;
+  padding:0;
+  border:0;
+  overflow:hidden;
+  opacity:0;
+  pointer-events:none;
+}
+
+body.workspace-focus .workspaceFocusBtn{border-color:var(--green);color:var(--green)}
+body.left-collapsed #toggleLeftBtn,body.right-collapsed #toggleRightBtn{border-color:var(--green);color:var(--green)}
+.focusHint{font-size:11px;color:var(--muted)}
+.shapeList{max-height:170px;overflow:auto;border:1px solid #18373d;border-radius:12px;padding:8px;background:#02080a}
+.shapeList label{display:flex;align-items:center;gap:6px;margin:4px 0;color:var(--text);font-size:12px;text-transform:none;letter-spacing:0}
+.shapeList input{width:auto}
+
+</style>
+</head>
+<body>
+<div class="app">
+<header class="top"><div class="brand">KGB STUDIO <span class="pill">v0.8.2</span></div><button id="newBtn">New Operation</button><button id="undoBtn">Undo</button><button id="redoBtn">Redo</button><button id="cmdBtn">Operator Console</button><button id="toggleLeftBtn" title="Collapse/expand Operation Explorer">Explorer</button><button id="toggleRightBtn" title="Collapse/expand Intelligence/Comms">Intel</button><button id="focusBtn" class="workspaceFocusBtn" title="Focus workspace">Focus</button><button id="saveBtn">Save JSON</button><button id="loadBtn">Load JSON</button><input id="loadInput" type="file" accept=".json" hidden><button id="exportBtn">Export</button><button id="helpBtn">Help</button><div id="status" class="status">Ready.</div></header>
+<nav id="nav" class="nav"></nav>
+<section class="shell">
+<aside class="left"><div class="card"><h3>Operation Explorer</h3><label>Operation Name</label><input id="projectName"><label>Search Arsenal</label><input id="filter" placeholder="Search assets, kinds, tags..."><div id="explorer"></div></div></aside>
+<main class="center"><div class="bar"><div><b id="title"></b><div id="subtitle" class="muted"></div></div><div id="actions" class="row"></div></div><div id="work" class="work"></div></main>
+<aside class="right"><div class="card"><h3>Intelligence</h3><div id="props" class="muted">No asset selected.</div></div><div class="card"><h3>Comms</h3><pre id="log"></pre></div></aside>
+</section>
+</div>
+<div id="modalBg" class="modalBg"><div class="modal"><div class="row" style="justify-content:space-between"><h2 id="modalTitle">Help</h2><button id="closeModal">Close</button></div><div id="modalBody"></div></div></div>
+<div id="cmd" class="cmd"><div class="cmdBox"><input id="cmdSearch" placeholder="Type a command..."><div id="cmdList"></div></div></div>
+
+<script>
+
+/*
+===============================================================================
+KGB STUDIO v0.8.2 — WORKSPACE COLLAPSE FIX + SHAPE OPS
+
+WHY THIS VERSION EXISTS
+-----------------------
+v0.8.1 added sidebar collapse/focus controls, but Explorer collapse caused the
+workspace to become a tiny sliver. The cause was display:none on the left grid
+item, which removed it from grid flow and made the center auto-place into the
+0px column.
+
+This build fixes the layout and adds the first PowerPoint-style Shape Forge
+operations.
+
+WHAT'S NEW IN v0.8.2
+--------------------
+Fixed:
+- Explorer collapse now lets the center workspace fill the available width.
+- Collapse/focus mode no longer uses display:none on grid children.
+
+Added:
+- Shape Forge object list with checkboxes.
+- Multi-select shape operation workflow.
+- Union operation.
+- Subtract operation.
+- Intersect operation.
+- Compound shape renderer using safe offscreen canvas compositing.
+- Shape operations changelog and comments.
+
+SAFE ARCHITECTURE RULE
+----------------------
+This build does not change project schema, adapters, AssetRegistry, or History.
+Shape ops are stored as compound shape objects inside existing shape assets.
+
+REPO ACTION
+-----------
+Replace root index.html with this file.
+
+SUGGESTED COMMIT
+----------------
+Fix workspace collapse and add Shape Forge operations
+
+===============================================================================
+*/
+const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+const uid=p=>p+"_"+Date.now().toString(36)+"_"+Math.random().toString(36).slice(2,7);
+function esc(s){return String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[c]||c))}
+function safe(s){return String(s||"kgb_project").toLowerCase().replace(/[^a-z0-9]+/g,"_").replace(/^_|_$/g,"")}
+function dl(n,t,m="text/plain"){const b=new Blob([t],{type:m}),a=document.createElement("a");a.href=URL.createObjectURL(b);a.download=n;a.click();URL.revokeObjectURL(a.href)}
+function project(name="Untitled KGB Game"){const now=new Date().toISOString();return{meta:{name,created:now,updated:now,studioVersion:"0.8.2"},mission:{note:""},assets:{sprites:[],animations:[],shapes:[],particles:[],sounds:[],palettes:[],tiles:[],maps:[],misc:[]},settings:{theme:"kgb-neon",target:"web-pwa"}}}
+function norm(p){let b=project(p?.meta?.name);return{...b,...p,meta:{...b.meta,...(p.meta||{})},assets:{...b.assets,...(p.assets||{})},settings:{...b.settings,...(p.settings||{})}}}
+
+/* EVENT BUS: simple pub/sub so modules can emit events without tight coupling. */
+const Bus={handlers:{},on(e,fn){(this.handlers[e] ||= []).push(fn)},emit(e,data){(this.handlers[e]||[]).forEach(fn=>fn(data));Studio.log("event: "+e)}};
+
+/* OPERATOR CONSOLE BACKEND: still called Commands internally, but this is our operator search/run system. */
+const Commands={
+ list:[],
+ add(id,label,run){this.list.push({id,label,run})},
+ open(){renderCommands();$("#cmd").classList.add("show");$("#cmdSearch").value="";$("#cmdSearch").focus()},
+ close(){$("#cmd").classList.remove("show")},
+ run(id){let c=this.list.find(x=>x.id===id);if(c){c.run();this.close()}}
+};
+function renderCommands(){let q=($("#cmdSearch")?.value||"").toLowerCase();$("#cmdList").innerHTML=Commands.list.filter(c=>!q||c.label.toLowerCase().includes(q)||c.id.includes(q)).map(c=>'<div class="cmdItem" data-cmd="'+c.id+'"><b>'+esc(c.label)+'</b><br><span class="muted">'+esc(c.id)+'</span></div>').join("");$("#cmdList").querySelectorAll("[data-cmd]").forEach(x=>x.onclick=()=>Commands.run(x.dataset.cmd))}
+
+/* HISTORY: snapshot-based undo/redo for project-level asset mutations. */
+const History={undo:[],redo:[],snapshot(label){Studio.sync();this.undo.push({label,state:JSON.stringify(Studio.state.project)});this.redo=[];updateHistoryButtons()},restore(item){Studio.hydrate(JSON.parse(item.state))},undoIt(){if(!this.undo.length)return;this.redo.push({label:"redo",state:JSON.stringify(Studio.state.project)});this.restore(this.undo.pop());Studio.log("Undo")},redoIt(){if(!this.redo.length)return;this.undo.push({label:"undo",state:JSON.stringify(Studio.state.project)});this.restore(this.redo.pop());Studio.log("Redo")}};
+function updateHistoryButtons(){$("#undoBtn").disabled=!History.undo.length;$("#redoBtn").disabled=!History.redo.length}
+
+
+/*
+-------------------------------------------------------------------------------
+ASSET REGISTRY FACADE
+
+This is the safe v0.6 version of AssetDB.
+
+Instead of replacing the known-good project.assets arrays, this facade gives us
+AssetDB-like capabilities while keeping the existing schema stable.
+
+Later, when we're ready, this can become a true UUID AssetDB. For now it gives:
+- all()      -> list every asset across all buckets
+- find()     -> search all assets
+- get()      -> retrieve an asset by bucket/id
+- usedBy()   -> dependency graph foundation
+- summary()  -> counts by bucket
+-------------------------------------------------------------------------------
+*/
+const AssetRegistry={
+  buckets(){
+    return Studio.state.project.assets || {};
+  },
+
+  all(){
+    const out=[];
+    Object.entries(this.buckets()).forEach(([bucket,items])=>{
+      (items||[]).forEach(asset=>{
+        out.push({bucket,asset});
+      });
+    });
+    return out;
+  },
+
+  find(query){
+    const q=String(query||"").toLowerCase();
+    return this.all().filter(({bucket,asset})=>{
+      const text=[
+        bucket,
+        asset.id,
+        asset.name,
+        asset.kind,
+        asset.adapter,
+        ...(asset.tags||[])
+      ].join(" ").toLowerCase();
+      return !q || text.includes(q);
+    });
+  },
+
+  get(bucket,id){
+    return (this.buckets()[bucket]||[]).find(asset=>asset.id===id);
+  },
+
+  usedBy(bucket,id){
+    return this.all().filter(({asset})=>{
+      return (asset.dependencies||[]).some(dep=>dep.bucket===bucket && dep.id===id);
+    });
+  },
+
+  summary(){
+    const rows={};
+    Object.entries(this.buckets()).forEach(([bucket,items])=>{
+      rows[bucket]=(items||[]).length;
+    });
+    return rows;
+  }
+};
+
+/*
+-------------------------------------------------------------------------------
+ASSET PREVIEW HELPERS
+
+The Intelligence panel needs a fast way to preview selected assets.
+
+For now:
+- Sprite assets with procedural objects are drawn on a mini canvas.
+- Other assets get a labeled tactical placeholder card.
+
+This stays intentionally simple so it cannot break the working editor.
+-------------------------------------------------------------------------------
+*/
+function renderAssetPreview(asset,canvas){
+  if(!canvas)return;
+
+  const ctx=canvas.getContext("2d");
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+
+  // Dark tactical background.
+  ctx.fillStyle="#000";
+  ctx.fillRect(0,0,canvas.width,canvas.height);
+
+  // Light grid gives every preview the same KGB Studio visual language.
+  ctx.strokeStyle="#00e5ff33";
+  ctx.lineWidth=1;
+  for(let x=0;x<canvas.width;x+=24){
+    ctx.beginPath();
+    ctx.moveTo(x,0);
+    ctx.lineTo(x,canvas.height);
+    ctx.stroke();
+  }
+  for(let y=0;y<canvas.height;y+=24){
+    ctx.beginPath();
+    ctx.moveTo(0,y);
+    ctx.lineTo(canvas.width,y);
+    ctx.stroke();
+  }
+
+  // Sprite Forge assets currently store procedural objects directly on asset.objects.
+  if(asset?.objects?.length){
+    ctx.save();
+    ctx.scale(0.36,0.36);
+    ctx.translate(170,35);
+
+    // Reuse SpriteForge.draw safely by temporarily pointing its ctx at preview ctx.
+    const oldCtx=SpriteForge.ctx;
+    SpriteForge.ctx=ctx;
+    asset.objects.forEach(o=>SpriteForge.draw(o));
+    SpriteForge.ctx=oldCtx;
+
+    ctx.restore();
+    return;
+  }
+
+  // Shape Forge assets store vector objects on asset.shapes.
+  if(asset?.shapes?.length && typeof ShapeForge!=="undefined"){
+    ctx.save();
+    ctx.scale(0.36,0.36);
+    ctx.translate(170,35);
+
+    // Reuse ShapeForge.drawShape safely by temporarily pointing its ctx at preview ctx.
+    const oldCtx=ShapeForge.ctx;
+    ShapeForge.ctx=ctx;
+    asset.shapes.forEach(o=>ShapeForge.drawShape(o));
+    ShapeForge.ctx=oldCtx;
+
+    ctx.restore();
+    return;
+  }
+
+  // Generic fallback preview for non-canvas assets.
+  ctx.fillStyle="#b8ff19";
+  ctx.font="bold 18px system-ui";
+  ctx.fillText(String(asset?.kind||"asset").toUpperCase(),20,42);
+  ctx.fillStyle="#7aa7a6";
+  ctx.font="14px system-ui";
+  ctx.fillText(String(asset?.name||"Unnamed Asset"),20,68);
+}
+
+/*
+-------------------------------------------------------------------------------
+DEPENDENCY VIEW HELPERS
+
+Dependencies are optional in this stable schema.
+
+A dependency is expected to look like:
+  { bucket: "sprites", id: "sprites_xxxxx" }
+
+This creates the foundation for richer dependency graphs later.
+-------------------------------------------------------------------------------
+*/
+function dependencyLabel(dep){
+  if(!dep)return "unknown dependency";
+  const target=AssetRegistry.get(dep.bucket,dep.id);
+  return target ? (target.name||target.id) : `${dep.bucket}/${dep.id}`;
+}
+
+
+/* STUDIO CORE: owns module registry, adapter registry, shared project state, selection, and mutation helpers. */
+const Studio={
+ modules:new Map(), adapters:new Map(), state:{project:project(),selection:null},
+ log(m){$("#log").textContent="["+new Date().toLocaleTimeString()+"] "+m+"\n"+$("#log").textContent;$("#status").textContent=m},
+ register(m){this.modules.set(m.id,m)},
+ installAdapter(a){this.adapters.set(a.id,a);this.register(a.toModule())},
+ open(id,opt={}){const m=this.modules.get(id);if(!m)return this.log("Missing module "+id);$("#title").textContent=m.title;$("#subtitle").textContent=m.description||"";$("#work").innerHTML="";$("#actions").innerHTML="";$("#props").innerHTML="";m.render?.($("#work"),this,opt);m.actions?.($("#actions"),this,opt);m.properties?.($("#props"),this,opt);$$("[data-section]").forEach(b=>b.classList.toggle("active",b.dataset.section===m.section));Bus.emit("module:opened",{id});this.log("Opened "+m.title)},
+ sync(){this.state.project.meta.name=$("#projectName").value.trim()||"Untitled KGB Game";this.state.project.meta.updated=new Date().toISOString()},
+ exportProject(){this.sync();return JSON.stringify(this.state.project,null,2)},
+ hydrate(p){this.state.project=norm(p);$("#projectName").value=this.state.project.meta.name;renderExplorer();this.renderProps();updateHistoryButtons();this.log("Project loaded")},
+ mutate(label,fn){History.snapshot(label);fn();this.sync();renderExplorer();this.renderProps();Bus.emit("project:changed",{label})},
+ addAsset(type,a){this.mutate("add "+type,()=>{a.id ||= uid(type);a.created ||= new Date().toISOString();a.updated=new Date().toISOString();this.state.project.assets[type].push(a)});this.log("Saved "+type.slice(0,-1)+": "+a.name);return a},
+ find(type,id){return(this.state.project.assets[type]||[]).find(a=>a.id===id)},
+ updateAsset(type,id,patch){this.mutate("update asset",()=>{let a=this.find(type,id);if(a)Object.assign(a,patch,{id,updated:new Date().toISOString()})});},
+ deleteAsset(type,id){this.mutate("delete asset",()=>{let arr=this.state.project.assets[type]||[],i=arr.findIndex(a=>a.id===id);if(i>=0)arr.splice(i,1);this.state.selection=null})},
+ duplicateAsset(type,id){this.mutate("duplicate asset",()=>{let a=this.find(type,id);if(a){let c=JSON.parse(JSON.stringify(a));c.id=uid(type);c.name=(c.name||"Asset")+" Copy";this.state.project.assets[type].push(c)}})},
+ selectAsset(type,id){let a=this.find(type,id);if(!a)return;this.state.selection={type,id};this.renderProps();let adapter=[...this.adapters.values()].find(ad=>ad.canOpen?.(a));if(adapter)this.open(adapter.moduleId,{asset:a});else this.log("Selected "+a.name)},
+ renderProps(){
+  let s=this.state.selection,p=$("#props");
+
+  // Nothing selected: keep Intelligence quiet and clear.
+  if(!s){
+    p.innerHTML='<div class="muted">No asset selected.</div>';
+    return;
+  }
+
+  let a=this.find(s.type,s.id);
+  if(!a){
+    p.textContent="Missing asset";
+    return;
+  }
+
+  // Optional dependency data. This does not require a schema migration.
+  let deps=a.dependencies||[];
+  let usedBy=AssetRegistry.usedBy(s.type,s.id);
+
+  // Rich Intelligence panel. This is still backed by the stable v0.5/v0.6 asset shape.
+  p.innerHTML=
+    '<div class="thumb"><canvas id="assetThumb" width="320" height="200"></canvas></div>'+
+    '<label>Name</label><input id="pname" value="'+esc(a.name||"")+'">'+
+    '<label>Bucket</label><input disabled value="'+esc(s.type)+'">'+
+    '<label>Kind</label><input disabled value="'+esc(a.kind||"asset")+'">'+
+    '<label>Folder</label><input id="pfolder" value="'+esc(a.folder||"/")+'">'+
+    '<label>Tags comma-separated</label><input id="ptags" value="'+esc((a.tags||[]).join(", "))+'">'+
+    '<label>Notes</label><textarea id="pnotes">'+esc(a.notes||"")+'</textarea>'+
+    '<div class="row">'+
+      '<button class="primary" id="applyP">Apply</button>'+
+      '<button id="openP">Open</button>'+
+      '<button id="dupeP">Duplicate</button>'+
+      '<button class="hot" id="delP">Delete</button>'+
+    '</div>'+
+    '<p class="mini">ID: '+esc(a.id||"")+'</p>'+
+    '<p class="mini">Dependencies: '+deps.length+' • Used by: '+usedBy.length+'</p>'+
+    '<div>'+
+      deps.map(dep=>'<span class="tag">uses '+esc(dependencyLabel(dep))+'</span>').join("")+
+      usedBy.map(item=>'<span class="tag">used by '+esc(item.asset.name||item.asset.id)+'</span>').join("")+
+    '</div>'+
+    '<label>Raw Asset JSON</label><textarea id="pjson">'+esc(JSON.stringify(a,null,2))+'</textarea>';
+
+  renderAssetPreview(a,$("#assetThumb"));
+
+  // Apply writes the friendly fields back into the raw JSON object, then saves.
+  $("#applyP").onclick=()=>{
+    try{
+      let raw=JSON.parse($("#pjson").value);
+      raw.name=$("#pname").value;
+      raw.folder=$("#pfolder").value||"/";
+      raw.tags=$("#ptags").value.split(",").map(x=>x.trim()).filter(Boolean);
+      raw.notes=$("#pnotes").value;
+      this.updateAsset(s.type,s.id,raw);
+    }catch(e){
+      alert(e.message);
+    }
+  };
+
+  $("#openP").onclick=()=>this.selectAsset(s.type,s.id);
+  $("#dupeP").onclick=()=>this.duplicateAsset(s.type,s.id);
+  $("#delP").onclick=()=>{
+    if(confirm("Delete asset?"))this.deleteAsset(s.type,s.id);
+  };
+}
+};
+
+const sections={MISSION:[["mission.brief","Brief"],["mission.project","Project JSON"]],ASSETS:[["asset.library","Asset Library"],["asset.inspector","Asset Inspector"],["asset.shapeforge","Shape Forge"],["asset.spriteforge","Sprite Forge"],["asset.adapters","Module Adapters"]],SYSTEMS:[["system.runtime","Runtime Preview"],["system.taio","TAIO"],["system.registry","Asset Registry"],["system.platform","Platform"],["system.events","Event Bus"],["system.changelog","Changelog"]],BUILD:[["build.export","Export"],["build.validate","Validate"]],DEPLOY:[["deploy.notes","Deploy Notes"]]};
+function renderNav(){let n=$("#nav");n.innerHTML="";Object.keys(sections).forEach(sec=>{let b=document.createElement("button");b.textContent=sec;b.dataset.section=sec;b.onclick=()=>Studio.open(sections[sec][0][0]);n.appendChild(b)})}
+function renderExplorer(){let q=($("#filter")?.value||"").toLowerCase(),p=Studio.state.project,root=$("#explorer");let h='<div class="treeHead"><span>MISSION</span><button data-open="mission.brief">Open</button></div><div class="treeItem"><div><b>'+esc(p.meta.name)+'</b><br><span>'+esc(p.settings.target)+'</span></div><button data-open="mission.project">JSON</button></div>';["sprites","animations","shapes","particles","sounds","palettes","tiles","maps"].forEach(type=>{let arr=(p.assets[type]||[]).filter(a=>!q||(a.name||"").toLowerCase().includes(q)||(a.kind||"").toLowerCase().includes(q));h+='<div class="treeHead"><span>'+type.toUpperCase()+'</span><button data-open="'+(type==="sprites"?"asset.spriteforge":type==="shapes"?"asset.shapeforge":"asset.adapters")+'">+</button></div>';h+=arr.length?arr.map(a=>'<div class="treeItem"><div><b>'+esc(a.name||a.id)+'</b><br><span>'+esc(a.kind||"asset")+'</span></div><button data-type="'+type+'" data-id="'+a.id+'">Open</button></div>').join(""):'<div class="muted">No '+type+'.</div>'});root.innerHTML=h;root.querySelectorAll("[data-open]").forEach(b=>b.onclick=()=>Studio.open(b.dataset.open));root.querySelectorAll("[data-id]").forEach(b=>b.onclick=()=>Studio.selectAsset(b.dataset.type,b.dataset.id))}
+
+/* TOOL ADAPTER FACTORY: promotes standalone tools into Studio modules without rewriting them. */
+function createToolAdapter(o){return{...o,toModule(){return{id:o.moduleId,section:o.section,title:o.title,description:o.description,render:(r,s,opt)=>o.render(r,s,opt),actions:(r,s,opt)=>{r.innerHTML='<button id="adSave">Save Asset</button><button id="adExport">Export</button>';$("#adSave").onclick=()=>o.save?.(s,opt);$("#adExport").onclick=()=>o.exportAsset?.(s,opt)},properties:(p,s,opt)=>{p.innerHTML=opt?.asset?'<div class="muted">Opened: '+esc(opt.asset.name)+'</div>':'<div class="muted">'+esc(o.title)+' adapter active.</div>'}}}}}
+
+/* SPRITE FORGE LITE: the first embedded canvas asset editor. Kept stable from v0.5. */
+const SpriteForge={canvas:null,ctx:null,objects:[],selectedId:null,tool:"select",isDown:false,draft:null,start:null,currentAsset:null,style:{fill:"#ff8a00",stroke:"#b8ff19",weight:4,glow:12},
+ init(asset){this.canvas=$("#spriteCanvas");this.ctx=this.canvas.getContext("2d");this.objects=asset?.objects?JSON.parse(JSON.stringify(asset.objects)):[];this.currentAsset=asset||null;this.selectedId=null;this.render();this.canvas.onpointerdown=e=>this.down(e);this.canvas.onpointermove=e=>this.move(e);this.canvas.onpointerup=e=>this.up(e);this.canvas.onpointercancel=e=>this.up(e)},
+ pos(e){let r=this.canvas.getBoundingClientRect();return{x:(e.clientX-r.left)*this.canvas.width/r.width,y:(e.clientY-r.top)*this.canvas.height/r.height}},
+ down(e){this.canvas.setPointerCapture(e.pointerId);this.isDown=true;let p=this.pos(e);this.start=p;if(this.tool==="select"){let hit=this.hit(p.x,p.y);this.selectedId=hit?.id||null;this.draft=hit?{x:p.x,y:p.y,ox:hit.x,oy:hit.y,pts:hit.points?JSON.parse(JSON.stringify(hit.points)):null}:null;this.render();return}if(this.tool==="pen"){this.draft={type:"path",points:[p],style:{...this.style},id:uid("obj")};return}this.draft={type:this.tool,x:p.x,y:p.y,w:1,h:1,style:{...this.style},id:uid("obj")}},
+ move(e){if(!this.isDown)return;let p=this.pos(e);if(this.tool==="select"&&this.selectedId&&this.draft){let o=this.objects.find(x=>x.id===this.selectedId);if(o){if(o.points&&this.draft.pts){let dx=p.x-this.draft.x,dy=p.y-this.draft.y;o.points=this.draft.pts.map(pt=>({x:pt.x+dx,y:pt.y+dy}))}else{o.x=this.draft.ox+(p.x-this.draft.x);o.y=this.draft.oy+(p.y-this.draft.y)}this.render()}return}if(this.tool==="pen"&&this.draft){this.draft.points.push(p);this.render();this.draw(this.draft);return}if(this.draft){this.draft.w=p.x-this.start.x;this.draft.h=p.y-this.start.y;this.render();this.draw(this.draft)}},
+ up(){if(!this.isDown)return;this.isDown=false;if(this.draft&&this.tool!=="select"){this.objects.push(this.draft);this.selectedId=this.draft.id;this.draft=null;this.render();Bus.emit("sprite:changed",{})}},
+ bounds(o){if(o.type==="path"){let xs=o.points.map(p=>p.x),ys=o.points.map(p=>p.y);return{x:Math.min(...xs)-10,y:Math.min(...ys)-10,w:Math.max(...xs)-Math.min(...xs)+20,h:Math.max(...ys)-Math.min(...ys)+20}}return{x:Math.min(o.x,o.x+o.w),y:Math.min(o.y,o.y+o.h),w:Math.abs(o.w),h:Math.abs(o.h)}},
+ hit(x,y){for(let i=this.objects.length-1;i>=0;i--){let b=this.bounds(this.objects[i]);if(x>=b.x&&x<=b.x+b.w&&y>=b.y&&y<=b.y+b.h)return this.objects[i]}return null},
+ selected(){return this.objects.find(o=>o.id===this.selectedId)},
+ render(){let c=this.canvas,ctx=this.ctx;if(!ctx)return;ctx.clearRect(0,0,c.width,c.height);let bg=ctx.createRadialGradient(256,256,20,256,256,420);bg.addColorStop(0,"#092126");bg.addColorStop(1,"#000");ctx.fillStyle=bg;ctx.fillRect(0,0,c.width,c.height);ctx.strokeStyle="#00e5ff22";for(let x=0;x<c.width;x+=32){ctx.beginPath();ctx.moveTo(x,0);ctx.lineTo(x,c.height);ctx.stroke()}for(let y=0;y<c.height;y+=32){ctx.beginPath();ctx.moveTo(0,y);ctx.lineTo(c.width,y);ctx.stroke()}this.objects.forEach(o=>this.draw(o));let s=this.selected();if(s){let b=this.bounds(s);ctx.save();ctx.setLineDash([8,6]);ctx.strokeStyle="#fff";ctx.strokeRect(b.x-6,b.y-6,b.w+12,b.h+12);ctx.restore()}},
+ draw(o){let ctx=this.ctx,s=o.style||this.style;ctx.save();ctx.shadowColor=s.stroke;ctx.shadowBlur=s.glow;ctx.lineWidth=s.weight;ctx.strokeStyle=s.stroke;ctx.fillStyle=s.fill;ctx.beginPath();if(o.type==="rect")ctx.rect(o.x,o.y,o.w,o.h);if(o.type==="ellipse")ctx.ellipse(o.x+o.w/2,o.y+o.h/2,Math.abs(o.w/2),Math.abs(o.h/2),0,0,Math.PI*2);if(o.type==="triangle"){ctx.moveTo(o.x+o.w/2,o.y);ctx.lineTo(o.x+o.w,o.y+o.h);ctx.lineTo(o.x,o.y+o.h);ctx.closePath()}if(o.type==="path"){ctx.moveTo(o.points[0].x,o.points[0].y);for(let i=1;i<o.points.length;i++)ctx.lineTo(o.points[i].x,o.points[i].y)}if(o.type!=="path")ctx.fill();ctx.stroke();ctx.restore()},
+ payload(){return{name:$("#sfName")?.value||"Procedural Sprite",kind:"procedural-canvas-sprite",adapter:"sprite-forge",objects:JSON.parse(JSON.stringify(this.objects)),drawFunction:this.exportJS()}},
+ exportJS(){return "function drawKGBSprite(ctx){\n  const objects="+JSON.stringify(this.objects,null,2)+";\n  // draw objects here\n}"},
+ del(){if(!this.selectedId)return;this.objects=this.objects.filter(o=>o.id!==this.selectedId);this.selectedId=null;this.render();Bus.emit("sprite:changed",{})},dupe(){let o=this.selected();if(!o)return;let n=JSON.parse(JSON.stringify(o));n.id=uid("obj");if(n.points)n.points=n.points.map(p=>({x:p.x+18,y:p.y+18}));else{n.x+=18;n.y+=18}this.objects.push(n);this.selectedId=n.id;this.render();Bus.emit("sprite:changed",{})},clear(){if(confirm("Clear?")){this.objects=[];this.selectedId=null;this.render();Bus.emit("sprite:changed",{})}}
+};
+
+Studio.register({id:"mission.brief",section:"MISSION",title:"Mission Brief",description:"Operation command surface",render(r){r.innerHTML='<div class="card"><h3>KGB Studio v0.6 Stable Core Platform</h3><p class="muted">UI quality-of-life patch for canvas-heavy workspaces. Collapse Explorer, collapse Intel, or enter Focus mode to give the center workspace maximum room.</p><div class="grid3"><div class="card"><h4>Asset Registry</h4><p>AssetDB-like search and summary without changing the working schema.</p></div><div class="card"><h4>Operator Console</h4><p>The command system is now treated as searchable operators.</p></div><div class="card"><h4>Safe Platform</h4><p>No risky project schema rewrite in this build.</p></div></div></div><div class="card"><h3>v0.6 Changelog</h3><pre>Added:\n- Operation-flavored UI labels.\n- AssetRegistry facade over existing project.assets arrays.\n- SYSTEMS → Asset Registry module.\n- SYSTEMS → Platform module.\n- SYSTEMS → Changelog module.\n- Dependency/used-by foundation through optional asset.dependencies.\n- Stronger top-of-file developer notes and system comments.\n\nChanged:\n- Command UI is now branded as Operator Console.\n- Properties panel is now branded as Intelligence.\n- Event Log is now Comms.\n\nKept stable:\n- Existing v0.5 project schema.\n- Existing adapters.\n- Existing Sprite Forge Lite.\n- Existing undo/redo and command wiring.\n\nSuggested commit:\nFix workspace collapse and add Shape Forge operations</pre></div>'}});
+Studio.register({id:"mission.project",section:"MISSION",title:"Project JSON",description:"Live project object",render(r){r.innerHTML='<div class="card"><h3>Project JSON</h3><button id="refresh">Refresh</button><pre id="json"></pre></div>';$("#refresh").onclick=()=>$("#json").textContent=Studio.exportProject();$("#refresh").click()}});
+Studio.register({id:"asset.library",section:"ASSETS",title:"Asset Library",description:"Manage project assets",render(r){r.innerHTML='<div class="card"><h3>Asset Library</h3><p class="muted">Use the Project Explorer on the left. Select assets to open/edit/delete/duplicate.</p><div class="grid3">'+Object.entries(Studio.state.project.assets).map(([k,v])=>'<div class="card"><h4>'+k+'</h4><p>'+v.length+'</p></div>').join("")+'</div></div>'}});
+
+/*
+-------------------------------------------------------------------------------
+ASSETS → ASSET INSPECTOR
+
+This module explains/hosts the inspector. The live editable inspector is the
+right-side Intelligence panel, because that panel follows the selected asset.
+-------------------------------------------------------------------------------
+*/
+Studio.register({id:"asset.inspector",section:"ASSETS",title:"Asset Inspector",description:"Rich metadata, preview, and dependency inspection",render(r){
+  const sel=Studio.state.selection;
+  const asset=sel?Studio.find(sel.type,sel.id):null;
+  r.innerHTML='<div class="card"><h3>Asset Inspector</h3><p class="muted">Select an asset from Operation Explorer. The right-side Intelligence panel now shows preview, metadata, tags, notes, dependencies, used-by, and raw JSON.</p>'+
+    (asset?'<pre>'+esc(JSON.stringify({bucket:sel.type,id:asset.id,name:asset.name,kind:asset.kind,tags:asset.tags||[],dependencies:asset.dependencies||[]},null,2))+'</pre>':'<p>No asset selected.</p>')+
+    '</div>';
+}});
+
+
+/*
+-------------------------------------------------------------------------------
+SHAPE FORGE MODULE
+
+Shape Forge is the canonical vector-shape editor path.
+
+This first stable version is deliberately conservative:
+- It uses simple object geometry, not complex boolean path math yet.
+- It saves into project.assets.shapes using the existing v0.5/v0.7 schema.
+- It provides enough drawing/editing to become useful without risking the shell.
+- More advanced boolean operations come later after the stable module pattern holds.
+
+Current shape object model:
+{
+  id,
+  type: "rect" | "roundrect" | "ellipse" | "polygon" | "line" | "path",
+  x, y, w, h,
+  sides,
+  points,
+  style:{ fill, stroke, weight, glow, opacity }
+}
+-------------------------------------------------------------------------------
+*/
+const ShapeForge={
+  canvas:null,
+  ctx:null,
+  shapes:[],
+  selectedId:null,
+  tool:"select",
+  isDown:false,
+  draft:null,
+  start:null,
+  currentAsset:null,
+
+  style:{
+    fill:"#ff8a00",
+    stroke:"#00e5ff",
+    weight:4,
+    glow:10,
+    opacity:1,
+    sides:3,
+    radius:18
+  },
+
+  init(asset){
+    this.canvas=$("#shapeCanvas");
+    this.ctx=this.canvas.getContext("2d");
+    this.shapes=asset?.shapes?JSON.parse(JSON.stringify(asset.shapes)):[];
+    this.currentAsset=asset||null;
+    this.selectedId=null;
+    this.tool="select";
+    this.render();
+
+    // Pointer events work for mouse, stylus, and touch.
+    this.canvas.onpointerdown=e=>this.down(e);
+    this.canvas.onpointermove=e=>this.move(e);
+    this.canvas.onpointerup=e=>this.up(e);
+    this.canvas.onpointercancel=e=>this.up(e);
+  },
+
+  pos(e){
+    const r=this.canvas.getBoundingClientRect();
+    return {
+      x:(e.clientX-r.left)*this.canvas.width/r.width,
+      y:(e.clientY-r.top)*this.canvas.height/r.height
+    };
+  },
+
+  down(e){
+    this.canvas.setPointerCapture(e.pointerId);
+    this.isDown=true;
+    const p=this.pos(e);
+    this.start=p;
+
+    // Select/move mode.
+    if(this.tool==="select"){
+      const hit=this.hit(p.x,p.y);
+      this.selectedId=hit?.id||null;
+      this.draft=hit?{
+        x:p.x,
+        y:p.y,
+        ox:hit.x,
+        oy:hit.y,
+        pts:hit.points?JSON.parse(JSON.stringify(hit.points)):null,
+        original:hit.type==="compound"?JSON.parse(JSON.stringify(hit)):null
+      }:null;
+      this.render();
+      return;
+    }
+
+    // Pen tool records a point path.
+    if(this.tool==="pen"){
+      this.draft={
+        id:uid("shape"),
+        type:"path",
+        points:[p],
+        style:{...this.style}
+      };
+      return;
+    }
+
+    // All other tools start as rectangle-like bounding boxes.
+    this.draft={
+      id:uid("shape"),
+      type:this.tool,
+      x:p.x,
+      y:p.y,
+      w:1,
+      h:1,
+      sides:+this.style.sides||3,
+      radius:+this.style.radius||18,
+      style:{...this.style}
+    };
+  },
+
+  move(e){
+    if(!this.isDown)return;
+    const p=this.pos(e);
+
+    // Move existing selected shape.
+    if(this.tool==="select"&&this.selectedId&&this.draft){
+      const o=this.shapes.find(x=>x.id===this.selectedId);
+      if(o){
+        if(o.points&&this.draft.pts){
+          const dx=p.x-this.draft.x, dy=p.y-this.draft.y;
+          o.points=this.draft.pts.map(pt=>({x:pt.x+dx,y:pt.y+dy}));
+        }else if(o.type==="compound"){
+          const dx=p.x-this.draft.x;
+          const dy=p.y-this.draft.y;
+          this.translateShape(o,dx,dy,this.draft.original);
+        }else{
+          o.x=this.draft.ox+(p.x-this.draft.x);
+          o.y=this.draft.oy+(p.y-this.draft.y);
+        }
+        this.render();
+      }
+      return;
+    }
+
+    // Continue path drawing.
+    if(this.tool==="pen"&&this.draft){
+      this.draft.points.push(p);
+      this.render();
+      this.drawShape(this.draft);
+      return;
+    }
+
+    // Resize draft shape from start point to current point.
+    if(this.draft){
+      this.draft.w=p.x-this.start.x;
+      this.draft.h=p.y-this.start.y;
+      this.render();
+      this.drawShape(this.draft);
+    }
+  },
+
+  up(){
+    if(!this.isDown)return;
+    this.isDown=false;
+
+    // Finish draft shape.
+    if(this.draft&&this.tool!=="select"){
+      this.shapes.push(this.draft);
+      this.selectedId=this.draft.id;
+      this.draft=null;
+      this.render();
+      Bus.emit("shape:changed",{});
+    }
+  },
+
+  bounds(o){
+    // Compound shapes are operation groups created by Union/Subtract/Intersect.
+    // Their bounds are the union of their child bounds.
+    if(o.type==="compound"&&o.children?.length){
+      const boxes=o.children.map(c=>this.bounds(c));
+      const x1=Math.min(...boxes.map(b=>b.x));
+      const y1=Math.min(...boxes.map(b=>b.y));
+      const x2=Math.max(...boxes.map(b=>b.x+b.w));
+      const y2=Math.max(...boxes.map(b=>b.y+b.h));
+      return {x:x1,y:y1,w:x2-x1,h:y2-y1};
+    }
+
+    if(o.type==="path"||o.type==="line"){
+      const pts=o.type==="line"
+        ? [{x:o.x,y:o.y},{x:o.x+o.w,y:o.y+o.h}]
+        : o.points;
+      const xs=pts.map(p=>p.x), ys=pts.map(p=>p.y);
+      return {
+        x:Math.min(...xs)-10,
+        y:Math.min(...ys)-10,
+        w:Math.max(...xs)-Math.min(...xs)+20,
+        h:Math.max(...ys)-Math.min(...ys)+20
+      };
+    }
+    return {
+      x:Math.min(o.x,o.x+o.w),
+      y:Math.min(o.y,o.y+o.h),
+      w:Math.abs(o.w),
+      h:Math.abs(o.h)
+    };
+  },
+
+  hit(x,y){
+    for(let i=this.shapes.length-1;i>=0;i--){
+      const b=this.bounds(this.shapes[i]);
+      if(x>=b.x&&x<=b.x+b.w&&y>=b.y&&y<=b.y+b.h)return this.shapes[i];
+    }
+    return null;
+  },
+
+  selected(){
+    return this.shapes.find(o=>o.id===this.selectedId);
+  },
+
+  render(){
+    const c=this.canvas,ctx=this.ctx;
+    if(!ctx)return;
+
+    ctx.clearRect(0,0,c.width,c.height);
+
+    // Tactical background.
+    const bg=ctx.createRadialGradient(256,256,20,256,256,420);
+    bg.addColorStop(0,"#092126");
+    bg.addColorStop(1,"#000");
+    ctx.fillStyle=bg;
+    ctx.fillRect(0,0,c.width,c.height);
+
+    // Grid.
+    ctx.strokeStyle="#00e5ff22";
+    ctx.lineWidth=1;
+    for(let x=0;x<c.width;x+=32){
+      ctx.beginPath();ctx.moveTo(x,0);ctx.lineTo(x,c.height);ctx.stroke();
+    }
+    for(let y=0;y<c.height;y+=32){
+      ctx.beginPath();ctx.moveTo(0,y);ctx.lineTo(c.width,y);ctx.stroke();
+    }
+
+    // Draw all vector objects.
+    this.shapes.forEach(o=>this.drawShape(o));
+
+    // Draw selection bounds.
+    const s=this.selected();
+    if(s){
+      const b=this.bounds(s);
+      ctx.save();
+      ctx.setLineDash([8,6]);
+      ctx.strokeStyle="#fff";
+      ctx.lineWidth=2;
+      ctx.strokeRect(b.x-6,b.y-6,b.w+12,b.h+12);
+      ctx.restore();
+    }
+
+    // Keep the operation checklist in sync with the canvas.
+    this.refreshShapeList();
+  },
+
+  drawShape(o){
+    const ctx=this.ctx;
+    if(!ctx||!o)return;
+
+    // Compound shapes are generated by Union/Subtract/Intersect.
+    // We render them through an offscreen canvas so we can use canvas
+    // compositing safely without complex geometry libraries.
+    if(o.type==="compound"){
+      this.drawCompound(o);
+      return;
+    }
+
+    const s=o.style||this.style;
+
+    ctx.save();
+    ctx.globalAlpha=s.opacity ?? 1;
+    ctx.shadowColor=s.stroke||"#00e5ff";
+    ctx.shadowBlur=s.glow||0;
+    ctx.lineWidth=s.weight||2;
+    ctx.strokeStyle=s.stroke||"#00e5ff";
+    ctx.fillStyle=s.fill||"#ff8a00";
+
+    ctx.beginPath();
+
+    if(o.type==="rect"){
+      ctx.rect(o.x,o.y,o.w,o.h);
+    }
+
+    if(o.type==="roundrect"){
+      this.roundRectPath(ctx,o.x,o.y,o.w,o.h,o.radius||18);
+    }
+
+    if(o.type==="ellipse"){
+      ctx.ellipse(o.x+o.w/2,o.y+o.h/2,Math.abs(o.w/2),Math.abs(o.h/2),0,0,Math.PI*2);
+    }
+
+    if(o.type==="polygon"){
+      this.polygonPath(ctx,o.x,o.y,o.w,o.h,o.sides||3);
+    }
+
+    if(o.type==="line"){
+      ctx.moveTo(o.x,o.y);
+      ctx.lineTo(o.x+o.w,o.y+o.h);
+    }
+
+    if(o.type==="path"&&o.points?.length){
+      ctx.moveTo(o.points[0].x,o.points[0].y);
+      for(let i=1;i<o.points.length;i++)ctx.lineTo(o.points[i].x,o.points[i].y);
+    }
+
+    if(o.type!=="line"&&o.type!=="path")ctx.fill();
+    ctx.stroke();
+    ctx.restore();
+  },
+
+  roundRectPath(ctx,x,y,w,h,r){
+    const x1=Math.min(x,x+w), y1=Math.min(y,y+h);
+    const x2=Math.max(x,x+w), y2=Math.max(y,y+h);
+    const rr=Math.min(Math.abs(r),Math.abs(x2-x1)/2,Math.abs(y2-y1)/2);
+    ctx.moveTo(x1+rr,y1);
+    ctx.arcTo(x2,y1,x2,y2,rr);
+    ctx.arcTo(x2,y2,x1,y2,rr);
+    ctx.arcTo(x1,y2,x1,y1,rr);
+    ctx.arcTo(x1,y1,x2,y1,rr);
+    ctx.closePath();
+  },
+
+  polygonPath(ctx,x,y,w,h,sides){
+    const cx=x+w/2, cy=y+h/2;
+    const rx=Math.abs(w/2), ry=Math.abs(h/2);
+    const n=Math.max(3,Math.min(12,+sides||3));
+    for(let i=0;i<n;i++){
+      const a=-Math.PI/2+(i/n)*Math.PI*2;
+      const px=cx+Math.cos(a)*rx;
+      const py=cy+Math.sin(a)*ry;
+      if(i===0)ctx.moveTo(px,py);
+      else ctx.lineTo(px,py);
+    }
+    ctx.closePath();
+  },
+
+
+  drawCompound(o){
+    const ctx=this.ctx;
+    const c=this.canvas || {width:512,height:512};
+
+    const off=document.createElement("canvas");
+    off.width=c.width;
+    off.height=c.height;
+    const oldCtx=this.ctx;
+    const ox=off.getContext("2d");
+
+    // Draw into offscreen using the same drawShape method.
+    this.ctx=ox;
+
+    if(o.mode==="union"){
+      o.children.forEach(child=>this.drawShape(child));
+    }
+
+    if(o.mode==="subtract"){
+      this.drawShape(o.children[0]);
+      ox.globalCompositeOperation="destination-out";
+      o.children.slice(1).forEach(child=>this.drawShape(child));
+      ox.globalCompositeOperation="source-over";
+    }
+
+    if(o.mode==="intersect"){
+      this.drawShape(o.children[0]);
+      ox.globalCompositeOperation="destination-in";
+      o.children.slice(1).forEach(child=>this.drawShape(child));
+      ox.globalCompositeOperation="source-over";
+    }
+
+    this.ctx=oldCtx;
+    ctx.drawImage(off,0,0);
+  },
+
+  translateShape(shape,dx,dy,source){
+    // Move a shape from a source copy by dx/dy. This avoids drift while dragging.
+    const src=source||shape;
+
+    if(shape.type==="compound"&&shape.children&&src.children){
+      shape.children=shape.children.map((child,i)=>{
+        const copy=JSON.parse(JSON.stringify(child));
+        this.translateShape(copy,dx,dy,src.children[i]);
+        return copy;
+      });
+      return;
+    }
+
+    if(shape.points&&src.points){
+      shape.points=src.points.map(p=>({x:p.x+dx,y:p.y+dy}));
+      return;
+    }
+
+    shape.x=(src.x||0)+dx;
+    shape.y=(src.y||0)+dy;
+  },
+
+  selectedForOps(){
+    return $$(".shapePick:checked").map(cb=>this.shapes.find(s=>s.id===cb.value)).filter(Boolean);
+  },
+
+  refreshShapeList(){
+    const list=$("#shapeList");
+    if(!list)return;
+
+    list.innerHTML=this.shapes.length
+      ? this.shapes.map((s,i)=>'<label><input class="shapePick" type="checkbox" value="'+s.id+'"> '+(i+1)+'. '+esc(s.type)+' <span class="mini">'+esc(s.id)+'</span></label>').join("")
+      : '<div class="muted">No shapes yet.</div>';
+  },
+
+  shapeOp(mode){
+    const picked=this.selectedForOps();
+
+    if(picked.length<2){
+      alert("Select at least two shapes in the Shape Objects list first.");
+      return;
+    }
+
+    const compound={
+      id:uid("shape"),
+      type:"compound",
+      mode,
+      children:JSON.parse(JSON.stringify(picked)),
+      style:{...this.style}
+    };
+
+    const pickedIds=new Set(picked.map(s=>s.id));
+    this.shapes=this.shapes.filter(s=>!pickedIds.has(s.id));
+    this.shapes.push(compound);
+    this.selectedId=compound.id;
+
+    this.render();
+    this.refreshShapeList();
+    Bus.emit("shape:operation",{mode,count:picked.length});
+  },
+
+  applyStyleToSelected(){
+    const o=this.selected();
+    if(!o)return;
+    o.style={...this.style};
+    if(o.type==="polygon")o.sides=+this.style.sides||3;
+    if(o.type==="roundrect")o.radius=+this.style.radius||18;
+    this.render();
+  },
+
+  payload(){
+    return {
+      name:$("#shapeName")?.value||"Shape Asset",
+      kind:"vector-shape",
+      adapter:"shape-forge",
+      folder:"/",
+      tags:["shape","vector"],
+      notes:"",
+      shapes:JSON.parse(JSON.stringify(this.shapes)),
+      drawFunction:this.exportJS()
+    };
+  },
+
+  exportJS(){
+    return "function drawKGBShape(ctx){\n  const shapes="+JSON.stringify(this.shapes,null,2)+";\n  // Use KGB Studio Shape Forge renderer or port drawShape logic here.\n}";
+  },
+
+  del(){
+    if(!this.selectedId)return;
+    this.shapes=this.shapes.filter(o=>o.id!==this.selectedId);
+    this.selectedId=null;
+    this.render();
+    Bus.emit("shape:changed",{});
+  },
+
+  dupe(){
+    const o=this.selected();
+    if(!o)return;
+    const n=JSON.parse(JSON.stringify(o));
+    n.id=uid("shape");
+    if(n.points)n.points=n.points.map(p=>({x:p.x+18,y:p.y+18}));
+    else{n.x+=18;n.y+=18;}
+    this.shapes.push(n);
+    this.selectedId=n.id;
+    this.render();
+    Bus.emit("shape:changed",{});
+  },
+
+  clear(){
+    if(confirm("Clear Shape Forge canvas?")){
+      this.shapes=[];
+      this.selectedId=null;
+      this.render();
+      Bus.emit("shape:changed",{});
+    }
+  }
+};
+
+/*
+-------------------------------------------------------------------------------
+SHAPE FORGE ADAPTER
+
+This follows the same safe adapter pattern as Sprite Forge:
+- render() draws the module UI
+- save() writes shape assets into project.assets.shapes
+- exportAsset() prints reusable JS
+- canOpen() allows shape assets to reopen in Shape Forge
+-------------------------------------------------------------------------------
+*/
+Studio.installAdapter(createToolAdapter({
+  id:"shape-forge",
+  moduleId:"asset.shapeforge",
+  section:"ASSETS",
+  title:"Shape Forge",
+  description:"Stable vector shape editor for reusable KGB Studio geometry.",
+  canOpen:a=>a.adapter==="shape-forge"||a.kind==="vector-shape",
+
+  render(r,s,opt){
+    const a=opt?.asset;
+
+    r.innerHTML='<div class="shapeShell">'+
+      '<div class="card"><h3>Shape Canvas</h3><div class="shapeStage"><canvas id="shapeCanvas" width="512" height="512"></canvas></div></div>'+
+      '<div class="card"><h3>Shape Tools</h3>'+
+        '<div class="shapeTools">'+
+          '<button data-shape-tool="select" class="active">Select</button>'+
+          '<button data-shape-tool="pen">Pen</button>'+
+          '<button data-shape-tool="rect">Rect</button>'+
+          '<button data-shape-tool="roundrect">Round Rect</button>'+
+          '<button data-shape-tool="ellipse">Ellipse</button>'+
+          '<button data-shape-tool="polygon">Polygon</button>'+
+          '<button data-shape-tool="line">Line</button>'+
+          '<button id="shapeDelete">Delete</button>'+
+          '<button id="shapeDupe">Duplicate</button>'+
+          '<button id="shapeClear" class="hot">Clear</button>'+
+        '</div>'+
+        '<label>Shape Operations</label>'+
+        '<div class="row">'+
+          '<button id="shapeUnion">Union</button>'+
+          '<button id="shapeSubtract">Subtract</button>'+
+          '<button id="shapeIntersect">Intersect</button>'+
+        '</div>'+
+        '<div class="mini">Select 2+ objects below. Subtract uses the first selected object as the base.</div>'+
+        '<label>Shape Objects</label><div id="shapeList" class="shapeList"></div>'+
+        '<label>Fill</label><input id="shapeFill" type="color" value="#ff8a00">'+
+        '<label>Stroke</label><input id="shapeStroke" type="color" value="#00e5ff">'+
+        '<label>Stroke Weight</label><input id="shapeWeight" type="range" min="1" max="30" value="4">'+
+        '<label>Glow</label><input id="shapeGlow" type="range" min="0" max="60" value="10">'+
+        '<label>Opacity</label><input id="shapeOpacity" type="range" min="0.1" max="1" step="0.05" value="1">'+
+        '<label>Polygon Sides</label><input id="shapeSides" type="range" min="3" max="12" value="3">'+
+        '<label>Corner Radius</label><input id="shapeRadius" type="range" min="0" max="80" value="18">'+
+        '<label>Shape Asset Name</label><input id="shapeName" value="'+esc(a?.name||"New Shape Asset")+'">'+
+        '<div class="row"><button class="primary" id="shapeSave">'+(a?"Update":"Save")+' Asset</button><button id="shapeExport">Export JS</button></div>'+
+      '</div>'+
+    '</div><div class="card"><h3>Shape Export</h3><pre id="shapeOut"></pre></div>';
+
+    ShapeForge.init(a);
+
+    $$("[data-shape-tool]").forEach(b=>b.onclick=()=>{
+      $$("[data-shape-tool]").forEach(x=>x.classList.remove("active"));
+      b.classList.add("active");
+      ShapeForge.tool=b.dataset.shapeTool;
+    });
+
+    const syncStyle=()=>{
+      ShapeForge.style={
+        fill:$("#shapeFill").value,
+        stroke:$("#shapeStroke").value,
+        weight:+$("#shapeWeight").value,
+        glow:+$("#shapeGlow").value,
+        opacity:+$("#shapeOpacity").value,
+        sides:+$("#shapeSides").value,
+        radius:+$("#shapeRadius").value
+      };
+      ShapeForge.applyStyleToSelected();
+    };
+
+    ["shapeFill","shapeStroke","shapeWeight","shapeGlow","shapeOpacity","shapeSides","shapeRadius"].forEach(id=>{
+      $("#"+id).oninput=syncStyle;
+    });
+
+    $("#shapeDelete").onclick=()=>ShapeForge.del();
+    $("#shapeDupe").onclick=()=>ShapeForge.dupe();
+    $("#shapeClear").onclick=()=>ShapeForge.clear();
+    $("#shapeUnion").onclick=()=>ShapeForge.shapeOp("union");
+    $("#shapeSubtract").onclick=()=>ShapeForge.shapeOp("subtract");
+    $("#shapeIntersect").onclick=()=>ShapeForge.shapeOp("intersect");
+
+    $("#shapeSave").onclick=()=>{
+      const payload=ShapeForge.payload();
+      if(a?.id)Studio.updateAsset("shapes",a.id,payload);
+      else Studio.addAsset("shapes",payload);
+    };
+
+    $("#shapeExport").onclick=()=>$("#shapeOut").textContent=ShapeForge.exportJS();
+  },
+
+  save(){
+    const payload=ShapeForge.payload();
+    if(ShapeForge.currentAsset?.id)Studio.updateAsset("shapes",ShapeForge.currentAsset.id,payload);
+    else Studio.addAsset("shapes",payload);
+  },
+
+  exportAsset(){
+    $("#shapeOut").textContent=ShapeForge.exportJS();
+  }
+}));
+
+Studio.register({id:"asset.adapters",section:"ASSETS",title:"Module Adapters",description:"Promoted tool registry",render(r){r.innerHTML='<div class="card"><h3>Adapter Registry</h3><p class="muted">Adapters are wrappers. Each one defines render, save, load/open, export, and asset compatibility.</p><div class="grid">'+[...Studio.adapters.values()].map(a=>'<div class="moduleCard"><div class="row" style="justify-content:space-between"><h4>'+esc(a.title)+'</h4><span class="badge">INSTALLED</span></div><p>'+esc(a.description)+'</p><button data-open="'+a.moduleId+'">Open</button></div>').join("")+'<div class="moduleCard"><h4>Next</h4><p>TAIO, Particle Forge, Sound Forge, Palette Forge, Tile Forge, GIF Forge, Asset Slicer, PWA Tester, ZIP Tool.</p></div></div></div>';r.querySelectorAll("[data-open]").forEach(b=>b.onclick=()=>Studio.open(b.dataset.open))}});
+
+Studio.installAdapter(createToolAdapter({id:"sprite-forge",moduleId:"asset.spriteforge",section:"ASSETS",title:"Sprite Forge",description:"Promoted procedural canvas sprite tool",canOpen:a=>a.adapter==="sprite-forge"||a.kind==="procedural-canvas-sprite",
+render(r,s,opt){let a=opt?.asset;r.innerHTML='<div class="sprite"><div class="card"><h3>Canvas</h3><div class="stage"><canvas id="spriteCanvas" width="512" height="512"></canvas></div></div><div class="card"><h3>Tools</h3><div class="tools"><button data-tool="select" class="active">Select</button><button data-tool="pen">Pen</button><button data-tool="rect">Rect</button><button data-tool="ellipse">Ellipse</button><button data-tool="triangle">Triangle</button><button id="del">Delete</button><button id="dupe">Duplicate</button><button id="clear" class="hot">Clear</button></div><label>Fill</label><input id="fill" type="color" value="#ff8a00"><label>Stroke</label><input id="stroke" type="color" value="#b8ff19"><label>Weight</label><input id="weight" type="range" min="1" max="24" value="4"><label>Glow</label><input id="glow" type="range" min="0" max="50" value="12"><label>Sprite Name</label><input id="sfName" value="'+esc(a?.name||"New Procedural Sprite")+'"><div class="row"><button class="primary" id="saveSprite">'+(a?"Update":"Save")+' Asset</button><button id="exportJS">Export JS</button></div></div></div><div class="card"><h3>Export</h3><pre id="spriteOut"></pre></div>';SpriteForge.init(a);$$("[data-tool]").forEach(b=>b.onclick=()=>{$$("[data-tool]").forEach(x=>x.classList.remove("active"));b.classList.add("active");SpriteForge.tool=b.dataset.tool});["fill","stroke","weight","glow"].forEach(id=>$("#"+id).oninput=()=>{SpriteForge.style={fill:$("#fill").value,stroke:$("#stroke").value,weight:+$("#weight").value,glow:+$("#glow").value};let o=SpriteForge.selected();if(o){o.style={...SpriteForge.style};SpriteForge.render()}});$("#del").onclick=()=>SpriteForge.del();$("#dupe").onclick=()=>SpriteForge.dupe();$("#clear").onclick=()=>SpriteForge.clear();$("#saveSprite").onclick=()=>{let payload=SpriteForge.payload();if(a?.id)Studio.updateAsset("sprites",a.id,payload);else Studio.addAsset("sprites",payload)};$("#exportJS").onclick=()=>$("#spriteOut").textContent=SpriteForge.exportJS()},
+save(){let p=SpriteForge.payload();if(SpriteForge.currentAsset?.id)Studio.updateAsset("sprites",SpriteForge.currentAsset.id,p);else Studio.addAsset("sprites",p)},exportAsset(){$("#spriteOut").textContent=SpriteForge.exportJS()}}));
+
+Studio.register({id:"system.runtime",section:"SYSTEMS",title:"Runtime Preview",description:"Preview saved sprite asset",render(r){r.innerHTML='<div class="card"><h3>Runtime Preview</h3><div class="stage"><canvas id="run" width="720" height="420"></canvas></div></div>';let c=$("#run"),ctx=c.getContext("2d");function loop(t){ctx.clearRect(0,0,c.width,c.height);ctx.fillStyle="#000";ctx.fillRect(0,0,c.width,c.height);ctx.strokeStyle="#00e5ff33";for(let x=0;x<c.width;x+=40){ctx.beginPath();ctx.moveTo(x,0);ctx.lineTo(x,c.height);ctx.stroke()}let spr=Studio.state.project.assets.sprites.at(-1);if(spr?.objects){ctx.save();ctx.translate(100+Math.sin(t/600)*30,0);let old=SpriteForge.ctx;SpriteForge.ctx=ctx;spr.objects.forEach(o=>SpriteForge.draw(o));SpriteForge.ctx=old;ctx.restore()}else{ctx.fillStyle="#b8ff19";ctx.fillText("Save a sprite asset first.",30,40)}requestAnimationFrame(loop)}loop(0)}});
+Studio.register({id:"system.taio",section:"SYSTEMS",title:"TAIO",description:"Placeholder adapter",render(r){r.innerHTML='<div class="card"><h3>TAIO Placeholder</h3><textarea id="tin"></textarea><button onclick="tout.textContent=btoa(unescape(encodeURIComponent(tin.value)))">Base64</button><pre id="tout"></pre></div>'}});
+Studio.register({id:"system.events",section:"SYSTEMS",title:"Event Bus",description:"Module event monitor",render(r){r.innerHTML='<div class="card"><h3>Event Bus</h3><p class="muted">Modules emit events here. This lets our LEGO pieces talk without being tangled together.</p><pre id="eventsOut">Open modules and edit assets to see events in the log.</pre></div>'}});
+
+/*
+-------------------------------------------------------------------------------
+SYSTEMS → ASSET REGISTRY
+
+This is a read-only operational view of every asset in the current project.
+It proves the AssetDB idea without migrating the schema yet.
+-------------------------------------------------------------------------------
+*/
+Studio.register({id:"system.registry",section:"SYSTEMS",title:"Asset Registry",description:"Safe AssetDB facade over current project assets",render(r){
+  const query=$("#filter")?.value||"";
+  const found=AssetRegistry.find(query);
+  const summary=AssetRegistry.summary();
+  r.innerHTML='<div class="card"><h3>Asset Registry</h3><p class="muted">This is the safe v0.6 AssetDB layer. It indexes the existing project.assets arrays instead of replacing them.</p><div class="grid3">'+Object.entries(summary).map(([k,v])=>'<div class="card"><h4>'+esc(k)+'</h4><p>'+v+'</p></div>').join("")+'</div></div><div class="card"><h3>Search Results</h3><pre>'+esc(JSON.stringify(found.map(x=>({bucket:x.bucket,id:x.asset.id,name:x.asset.name,kind:x.asset.kind,adapter:x.asset.adapter,dependencies:x.asset.dependencies||[]})),null,2))+'</pre></div>';
+}});
+
+/*
+-------------------------------------------------------------------------------
+SYSTEMS → PLATFORM
+
+This module documents what the Studio platform currently knows how to do.
+It is intentionally simple and safe.
+-------------------------------------------------------------------------------
+*/
+Studio.register({id:"system.platform",section:"SYSTEMS",title:"Platform",description:"Core platform status and registered capabilities",render(r){
+  r.innerHTML='<div class="card"><h3>Platform Status</h3><div class="grid3"><div class="card"><h4>Modules</h4><p>'+Studio.modules.size+'</p></div><div class="card"><h4>Adapters</h4><p>'+Studio.adapters.size+'</p></div><div class="card"><h4>Operators</h4><p>'+Commands.list.length+'</p></div></div></div><div class="card"><h3>Registered Modules</h3><pre>'+esc(JSON.stringify([...Studio.modules.keys()],null,2))+'</pre></div><div class="card"><h3>Registered Adapters</h3><pre>'+esc(JSON.stringify([...Studio.adapters.keys()],null,2))+'</pre></div>';
+}});
+
+/*
+-------------------------------------------------------------------------------
+SYSTEMS → CHANGELOG
+
+Every release should have commit-ready notes visible inside the app.
+-------------------------------------------------------------------------------
+*/
+Studio.register({id:"system.changelog",section:"SYSTEMS",title:"Changelog",description:"Commit notes for this build",render(r){
+  r.innerHTML='<div class="card"><h3>KGB Studio v0.8.2 Changelog</h3><pre>Added:\\n- Operation-flavored UI labels.\\n- AssetRegistry facade over current project.assets arrays.\\n- SYSTEMS → Asset Registry module.\\n- SYSTEMS → Platform module.\\n- SYSTEMS → Changelog module.\\n- Dependency graph foundation using optional asset.dependencies.\\n- Over-commented developer notes and system section comments.\\n\\nChanged:\\n- Command button renamed Operator Console.\\n- Project Explorer renamed Operation Explorer.\\n- Properties renamed Intelligence.\\n- Event Log renamed Comms.\\n\\nKept stable:\\n- v0.5 project schema.\\n- v0.5 adapter system.\\n- v0.5 Sprite Forge Lite.\\n- v0.5 command/history/event wiring.\\n\\nSuggested commit:\\nAdd KGB Studio v0.6 stable core platform</pre></div>';
+}});
+
+
+Studio.register({id:"build.export",section:"BUILD",title:"Export Center",description:"Export project and assets",render(r){r.innerHTML='<div class="card"><h3>Export</h3><button class="primary" id="dlp">Download Project JSON</button><button id="dla">Download Asset Index</button><pre>v0.5 exports project JSON and asset index.</pre></div>';$("#dlp").onclick=()=>dl(safe(Studio.state.project.meta.name)+".kgbproject.json",Studio.exportProject(),"application/json");$("#dla").onclick=()=>dl(safe(Studio.state.project.meta.name)+"_assets.json",JSON.stringify(Studio.state.project.assets,null,2),"application/json")}});
+Studio.register({id:"build.validate",section:"BUILD",title:"Validator",description:"Check project",render(r){r.innerHTML='<div class="card"><h3>Validator</h3><button id="val">Run</button><pre id="vout"></pre></div>';$("#val").onclick=()=>$("#vout").textContent=Object.entries(Studio.state.project.assets).map(([k,v])=>k+": "+v.length).join("\n")}});
+Studio.register({id:"deploy.notes",section:"DEPLOY",title:"Deploy Notes",description:"Repo and domain notes",render(r){r.innerHTML='<div class="card"><h3>Deploy Notes</h3><pre>Use kgbarcade.dev for KGB Studio.\nKeep repo private while prototyping.\nFor now, put this file at repo root as index.html.</pre></div>'}});
+
+
+/*
+-------------------------------------------------------------------------------
+LAYOUT CONTROLS
+
+The Studio shell has three columns:
+- left: Operation Explorer
+- center: active module workspace
+- right: Intelligence / Comms
+
+Canvas-heavy tools need more space, so these controls let the user collapse
+either sidebar or enter full workspace focus mode. This is intentionally done
+with body classes so it stays safe and does not disturb module code.
+-------------------------------------------------------------------------------
+*/
+const LayoutControls={
+  toggleLeft(){
+    document.body.classList.toggle("left-collapsed");
+    // Leaving focus mode when manually toggling a panel makes the behavior clearer.
+    document.body.classList.remove("workspace-focus");
+    Studio.log(document.body.classList.contains("left-collapsed")?"Explorer collapsed":"Explorer expanded");
+  },
+
+  toggleRight(){
+    document.body.classList.toggle("right-collapsed");
+    document.body.classList.remove("workspace-focus");
+    Studio.log(document.body.classList.contains("right-collapsed")?"Intel collapsed":"Intel expanded");
+  },
+
+  toggleFocus(){
+    document.body.classList.toggle("workspace-focus");
+    Studio.log(document.body.classList.contains("workspace-focus")?"Workspace focus enabled":"Workspace focus disabled");
+  },
+
+  reset(){
+    document.body.classList.remove("left-collapsed","right-collapsed","workspace-focus");
+    Studio.log("Workspace layout reset.");
+  }
+};
+
+/* OPERATOR REGISTRATION: add searchable actions to the Operator Console. */
+function registerCommands(){Commands.add("open.shape","Open Shape Forge",()=>Studio.open("asset.shapeforge"));Commands.add("open.sprite","Open Sprite Forge",()=>Studio.open("asset.spriteforge"));Commands.add("open.assets","Open Asset Library",()=>Studio.open("asset.library"));Commands.add("open.runtime","Open Runtime Preview",()=>Studio.open("system.runtime"));Commands.add("open.registry","Open Asset Registry",()=>Studio.open("system.registry"));Commands.add("open.inspector","Open Asset Inspector",()=>Studio.open("asset.inspector"));Commands.add("open.platform","Open Platform Status",()=>Studio.open("system.platform"));Commands.add("open.changelog","Open Changelog",()=>Studio.open("system.changelog"));Commands.add("open.export","Open Export Center",()=>Studio.open("build.export"));Commands.add("project.save","Download Project JSON",()=>dl(safe($("#projectName").value)+".kgbproject.json",Studio.exportProject(),"application/json"));Commands.add("history.undo","Undo",()=>History.undoIt());Commands.add("history.redo","Redo",()=>History.redoIt());Commands.add("layout.toggle.left","Toggle Explorer Column",()=>LayoutControls.toggleLeft());Commands.add("layout.toggle.right","Toggle Intel Column",()=>LayoutControls.toggleRight());Commands.add("layout.focus","Toggle Workspace Focus",()=>LayoutControls.toggleFocus());Commands.add("layout.reset","Reset Workspace Layout",()=>LayoutControls.reset())}
+/* BOOT: wires the UI, registers operators, opens the first module, and starts Studio. */
+function boot(){renderNav();registerCommands();$("#projectName").value=Studio.state.project.meta.name;renderExplorer();updateHistoryButtons();$("#filter").oninput=renderExplorer;$("#projectName").oninput=()=>{Studio.sync();renderExplorer()};$("#newBtn").onclick=()=>{if(confirm("New project?"))Studio.hydrate(project())};$("#saveBtn").onclick=()=>dl(safe($("#projectName").value)+".kgbproject.json",Studio.exportProject(),"application/json");$("#loadBtn").onclick=()=>$("#loadInput").click();$("#loadInput").onchange=async e=>{let f=e.target.files[0];if(!f)return;try{Studio.hydrate(JSON.parse(await f.text()));Studio.open("mission.brief")}catch(err){alert(err.message)}};$("#exportBtn").onclick=()=>Studio.open("build.export");$("#undoBtn").onclick=()=>History.undoIt();$("#redoBtn").onclick=()=>History.redoIt();$("#cmdBtn").onclick=()=>Commands.open();$("#toggleLeftBtn").onclick=()=>LayoutControls.toggleLeft();$("#toggleRightBtn").onclick=()=>LayoutControls.toggleRight();$("#focusBtn").onclick=()=>LayoutControls.toggleFocus();$("#cmdSearch").oninput=renderCommands;$("#cmd").onclick=e=>{if(e.target.id==="cmd")Commands.close()};document.addEventListener("keydown",e=>{if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==="k"){e.preventDefault();Commands.open()} if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==="z"){e.preventDefault();History.undoIt()} if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==="b"){e.preventDefault();LayoutControls.toggleLeft()} if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==="i"){e.preventDefault();LayoutControls.toggleRight()} if((e.ctrlKey||e.metaKey)&&e.key==="."){e.preventDefault();LayoutControls.toggleFocus()}});$("#helpBtn").onclick=()=>{$("#modalTitle").textContent="KGB Studio v0.8.2 Help";$("#modalBody").innerHTML="<p><b>v0.8.2 fixes Explorer collapse and adds Shape Forge operations.</b></p><p>Explorer collapse now keeps the center workspace in the correct grid column. Shape Forge now has a Shape Objects checklist plus Union, Subtract, and Intersect operations.</p><p>Shortcuts: Ctrl/Cmd+B toggles Explorer, Ctrl/Cmd+I toggles Intel, Ctrl/Cmd+. toggles Focus, Ctrl/Cmd+K opens the Operator Console.</p><p><b>Repo path:</b> replace root <code>index.html</code> with this file.</p>";$("#modalBg").classList.add("show")};$("#closeModal").onclick=()=>$("#modalBg").classList.remove("show");$("#modalBg").onclick=e=>{if(e.target.id==="modalBg")$("#modalBg").classList.remove("show")};Studio.open("mission.brief");Studio.log("KGB Studio v0.8.2 workspace fix and shape ops online")}
+document.addEventListener("DOMContentLoaded",boot);
+</script>
+</body>
+</html>
