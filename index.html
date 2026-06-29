@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>KGB Studio — Browser-Native Arcade Development</title>
+<meta name="description" content="KGB Studio is a browser-native game development environment for KGB Arcade.">
+<style>
+:root{
+  --bg:#020607; --panel:#071014; --line:#1b3b42; --text:#d9fff8;
+  --muted:#7aa7a6; --green:#b8ff19; --cyan:#00e5ff; --mag:#ff2bd6;
+}
+*{box-sizing:border-box}
+html,body{
+  margin:0; min-height:100%;
+  background:
+    radial-gradient(circle at 50% 0%,rgba(0,229,255,.18),transparent 34%),
+    radial-gradient(circle at 20% 80%,rgba(255,43,214,.12),transparent 36%),
+    radial-gradient(circle at 80% 70%,rgba(184,255,25,.10),transparent 34%),
+    #020607;
+  color:var(--text);
+  font:16px/1.45 system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+}
+body:before{
+  content:""; position:fixed; inset:0; pointer-events:none;
+  background:
+    linear-gradient(rgba(0,229,255,.035) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(0,229,255,.035) 1px,transparent 1px);
+  background-size:42px 42px;
+  mask-image:radial-gradient(circle at 50% 35%,#000 0%,transparent 78%);
+}
+.wrap{min-height:100vh;display:grid;grid-template-rows:auto 1fr auto}
+header,footer{
+  display:flex;align-items:center;justify-content:space-between;gap:16px;
+  padding:18px clamp(18px,4vw,56px);
+}
+.brand{display:flex;align-items:center;gap:12px;font-weight:1000;letter-spacing:.14em}
+.logo{
+  width:40px;height:40px;border:1px solid var(--green);border-radius:12px;
+  display:grid;place-items:center;color:var(--green);
+  box-shadow:0 0 22px rgba(184,255,25,.35);
+}
+.badge{
+  border:1px solid rgba(0,229,255,.45);color:var(--cyan);border-radius:999px;
+  padding:6px 10px;font-size:12px;font-weight:900;letter-spacing:.08em;text-transform:uppercase;
+}
+main{display:grid;place-items:center;padding:28px clamp(18px,4vw,56px) 44px}
+.hero{width:min(1120px,100%);display:grid;grid-template-columns:1.15fr .85fr;gap:22px;align-items:stretch}
+.panel{
+  border:1px solid var(--line);
+  background:linear-gradient(180deg,rgba(7,16,20,.92),rgba(2,8,10,.94));
+  border-radius:24px;box-shadow:0 0 50px rgba(0,0,0,.35);
+  padding:clamp(22px,4vw,42px);position:relative;overflow:hidden;
+}
+.panel:after{
+  content:"";position:absolute;inset:auto -20% -45% -20%;height:55%;
+  background:radial-gradient(circle,rgba(0,229,255,.18),transparent 65%);
+  pointer-events:none;
+}
+.eyebrow{color:var(--green);font-weight:1000;letter-spacing:.14em;text-transform:uppercase;font-size:13px}
+h1{margin:14px 0 14px;font-size:clamp(42px,7vw,82px);line-height:.92;letter-spacing:-.055em}
+.sub{color:var(--muted);max-width:760px;font-size:clamp(17px,2vw,21px)}
+.actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;min-height:48px;
+  padding:12px 18px;border-radius:14px;text-decoration:none;font-weight:1000;
+  letter-spacing:.04em;border:1px solid #22515b;color:var(--text);
+  background:linear-gradient(#10242b,#071014);
+}
+.btn.primary{
+  color:#071014;border-color:var(--green);
+  background:linear-gradient(180deg,#d9ff63,#77d900);
+  box-shadow:0 0 28px rgba(184,255,25,.24);
+}
+.btn:hover{border-color:var(--cyan);box-shadow:0 0 20px rgba(0,229,255,.25)}
+.grid{display:grid;gap:12px}
+.card{border:1px solid #18373d;background:#030b0e;border-radius:16px;padding:16px}
+.card b{display:block;margin-bottom:6px;color:var(--text)}
+.card span{color:var(--muted);font-size:14px}
+.console{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#bff;white-space:pre-wrap}
+footer{color:var(--muted);font-size:13px}
+footer a{color:var(--cyan)}
+@media(max-width:860px){
+  .hero{grid-template-columns:1fr}
+  header,footer{align-items:flex-start;flex-direction:column}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <div class="brand"><div class="logo">K</div><div>KGB STUDIO</div></div>
+  <div class="badge">kgbarcade.dev</div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="panel">
+      <div class="eyebrow">Browser-native game development</div>
+      <h1>Build the Tactical Underground.</h1>
+      <p class="sub">
+        KGB Studio is the lightweight, offline-friendly development environment for KGB Arcade:
+        shape tools, sprite tools, asset pipelines, runtime previews, and deploy-ready browser games.
+      </p>
+      <div class="actions">
+        <a class="btn primary" href="./studio/">Launch Studio</a>
+        <a class="btn" href="./docs/">Docs</a>
+        <a class="btn" href="https://kgbarcade.com" rel="noopener">KGB Arcade</a>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="grid">
+        <div class="card"><b>ARSENAL</b><span>Shape Forge, Sprite Forge, Asset Inspector, and creator modules.</span></div>
+        <div class="card"><b>SYSTEMS</b><span>Runtime preview, operator console, event bus, and platform status.</span></div>
+        <div class="card"><b>BUILD</b><span>Export projects, asset indexes, HTML games, and eventually PWA bundles.</span></div>
+        <div class="card console">OPERATOR STATUS:
+• Studio shell online
+• Asset registry active
+• Shape Forge live
+• Workspace focus enabled
+• Next: creator modules</div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div>KGB Arcade • OP: KGB-STUDIO • Asymmetric Precision</div>
+  <div><a href="./studio/">Launch Studio</a></div>
+</footer>
+</div>
+</body>
+</html>
