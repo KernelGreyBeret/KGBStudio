@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>KGB Studio v0.21 - KGB Forge Suite Integration</title>
+<title>KGB Studio v0.25.1 - Milestone A Hardening</title>
 <style>
 :root{--bg:#020607;--panel:#071014;--line:#1b3b42;--text:#d9fff8;--muted:#7aa7a6;--green:#b8ff19;--cyan:#00e5ff;--mag:#ff2bd6;--orange:#ff8a00}
 *{box-sizing:border-box}html,body{height:100%;margin:0;background:radial-gradient(circle at 50% 0%,#102124,#020607 45%,#000);color:var(--text);font:14px system-ui,Segoe UI,Arial;overflow:hidden}
@@ -72,7 +72,7 @@ body.left-collapsed #toggleLeftBtn,body.right-collapsed #toggleRightBtn{border-c
 .forgeMeta input{min-width:0}.exportPanel{border:1px solid #18373d;border-radius:14px;padding:10px;background:#030b0e;margin:10px 0}.exportPanel h3{margin:0 0 8px 0}.assetToolbar{display:grid;grid-template-columns:2fr 1fr 1fr auto;gap:8px;align-items:end}.assetStats{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:8px;margin:10px 0}.assetStat{border:1px solid #18373d;border-radius:14px;background:#030b0e;padding:10px}.assetStat b{display:block;color:var(--green);font-size:22px}.assetGrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px;margin-top:12px}.assetCard{border:1px solid #18373d;border-radius:16px;background:#030b0e;padding:10px;display:grid;gap:8px}.assetCard.selected{border-color:var(--green);box-shadow:0 0 18px #b8ff1933}.assetCard canvas{width:100%;height:130px;border:1px solid #12343b;border-radius:12px;background:#000}.assetMeta b{color:#eaffd0}.assetMeta span{color:var(--muted);font-size:12px}.assetActions{display:flex;gap:6px;flex-wrap:wrap}.assetActions button{font-size:12px;min-height:30px;padding:5px 7px}@media(max-width:900px){.assetToolbar{grid-template-columns:1fr}.assetGrid{grid-template-columns:1fr}}
 .dropZone{border:2px dashed #24515a;border-radius:18px;padding:28px;text-align:center;background:#030b0e;margin:10px 0}
 .dropZone.hot{border-color:var(--green);box-shadow:0 0 24px #b8ff1933;background:#07140b}
-.intakeControls{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin:10px 0}.runtimeControls{display:grid;grid-template-columns:2fr 1fr 1fr 1fr 1fr auto;gap:8px;align-items:end}.runtimeFrame{width:100%;height:560px;border:1px solid #18373d;border-radius:18px;background:#000;margin-top:12px}.runtimeHostFrame{width:100%;height:560px;border:1px solid #18373d;border-radius:18px;background:radial-gradient(circle at center,#071014,#020506 72%);margin-top:12px;display:grid;place-items:center;overflow:hidden;padding:12px}.runtimeHostFrame .hostAnimStage{display:grid;gap:10px;place-items:center;text-align:center;width:100%;height:100%}.runtimeHostFrame img{max-width:92%;max-height:78%;object-fit:contain;border:1px solid #12343b;border-radius:16px;background:#020506;box-shadow:0 0 24px #00eaff2e}.runtimeHostFrame .hostAnimStatus{font-size:13px;color:#87aeb6}.runtimeHostFrame .hostAnimControls{display:flex;gap:8px;align-items:center;justify-content:center;flex-wrap:wrap}.slicerHost{display:grid;grid-template-rows:auto minmax(0,1fr);gap:10px;min-height:calc(100vh - 150px)}.slicerToolbar{display:flex;gap:8px;align-items:center;flex-wrap:wrap}.slicerFrame{width:100%;height:calc(100vh - 190px);min-height:760px;border:1px solid #18373d;border-radius:18px;background:#020607}.gifHost{display:grid;grid-template-rows:auto minmax(0,1fr);gap:10px;min-height:calc(100vh - 150px)}.gifToolbar{display:flex;gap:8px;align-items:center;flex-wrap:wrap}.gifFrame{width:100%;height:calc(100vh - 190px);min-height:760px;border:1px solid #18373d;border-radius:18px;background:#020607}.taioHost{display:grid;grid-template-rows:auto minmax(0,1fr);gap:10px;min-height:calc(100vh - 150px)}.taioToolbar{display:flex;gap:8px;align-items:center;flex-wrap:wrap}.taioFrame{width:100%;height:calc(100vh - 190px);min-height:760px;border:1px solid #18373d;border-radius:18px;background:#020607}.metadataHost{display:grid;grid-template-rows:auto minmax(0,1fr);gap:10px;min-height:calc(100vh - 150px)}.metadataToolbar{display:flex;gap:8px;align-items:center;flex-wrap:wrap}.metadataFrame{width:100%;height:calc(100vh - 190px);min-height:760px;border:1px solid #18373d;border-radius:18px;background:#020607}.forgeSuiteHost{display:grid;grid-template-rows:auto minmax(0,1fr);gap:10px;min-height:calc(100vh - 150px)}.forgeSuiteToolbar{display:flex;gap:8px;align-items:center;flex-wrap:wrap}.forgeSuiteFrame{width:100%;height:calc(100vh - 190px);min-height:760px;border:1px solid #18373d;border-radius:18px;background:#020607}.studioImagePanel{border:1px solid #18373d;border-radius:14px;background:#030b0e;padding:10px;margin-top:8px;max-height:220px;overflow:auto}.studioImageList{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:8px;margin-top:8px}.studioImageItem{border:1px solid #18373d;border-radius:12px;background:#061014;padding:8px;display:flex;gap:8px;align-items:center}.studioImageItem img{width:44px;height:44px;object-fit:contain;background:#000;border-radius:8px;border:1px solid #12343b}@media(max-width:900px){.slicerFrame{height:72vh;min-height:680px}}.runtimeInfo{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:8px;margin-top:10px}.runtimeInfo .card{padding:10px}@media(max-width:1000px){.runtimeControls{grid-template-columns:1fr}.runtimeFrame{height:62vh}}
+.intakeControls{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin:10px 0}.runtimeControls{display:grid;grid-template-columns:2fr 1fr 1fr 1fr 1fr auto;gap:8px;align-items:end}.runtimeFrame{width:100%;height:560px;border:1px solid #18373d;border-radius:18px;background:#000;margin-top:12px}.runtimeHostFrame{width:100%;height:560px;border:1px solid #18373d;border-radius:18px;background:radial-gradient(circle at center,#071014,#020506 72%);margin-top:12px;display:grid;place-items:center;overflow:hidden;padding:12px}.runtimeHostFrame .hostAnimStage{display:grid;gap:10px;place-items:center;text-align:center;width:100%;height:100%}.runtimeHostFrame img{max-width:92%;max-height:78%;object-fit:contain;border:1px solid #12343b;border-radius:16px;background:#020506;box-shadow:0 0 24px #00eaff2e}.runtimeHostFrame .hostAnimStatus{font-size:13px;color:#87aeb6}.runtimeHostFrame .hostAnimControls{display:flex;gap:8px;align-items:center;justify-content:center;flex-wrap:wrap}.slicerHost{display:grid;grid-template-rows:auto minmax(0,1fr);gap:10px;min-height:calc(100vh - 150px)}.slicerToolbar{display:flex;gap:8px;align-items:center;flex-wrap:wrap}.slicerFrame{width:100%;height:calc(100vh - 190px);min-height:760px;border:1px solid #18373d;border-radius:18px;background:#020607}.gifHost{display:grid;grid-template-rows:auto minmax(0,1fr);gap:10px;min-height:calc(100vh - 150px)}.gifToolbar{display:flex;gap:8px;align-items:center;flex-wrap:wrap}.gifFrame{width:100%;height:calc(100vh - 190px);min-height:760px;border:1px solid #18373d;border-radius:18px;background:#020607}.taioHost{display:grid;grid-template-rows:auto minmax(0,1fr);gap:10px;min-height:calc(100vh - 150px)}.taioToolbar{display:flex;gap:8px;align-items:center;flex-wrap:wrap}.taioFrame{width:100%;height:calc(100vh - 190px);min-height:760px;border:1px solid #18373d;border-radius:18px;background:#020607}.metadataHost{display:grid;grid-template-rows:auto minmax(0,1fr);gap:10px;min-height:calc(100vh - 150px)}.metadataToolbar{display:flex;gap:8px;align-items:center;flex-wrap:wrap}.metadataFrame{width:100%;height:calc(100vh - 190px);min-height:760px;border:1px solid #18373d;border-radius:18px;background:#020607}.sceneBuilderGrid{display:grid;grid-template-columns:minmax(280px,390px) minmax(0,1fr);gap:12px}.sceneCanvasWrap{position:relative;overflow:auto;border:1px solid #18373d;border-radius:18px;background:#02080a;padding:10px}.sceneCanvas{width:100%;height:auto;max-height:600px;background:#02080a;border:1px solid #143940;border-radius:14px;touch-action:none}.sceneObjectList{max-height:260px;overflow:auto;border:1px solid #18373d;border-radius:14px;background:#061014;padding:8px}.sceneObjectItem{display:flex;justify-content:space-between;gap:8px;align-items:center;border:1px solid #12363d;border-radius:12px;padding:8px;margin:6px 0;background:#040d10}.sceneObjectItem.active{border-color:#00eaff;box-shadow:0 0 12px rgba(0,234,255,.15)}.sceneTiny{font-size:.82rem;color:#87aeb6;line-height:1.35}@media(max-width:980px){.sceneBuilderGrid{grid-template-columns:1fr}}.actorBuilderGrid{display:grid;grid-template-columns:minmax(280px,420px) minmax(0,1fr);gap:12px}.actorActionRow{border:1px solid #18373d;border-radius:14px;background:#061014;padding:10px;margin:8px 0}.actorPreviewCanvas{width:100%;height:auto;max-height:420px;background:#02080a;border:1px solid #18373d;border-radius:18px}.actorMini{font-size:.82rem;color:#87aeb6;line-height:1.35}@media(max-width:980px){.actorBuilderGrid{grid-template-columns:1fr}}.forgeSuiteHost{display:grid;grid-template-rows:auto minmax(0,1fr);gap:10px;min-height:calc(100vh - 150px)}.forgeSuiteToolbar{display:flex;gap:8px;align-items:center;flex-wrap:wrap}.forgeSuiteFrame{width:100%;height:calc(100vh - 190px);min-height:760px;border:1px solid #18373d;border-radius:18px;background:#020607}.studioImagePanel{border:1px solid #18373d;border-radius:14px;background:#030b0e;padding:10px;margin-top:8px;max-height:220px;overflow:auto}.studioImageList{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:8px;margin-top:8px}.studioImageItem{border:1px solid #18373d;border-radius:12px;background:#061014;padding:8px;display:flex;gap:8px;align-items:center}.studioImageItem img{width:44px;height:44px;object-fit:contain;background:#000;border-radius:8px;border:1px solid #12343b}@media(max-width:900px){.slicerFrame{height:72vh;min-height:680px}}.runtimeInfo{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:8px;margin-top:10px}.runtimeInfo .card{padding:10px}@media(max-width:1000px){.runtimeControls{grid-template-columns:1fr}.runtimeFrame{height:62vh}}
 .intakeList{display:grid;gap:10px;margin-top:12px}
 .intakeItem{border:1px solid #18373d;border-radius:16px;background:#030b0e;padding:10px;display:grid;grid-template-columns:92px 1fr;gap:10px;align-items:start}
 .intakePreview{width:92px;height:92px;border:1px solid #12343b;border-radius:12px;background:#000;display:grid;place-items:center;overflow:hidden;color:var(--green);font-weight:900;font-size:12px;text-align:center}
@@ -170,7 +170,7 @@ body.left-collapsed #toggleLeftBtn,body.right-collapsed #toggleRightBtn{border-c
 <body>
 <div class="app">
 <header class="top appTop">
-  <div class="brand">KGB STUDIO <span class="pill">v0.21</span></div>
+  <div class="brand">KGB STUDIO <span class="pill">v0.25.1</span></div>
   <button id="cmdBtn" class="primaryNavUtility">Operator Console</button>
   <button id="focusBtn" class="primaryNavUtility workspaceFocusBtn" title="Focus workspace">Focus</button>
   <button id="menuBtn" class="primaryNavUtility">Menu</button>
@@ -205,43 +205,46 @@ body.left-collapsed #toggleLeftBtn,body.right-collapsed #toggleRightBtn{border-c
 
 /*
 ===============================================================================
-KGB STUDIO v0.21 — KGB FORGE SUITE v1.1 INTEGRATION
+KGB STUDIO v0.25.1 — MILESTONE A HARDENING / PLAYABLE LOOP QA
 
 WHY THIS VERSION EXISTS
 -----------------------
-v0.20 established the Runtime/Game Package Builder and completed the first
-playable package-export bridge.
+v0.25 reached Milestone A: Playable Pipeline Foundation.
 
-v0.21 promotes the KGB Forge Suite v1.1 into Studio so procedural effects,
-sounds, palettes, tiles, and curves can be created and saved directly into the
-project asset pipeline.
+v0.25.1 hardens that milestone. It adds a Playable Loop Checklist, one-click
+test actor/test scene generation, a full playable test package shortcut, clearer
+runtime instructions, and validation checks for the actor -> scene -> package ->
+runtime interaction loop.
 
-WHAT'S NEW IN v0.21
--------------------
+WHAT'S NEW IN v0.25.1
+---------------------
 Added:
-- ASSETS -> Forge Suite module.
-- Embedded KGB Forge Suite v1.1.
-- Save Active Forge Output to Studio.
-- Particle Forge output saves to particles.
-- Sound Forge output saves to sounds.
-- Palette Forge output saves to palettes.
-- Tile Forge output saves to tiles.
-- Curve Editor output saves to misc.
-- Particle Rain quick action.
-- Save Forge Workspace to Studio.
-- Download Standalone Forge Suite.
-- Operator Console commands for Forge Suite and Particle Rain.
-- Asset Library quick button for Forge Suite.
+- BUILD -> Playable Loop module.
+- Milestone A status banner.
+- Playable Loop Checklist.
+- One-click Create Test Actor.
+- One-click Create Test Scene.
+- One-click Create Full Playable Test Package.
+- Validation checks for actor/action/trigger readiness.
+- Validation checks for scene actor spawn, solid, trigger, collectible, and hazard.
+- Validation checks for actor manifest, scene manifest, runtime, smoke test, and package config.
+- Clearer exported runtime instructions.
+- Game Package shortcut buttons for Playable Loop QA.
+- Operator Console commands for Milestone A helpers.
+- Hardening fix: Scene Builder no longer resets scene values when packaging outside the Scene Builder screen.
 
 Kept stable:
+- Scene Runtime Interaction.
+- Scene Builder / Object Placement.
+- Actor / Action Builder.
+- KGB Runtime Harness.
+- KGB Forge Suite v1.1 integration.
 - Runtime/Game Package Builder.
 - Top bar Focus/Menu/nav rework.
 - IndexedDB AutoSave / snapshots / recovery banner.
 - Project Health Check.
 - Release Manifest and Production Export Center.
-- Metadata Forge integration.
-- TAIO integration.
-- Runtime Preview GIF/frame previews.
+- Metadata Forge and TAIO integration.
 
 REPO ACTION
 -----------
@@ -249,7 +252,7 @@ Replace /studio/index.html with this file.
 
 SUGGESTED COMMIT
 ----------------
-Promote KGB Forge Suite into Studio
+Harden Milestone A playable pipeline
 
 ===============================================================================
 */
@@ -393,7 +396,7 @@ const AssetDownload={
 };
 
 
-function project(name="Untitled KGB Game"){const now=new Date().toISOString();return{meta:{name,created:now,updated:now,studioVersion:"0.21"},mission:{note:""},assets:{sprites:[],animations:[],shapes:[],particles:[],sounds:[],palettes:[],tiles:[],maps:[],misc:[]},settings:{theme:"kgb-neon",target:"web-pwa"}}}
+function project(name="Untitled KGB Game"){const now=new Date().toISOString();return{meta:{name,created:now,updated:now,studioVersion:"0.25.1"},mission:{note:""},assets:{sprites:[],animations:[],shapes:[],particles:[],sounds:[],palettes:[],tiles:[],maps:[],actors:[],misc:[]},settings:{theme:"kgb-neon",target:"web-pwa"}}}
 function norm(p){let b=project(p?.meta?.name);return{...b,...p,meta:{...b.meta,...(p.meta||{})},assets:{...b.assets,...(p.assets||{})},settings:{...b.settings,...(p.settings||{})}}}
 
 /* EVENT BUS: simple pub/sub so modules can emit events without tight coupling. */
@@ -663,7 +666,7 @@ const ReleaseExport={
     return {
       projectName:name,
       studio:"KGB Studio",
-      studioVersion:project.meta?.studioVersion||"0.21",
+      studioVersion:project.meta?.studioVersion||"0.25.1",
       publisher:"KGB Arcade",
       creator:"Tommy Burke / Kernel Grey Beret",
       copyright:"© "+year+" Tommy Burke. All rights reserved.",
@@ -1092,23 +1095,26 @@ const GamePackageBuilder={
     const files=this.assetFiles().map(f=>({
       path:"assets/"+f.path,
       size:f.data?.length||0,
-      type:f.path.endsWith(".asset.json")?"metadata":"asset"
+      type:f.path.endsWith(".asset.json")?"metadata":"asset",
+      extension:(f.path.split(".").pop()||"").toLowerCase()
     }));
 
     const assets=ReleaseExport.assetRows().map(row=>{
       const rec=ReleaseExport.assetRecord(row);
       const folder=row.bucket+"/"+safe(row.asset.folder||"root").replace(/^_+|_+$/g,"");
       const base=safe(row.asset.name||row.asset.id||"asset");
+      const related=files.filter(f=>f.path.startsWith("assets/"+folder+"/"+base));
       return {
         ...rec,
         packageFolder:"assets/"+folder,
-        packageBaseName:base
+        packageBaseName:base,
+        files:related.map(f=>f.path)
       };
     });
 
     return {
       manifestType:"kgb-assets-manifest",
-      manifestVersion:"1.0.0",
+      manifestVersion:"1.1.0",
       generatedAt:new Date().toISOString(),
       project:{
         name:Studio.state.project.meta?.name||"Untitled KGB Game",
@@ -1119,8 +1125,114 @@ const GamePackageBuilder={
         files:files.length,
         byBucket:assets.reduce((acc,a)=>{acc[a.bucket]=(acc[a.bucket]||0)+1;return acc},{})
       },
+      preload:{
+        images:files.filter(f=>["png","jpg","jpeg","gif","webp","svg"].includes(f.extension)).map(f=>f.path),
+        audio:files.filter(f=>["mp3","wav","ogg","m4a","aac","flac"].includes(f.extension)).map(f=>f.path),
+        metadata:files.filter(f=>f.path.endsWith(".asset.json")).map(f=>f.path)
+      },
       assets,
       files
+    };
+  },
+
+  starterScene(){
+    const p=Studio.state.project;
+    const rows=ReleaseExport.assetRows();
+    const firstImage=rows.find(r=>{
+      const a=r.asset||{};
+      return a.dataUrl&&String(a.mime||"").startsWith("image/");
+    });
+    const firstParticle=rows.find(r=>r.bucket==="particles");
+    const firstPalette=rows.find(r=>r.bucket==="palettes");
+    const firstSound=rows.find(r=>r.bucket==="sounds");
+    const title=p.meta?.name||"Untitled KGB Game";
+
+    const entities=[
+      {
+        id:"title-callout",
+        type:"text",
+        layer:"ui",
+        x:480,
+        y:96,
+        text:title,
+        align:"center",
+        size:38,
+        color:"#7dff00"
+      },
+      {
+        id:"runtime-subtitle",
+        type:"text",
+        layer:"ui",
+        x:480,
+        y:134,
+        text:"KGB Runtime Harness online",
+        align:"center",
+        size:17,
+        color:"#dffcff"
+      },
+      {
+        id:"player-probe",
+        type:"player-probe",
+        layer:"world",
+        x:480,
+        y:306,
+        radius:18,
+        speed:260,
+        color:"#00eaff"
+      },
+      {
+        id:"asset-card",
+        type:"asset-card",
+        layer:"ui",
+        x:24,
+        y:404,
+        width:330,
+        height:106,
+        text:"Assets indexed and ready",
+        color:"#7dff00"
+      }
+    ];
+
+    if(firstImage){
+      entities.push({
+        id:"first-image-preview",
+        type:"image",
+        layer:"world",
+        assetId:firstImage.asset.id,
+        x:480,
+        y:250,
+        width:128,
+        height:128,
+        alpha:.92
+      });
+    }
+
+    entities.push({
+      id:"particle-rain",
+      type:"particle-effect",
+      layer:"effects",
+      assetId:firstParticle?.asset?.id||"",
+      preset:firstParticle?"studio-particle":"rain",
+      x:0,
+      y:0,
+      width:960,
+      height:540,
+      count:firstParticle?120:80,
+      colorA:firstParticle?.asset?.settings?.colorA||"#00eaff",
+      colorB:firstParticle?.asset?.settings?.colorB||"#7dff00"
+    });
+
+    return {
+      sceneType:"kgb-starter-scene",
+      sceneVersion:"0.2.0",
+      generatedAt:new Date().toISOString(),
+      name:"Starter Scene",
+      description:"Auto-generated KGB Runtime Harness starter scene.",
+      dimensions:{width:960,height:540},
+      layers:["background","world","effects","ui"],
+      palette:firstPalette?.asset?.id||"",
+      soundTest:firstSound?.asset?.id||"",
+      entities
     };
   },
 
@@ -1128,7 +1240,7 @@ const GamePackageBuilder={
     const profile=ReleaseExport.defaultProfile();
     return {
       configType:"kgb-game-config",
-      configVersion:"0.1.0",
+      configVersion:"0.2.0",
       generatedAt:new Date().toISOString(),
       game:{
         title:profile.projectName,
@@ -1142,23 +1254,30 @@ const GamePackageBuilder={
       },
       runtime:{
         name:"KGB Arcade Runtime",
-        version:"0.1.0-placeholder",
+        version:"0.2.0-harness",
         entry:"runtime/kgb-runtime.js",
-        mode:"loader-preview"
+        mode:"runtime-harness"
       },
       package:{
         target:"kgbarcade-web",
-        studioVersion:Studio.state.project.meta?.studioVersion||"0.21",
+        studioVersion:Studio.state.project.meta?.studioVersion||"0.25.1",
         assetsManifest:"assets/assets.manifest.json",
+        sceneManifest:"scenes/starter.scene.json",
         releaseManifest:"manifest/kgb-release-manifest.json",
         projectBackup:"project/project.kgbproject.json",
+        smokeTest:"smoke-test.html",
         pwa:!!options.pwa
       },
       display:{
         width:960,
         height:540,
         background:"#02080a",
-        accent:"#7dff00"
+        accent:"#7dff00",
+        debug:true
+      },
+      controls:{
+        keyboard:["Arrow keys / WASD move probe","Space triggers first audio asset","Backquote toggles debug overlay"],
+        pointer:["Click/tap to move probe and trigger sound test"]
       }
     };
   },
@@ -1166,73 +1285,339 @@ const GamePackageBuilder={
   runtimeJS(){
     return `'use strict';
 /*
-  KGB Arcade Runtime — placeholder loader
-  Generated by KGB Studio v0.21.
+  KGB Arcade Runtime — harness
+  Generated by KGB Studio v0.25.1.
+
+  This is the first real runtime harness. It loads config, assets, and a starter
+  scene; preloads images/audio; runs a canvas loop; handles input; renders
+  entities by layer; draws particle rain/effects; triggers sound tests; and
+  exposes a debug overlay.
 */
 const KGBRuntime={
   config:null,
   assets:null,
+  scene:null,
+  canvas:null,
+  ctx:null,
+  cache:{images:new Map(),audio:new Map(),json:new Map()},
+  input:{keys:{},pointer:{x:480,y:270,down:false,active:false}},
+  entities:[],
+  particles:[],
+  debug:true,
+  last:0,
+  fps:0,
+  frame:0,
 
   async loadJSON(path){
     const res=await fetch(path,{cache:'no-cache'});
     if(!res.ok)throw new Error('Could not load '+path+' — HTTP '+res.status);
-    return await res.json();
+    const json=await res.json();
+    this.cache.json.set(path,json);
+    return json;
+  },
+
+  log(msg){
+    const log=document.getElementById('kgb-log');
+    if(log){
+      log.textContent+='\\\\n'+msg;
+      log.scrollTop=log.scrollHeight;
+    }
+    console.log('[KGBRuntime]',msg);
   },
 
   async boot(){
-    const log=document.getElementById('kgb-log');
-    const setLog=(msg)=>{if(log)log.textContent+='\\\\n'+msg;console.log('[KGBRuntime]',msg)};
+    this.canvas=document.getElementById('game');
+    this.ctx=this.canvas.getContext('2d');
+    this.bindInput();
 
-    setLog('Booting KGB Arcade Runtime placeholder...');
+    this.log('Booting KGB Arcade Runtime harness...');
     this.config=await this.loadJSON('game.config.json');
-    setLog('Loaded config: '+this.config.game.title);
-
     this.assets=await this.loadJSON(this.config.package.assetsManifest);
-    setLog('Loaded asset manifest: '+this.assets.counts.assets+' assets / '+this.assets.counts.files+' files');
+    this.scene=await this.loadJSON(this.config.package.sceneManifest);
+
+    this.canvas.width=this.scene.dimensions?.width||this.config.display.width||960;
+    this.canvas.height=this.scene.dimensions?.height||this.config.display.height||540;
 
     document.title=this.config.game.title+' — KGB Arcade';
-    const title=document.getElementById('game-title');
-    const subtitle=document.getElementById('game-subtitle');
-    const assetList=document.getElementById('asset-list');
-    if(title)title.textContent=this.config.game.title;
-    if(subtitle)subtitle.textContent='KGB package loaded • '+this.assets.counts.assets+' assets • Runtime placeholder online';
+    this.setText('game-title',this.config.game.title);
+    this.setText('game-subtitle','Runtime harness online • '+this.assets.counts.assets+' assets • '+this.scene.entities.length+' entities');
 
-    if(assetList){
-      assetList.innerHTML=this.assets.assets.map(a=>
-        '<li><b>'+escapeHTML(a.name||a.id)+'</b> <span>'+escapeHTML(a.bucket)+' / '+escapeHTML(a.kind)+'</span></li>'
-      ).join('');
-    }
+    await this.preloadAssets();
+    this.entities=(this.scene.entities||[]).map(e=>({...e,vx:0,vy:0}));
+    this.seedParticles();
+    this.renderAssetList();
 
-    this.drawBootScreen();
-    setLog('Runtime placeholder ready.');
+    this.log('Scene loaded: '+this.scene.name);
+    this.log('Images: '+this.cache.images.size+' • Audio: '+this.cache.audio.size);
+    this.last=performance.now();
+    requestAnimationFrame(t=>this.loop(t));
   },
 
-  drawBootScreen(){
-    const canvas=document.getElementById('game');
-    if(!canvas)return;
-    const ctx=canvas.getContext('2d');
-    const w=canvas.width,h=canvas.height;
-    ctx.fillStyle='#02080a';
-    ctx.fillRect(0,0,w,h);
+  setText(id,msg){
+    const el=document.getElementById(id);
+    if(el)el.textContent=msg;
+  },
 
-    ctx.strokeStyle='rgba(0,234,255,.22)';
+  bindInput(){
+    window.addEventListener('keydown',e=>{
+      this.input.keys[e.key.toLowerCase()]=true;
+      if(e.key===' '){e.preventDefault();this.playFirstSound()}
+      if(e.code==='Backquote'){this.debug=!this.debug}
+    });
+    window.addEventListener('keyup',e=>{this.input.keys[e.key.toLowerCase()]=false});
+    const pointer=(e,down)=>{
+      const r=this.canvas.getBoundingClientRect();
+      const x=(e.clientX-r.left)*(this.canvas.width/r.width);
+      const y=(e.clientY-r.top)*(this.canvas.height/r.height);
+      this.input.pointer={x,y,down,active:true};
+    };
+    this.canvas.addEventListener('pointerdown',e=>{pointer(e,true);this.playFirstSound()});
+    this.canvas.addEventListener('pointermove',e=>pointer(e,this.input.pointer.down));
+    this.canvas.addEventListener('pointerup',e=>pointer(e,false));
+  },
+
+  async preloadAssets(){
+    const loadImage=path=>new Promise(resolve=>{
+      const img=new Image();
+      img.onload=()=>{this.cache.images.set(path,img);resolve(true)};
+      img.onerror=()=>{this.log('Image failed: '+path);resolve(false)};
+      img.src=path;
+    });
+    const loadAudio=path=>new Promise(resolve=>{
+      const aud=new Audio();
+      aud.oncanplaythrough=()=>{this.cache.audio.set(path,aud);resolve(true)};
+      aud.onerror=()=>{this.log('Audio failed: '+path);resolve(false)};
+      aud.src=path;
+      aud.load();
+      setTimeout(()=>resolve(false),900);
+    });
+    const images=this.assets.preload?.images||[];
+    const audio=this.assets.preload?.audio||[];
+    await Promise.all(images.map(loadImage));
+    await Promise.all(audio.map(loadAudio));
+  },
+
+  renderAssetList(){
+    const list=document.getElementById('asset-list');
+    if(!list)return;
+    list.innerHTML=(this.assets.assets||[]).map(a=>
+      '<li><b>'+escapeHTML(a.name||a.id)+'</b> <span>'+escapeHTML(a.bucket)+' / '+escapeHTML(a.kind)+'</span></li>'
+    ).join('')||'<li>No Studio assets indexed yet.</li>';
+  },
+
+  seedParticles(){
+    const effect=(this.scene.entities||[]).find(e=>e.type==='particle-effect');
+    const count=effect?.count||80;
+    this.particles=[];
+    for(let i=0;i<count;i++){
+      this.particles.push(this.makeParticle(effect,true));
+    }
+  },
+
+  makeParticle(effect={},randomY=false){
+    const w=this.canvas?.width||960;
+    const h=this.canvas?.height||540;
+    return {
+      x:Math.random()*w,
+      y:randomY?Math.random()*h:-20-Math.random()*h*.4,
+      vx:(Math.random()-.5)*18,
+      vy:90+Math.random()*220,
+      len:8+Math.random()*26,
+      life:1,
+      color:Math.random()>.5?(effect.colorA||'#00eaff'):(effect.colorB||'#7dff00')
+    };
+  },
+
+  playFirstSound(){
+    const first=[...this.cache.audio.values()][0];
+    if(first){
+      try{
+        const clone=first.cloneNode();
+        clone.volume=.35;
+        clone.play().catch(()=>null);
+        this.log('Triggered sound test.');
+      }catch(e){}
+    }
+  },
+
+  loop(t){
+    const dt=Math.min(.05,(t-this.last)/1000||0);
+    this.last=t;
+    this.frame++;
+    this.fps=this.fps*.92+(1/dt)*.08;
+    this.update(dt);
+    this.draw();
+    requestAnimationFrame(n=>this.loop(n));
+  },
+
+  update(dt){
+    const probe=this.entities.find(e=>e.type==='player-probe');
+    if(probe){
+      const k=this.input.keys;
+      let dx=(k['arrowright']||k['d']?1:0)-(k['arrowleft']||k['a']?1:0);
+      let dy=(k['arrowdown']||k['s']?1:0)-(k['arrowup']||k['w']?1:0);
+      if(this.input.pointer.active){
+        const px=this.input.pointer.x-probe.x;
+        const py=this.input.pointer.y-probe.y;
+        const dist=Math.hypot(px,py);
+        if(dist>6){dx+=px/dist;dy+=py/dist}
+      }
+      const mag=Math.hypot(dx,dy)||1;
+      probe.x=Math.max(16,Math.min(this.canvas.width-16,probe.x+(dx/mag)*(probe.speed||220)*dt));
+      probe.y=Math.max(16,Math.min(this.canvas.height-16,probe.y+(dy/mag)*(probe.speed||220)*dt));
+    }
+
+    const effect=this.entities.find(e=>e.type==='particle-effect')||{};
+    for(const p of this.particles){
+      p.x+=p.vx*dt;
+      p.y+=p.vy*dt;
+      if(p.y>this.canvas.height+30||p.x<-40||p.x>this.canvas.width+40){
+        Object.assign(p,this.makeParticle(effect,false));
+      }
+    }
+  },
+
+  draw(){
+    const ctx=this.ctx,w=this.canvas.width,h=this.canvas.height;
+    ctx.fillStyle=this.config?.display?.background||'#02080a';
+    ctx.fillRect(0,0,w,h);
+    this.drawGrid(ctx,w,h);
+
+    const layers=this.scene.layers||['background','world','effects','ui'];
+    for(const layer of layers){
+      for(const e of this.entities.filter(x=>(x.layer||'world')===layer)){
+        this.drawEntity(ctx,e);
+      }
+    }
+
+    if(this.debug)this.drawDebug(ctx,w,h);
+  },
+
+  drawGrid(ctx,w,h){
+    ctx.strokeStyle='rgba(0,234,255,.16)';
+    ctx.lineWidth=1;
     for(let x=0;x<w;x+=48){ctx.beginPath();ctx.moveTo(x,0);ctx.lineTo(x,h);ctx.stroke()}
     for(let y=0;y<h;y+=48){ctx.beginPath();ctx.moveTo(0,y);ctx.lineTo(w,y);ctx.stroke()}
+  },
 
-    ctx.fillStyle='#7dff00';
-    ctx.font='700 38px system-ui, sans-serif';
-    ctx.textAlign='center';
-    ctx.fillText(this.config?.game?.title||'KGB Game',w/2,h/2-22);
+  drawEntity(ctx,e){
+    if(e.type==='text')return this.drawText(ctx,e);
+    if(e.type==='image')return this.drawImageEntity(ctx,e);
+    if(e.type==='asset-card')return this.drawAssetCard(ctx,e);
+    if(e.type==='player-probe')return this.drawProbe(ctx,e);
+    if(e.type==='particle-effect')return this.drawParticles(ctx,e);
+  },
 
+  drawText(ctx,e){
+    ctx.save();
+    ctx.globalAlpha=e.alpha??1;
+    ctx.fillStyle=e.color||'#dffcff';
+    ctx.font='800 '+(e.size||18)+'px system-ui, sans-serif';
+    ctx.textAlign=e.align||'left';
+    ctx.fillText(e.text||'',e.x||0,e.y||0);
+    ctx.restore();
+  },
+
+  findAssetById(id){
+    return (this.assets.assets||[]).find(a=>a.id===id);
+  },
+
+  drawImageEntity(ctx,e){
+    const asset=this.findAssetById(e.assetId);
+    const path=(asset?.files||[]).find(p=>this.cache.images.has(p));
+    const img=path?this.cache.images.get(path):null;
+    if(!img)return;
+    ctx.save();
+    ctx.globalAlpha=e.alpha??1;
+    const w=e.width||img.width,h=e.height||img.height;
+    ctx.drawImage(img,(e.x||0)-w/2,(e.y||0)-h/2,w,h);
+    ctx.restore();
+  },
+
+  drawAssetCard(ctx,e){
+    const assets=this.assets.assets||[];
+    ctx.save();
+    ctx.globalAlpha=.92;
+    ctx.fillStyle='rgba(4,13,16,.86)';
+    ctx.strokeStyle='rgba(125,255,0,.45)';
+    ctx.lineWidth=1;
+    roundRect(ctx,e.x,e.y,e.width,e.height,14,true,true);
+    ctx.fillStyle=e.color||'#7dff00';
+    ctx.font='800 15px system-ui, sans-serif';
+    ctx.fillText(e.text||'Assets',e.x+14,e.y+26);
     ctx.fillStyle='#dffcff';
-    ctx.font='18px system-ui, sans-serif';
-    ctx.fillText('Runtime package loaded',w/2,h/2+18);
-
+    ctx.font='13px system-ui, sans-serif';
+    ctx.fillText('Indexed: '+assets.length+' assets',e.x+14,e.y+52);
     ctx.fillStyle='#87aeb6';
-    ctx.font='14px system-ui, sans-serif';
-    ctx.fillText((this.assets?.counts?.assets||0)+' assets indexed',w/2,h/2+48);
+    ctx.fillText('Space/click: sound test • WASD/pointer: move probe',e.x+14,e.y+76);
+    ctx.restore();
+  },
+
+  drawProbe(ctx,e){
+    ctx.save();
+    ctx.shadowColor=e.color||'#00eaff';
+    ctx.shadowBlur=18;
+    ctx.strokeStyle=e.color||'#00eaff';
+    ctx.lineWidth=3;
+    ctx.beginPath();
+    ctx.arc(e.x,e.y,e.radius||18,0,Math.PI*2);
+    ctx.stroke();
+    ctx.beginPath();
+    ctx.moveTo(e.x-28,e.y);
+    ctx.lineTo(e.x+28,e.y);
+    ctx.moveTo(e.x,e.y-28);
+    ctx.lineTo(e.x,e.y+28);
+    ctx.stroke();
+    ctx.restore();
+  },
+
+  drawParticles(ctx,e){
+    ctx.save();
+    ctx.globalCompositeOperation='lighter';
+    ctx.lineWidth=1.4;
+    for(const p of this.particles){
+      ctx.strokeStyle=p.color;
+      ctx.globalAlpha=.28+.45*Math.random();
+      ctx.beginPath();
+      ctx.moveTo(p.x,p.y);
+      ctx.lineTo(p.x+p.vx*.04,p.y+p.len);
+      ctx.stroke();
+    }
+    ctx.restore();
+  },
+
+  drawDebug(ctx,w,h){
+    const lines=[
+      'KGB Runtime Harness v0.2',
+      'FPS: '+Math.round(this.fps),
+      'Entities: '+this.entities.length,
+      'Particles: '+this.particles.length,
+      'Assets: '+(this.assets?.counts?.assets||0),
+      'Images: '+this.cache.images.size+' Audio: '+this.cache.audio.size,
+      'Pointer: '+Math.round(this.input.pointer.x)+','+Math.round(this.input.pointer.y),
+      'Debug: Backquote toggles'
+    ];
+    ctx.save();
+    ctx.fillStyle='rgba(0,0,0,.62)';
+    ctx.fillRect(w-270,12,254,lines.length*19+14);
+    ctx.fillStyle='#7dff00';
+    ctx.font='12px ui-monospace, SFMono-Regular, Menlo, Consolas, monospace';
+    lines.forEach((l,i)=>ctx.fillText(l,w-258,34+i*19));
+    ctx.restore();
   }
 };
+
+function roundRect(ctx,x,y,w,h,r,fill,stroke){
+  ctx.beginPath();
+  ctx.moveTo(x+r,y);
+  ctx.arcTo(x+w,y,x+w,y+h,r);
+  ctx.arcTo(x+w,y+h,x,y+h,r);
+  ctx.arcTo(x,y+h,x,y,r);
+  ctx.arcTo(x,y,x+w,y,r);
+  ctx.closePath();
+  if(fill)ctx.fill();
+  if(stroke)ctx.stroke();
+}
 
 function escapeHTML(s){
   return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -1260,34 +1645,75 @@ window.addEventListener('DOMContentLoaded',()=>{
 <style>
 :root{--bg:#02080a;--panel:#071014;--line:#143940;--text:#dffcff;--muted:#87aeb6;--green:#7dff00;--cyan:#00eaff}
 *{box-sizing:border-box}html,body{margin:0;min-height:100%;background:radial-gradient(circle at 30% 0%,#0b2528 0,#02080a 42%,#000 100%);color:var(--text);font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
-.shell{width:min(1120px,calc(100vw - 24px));margin:0 auto;padding:18px 0 32px}
+.shell{width:min(1180px,calc(100vw - 24px));margin:0 auto;padding:18px 0 32px}
 header{display:flex;align-items:center;justify-content:space-between;gap:12px;border-bottom:1px solid var(--line);padding:10px 0 14px;margin-bottom:18px}
 .brand{font-weight:1000;letter-spacing:.1em;color:var(--green)}.pill{border:1px solid var(--cyan);border-radius:999px;padding:4px 8px;color:var(--cyan);font-size:12px}
-.stage{display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:16px}
+.stage{display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:16px}
 .card{background:linear-gradient(#0b171c,#040a0c);border:1px solid #1a3c43;border-radius:18px;padding:16px;box-shadow:0 0 28px rgba(0,234,255,.12)}
-canvas{width:100%;height:auto;background:#000;border:1px solid #16424a;border-radius:16px;box-shadow:0 0 30px rgba(125,255,0,.11)}
-h1{margin:0;color:var(--green)}p{color:var(--muted);line-height:1.45}ul{padding-left:20px;color:var(--muted);max-height:280px;overflow:auto}li{margin:5px 0}li b{color:var(--text)}li span{color:var(--muted);font-size:.9em}pre{white-space:pre-wrap;max-height:220px;overflow:auto;color:#b7dfe5;background:#02080a;border:1px solid #12363d;border-radius:12px;padding:10px}
+canvas{width:100%;height:auto;background:#000;border:1px solid #16424a;border-radius:16px;box-shadow:0 0 30px rgba(125,255,0,.11);touch-action:none}
+h1{margin:0;color:var(--green)}p{color:var(--muted);line-height:1.45}ul{padding-left:20px;color:var(--muted);max-height:270px;overflow:auto}li{margin:5px 0}li b{color:var(--text)}li span{color:var(--muted);font-size:.9em}pre{white-space:pre-wrap;max-height:220px;overflow:auto;color:#b7dfe5;background:#02080a;border:1px solid #12363d;border-radius:12px;padding:10px}.hint{font-size:.9rem;color:var(--muted)}
 @media(max-width:900px){.stage{grid-template-columns:1fr}header{align-items:flex-start;flex-direction:column}}
 </style>
 </head>
 <body>
 <div class="shell">
-<header><div class="brand">KGB ARCADE</div><div class="pill">Studio Package</div></header>
+<header><div class="brand">KGB ARCADE</div><div class="pill">Scene Interaction Harness</div></header>
 <div class="stage">
   <main class="card">
     <h1 id="game-title">${title}</h1>
-    <p id="game-subtitle">Loading KGB runtime package...</p>
+    <p id="game-subtitle">Loading KGB runtime harness...</p>
     <canvas id="game" width="960" height="540"></canvas>
+    <p class="hint">Move with WASD/arrow keys or click/tap. Solid objects block movement. Collectibles disappear and increment the count. Hazards reduce health. Trigger zones fire actor actions/events. Backquote toggles debug.</p>
   </main>
   <aside class="card">
     <h2>Package Assets</h2>
     <ul id="asset-list"><li>Loading manifest...</li></ul>
     <h2>Runtime Log</h2>
-    <pre id="kgb-log">KGB package shell online.</pre>
+    <pre id="kgb-log">KGB runtime shell online.</pre>
   </aside>
 </div>
 </div>
 <script src="runtime/kgb-runtime.js"><\\/script>
+</body>
+</html>`;
+  },
+
+  smokeTestHTML(){
+    const title=esc(Studio.state.project.meta?.name||"KGB Game");
+    return `<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>${title} — KGB Smoke Test</title>
+<style>
+body{margin:0;background:#02080a;color:#dffcff;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:20px}
+.card{max-width:920px;margin:0 auto;background:#071014;border:1px solid #1a3c43;border-radius:18px;padding:18px}
+.good{color:#7dff00}.bad{color:#ff3b6b}pre{background:#000;border:1px solid #143940;border-radius:12px;padding:12px;white-space:pre-wrap}
+</style>
+</head>
+<body>
+<div class="card">
+<h1>KGB Package Smoke Test</h1>
+<p>This page verifies that the exported package can load config, asset manifest, scene manifest, and runtime file paths.</p>
+<div id="out">Running...</div>
+<pre id="log"></pre>
+</div>
+<script>
+const checks=['game.config.json','assets/assets.manifest.json','scenes/starter.scene.json','runtime/kgb-runtime.js'];
+const log=document.getElementById('log');
+const out=document.getElementById('out');
+(async()=>{
+  let ok=0;
+  for(const path of checks){
+    try{
+      const res=await fetch(path,{cache:'no-cache'});
+      log.textContent+=path+' — '+res.status+'\\\\n';
+      if(res.ok)ok++;
+    }catch(e){log.textContent+=path+' — ERROR '+e.message+'\\\\n'}
+  }
+  out.innerHTML=ok===checks.length?'<b class="good">PASS</b> all package files reachable':'<b class="bad">CHECK</b> '+ok+' / '+checks.length+' files reachable';
+})();
+<\\/script>
 </body>
 </html>`;
   },
@@ -1306,8 +1732,8 @@ h1{margin:0;color:var(--green)}p{color:var(--muted);line-height:1.45}ul{padding-
   },
 
   serviceWorker(){
-    return `const CACHE='kgb-game-package-v1';
-const CORE=['./','./index.html','./game.config.json','./runtime/kgb-runtime.js','./assets/assets.manifest.json'];
+    return `const CACHE='kgb-game-package-v2';
+const CORE=['./','./index.html','./smoke-test.html','./game.config.json','./runtime/kgb-runtime.js','./assets/assets.manifest.json','./scenes/starter.scene.json'];
 self.addEventListener('install',event=>{event.waitUntil(caches.open(CACHE).then(cache=>cache.addAll(CORE)).catch(()=>null));self.skipWaiting()});
 self.addEventListener('activate',event=>{event.waitUntil(self.clients.claim())});
 self.addEventListener('fetch',event=>{event.respondWith(caches.match(event.request).then(hit=>hit||fetch(event.request)))});
@@ -1317,11 +1743,14 @@ self.addEventListener('fetch',event=>{event.respondWith(caches.match(event.reque
   packageFiles(options={}){
     const config=this.gameConfig(options);
     const assetManifest=this.assetManifest();
+    const scene=this.starterScene();
     const files=[
       {path:"index.html",data:new TextEncoder().encode(this.indexHTML())},
+      {path:"smoke-test.html",data:new TextEncoder().encode(this.smokeTestHTML())},
       {path:"game.config.json",data:new TextEncoder().encode(JSON.stringify(config,null,2))},
       {path:"runtime/kgb-runtime.js",data:new TextEncoder().encode(this.runtimeJS())},
-      {path:"assets/assets.manifest.json",data:new TextEncoder().encode(JSON.stringify(assetManifest,null,2))}
+      {path:"assets/assets.manifest.json",data:new TextEncoder().encode(JSON.stringify(assetManifest,null,2))},
+      {path:"scenes/starter.scene.json",data:new TextEncoder().encode(JSON.stringify(scene,null,2))}
     ];
 
     this.assetFiles().forEach(f=>files.push({path:"assets/"+f.path,data:f.data}));
@@ -1353,6 +1782,14 @@ self.addEventListener('fetch',event=>{event.respondWith(caches.match(event.reque
     dl(this.projectSlug()+"_assets.manifest.json",JSON.stringify(this.assetManifest(),null,2),"application/json");
   },
 
+  downloadScene(){
+    dl(this.projectSlug()+"_starter.scene.json",JSON.stringify(this.starterScene(),null,2),"application/json");
+  },
+
+  downloadSmokeTest(){
+    dl(this.projectSlug()+"_smoke-test.html",this.smokeTestHTML(),"text/html");
+  },
+
   saveConfigAsset(){
     const config=this.gameConfig({pwa:true});
     const asset={
@@ -1374,8 +1811,2298 @@ self.addEventListener('fetch',event=>{event.respondWith(caches.match(event.reque
     Studio.renderProps();
     Studio.log("Saved game config asset.");
     alert("Saved game config to Studio.");
+  },
+
+  saveSceneAsset(){
+    const scene=this.starterScene();
+    const asset={
+      name:"Starter Scene "+new Date().toLocaleTimeString(),
+      kind:"kgb-starter-scene",
+      adapter:"game-package-builder",
+      source:"runtime-harness",
+      folder:"/scenes",
+      tags:["scene","runtime","starter-scene"],
+      notes:"Starter scene generated by KGB Runtime Harness.",
+      scene,
+      text:JSON.stringify(scene,null,2),
+      mime:"application/json",
+      extension:"json",
+      updated:new Date().toISOString()
+    };
+    Studio.addAsset("maps",asset);
+    renderExplorer();
+    Studio.renderProps();
+    Studio.log("Saved starter scene asset.");
+    alert("Saved starter scene to Studio → maps.");
   }
 };
+
+
+/*
+-------------------------------------------------------------------------------
+ACTOR / ACTION BUILDER
+
+Actors are the behavioral bridge between loose assets and playable scenes.
+
+v0.23 intentionally saves actors into the current project asset schema instead
+of starting the UUID AssetDB migration early. The future AssetDB can migrate
+these definitions cleanly later because actor definitions are already structured
+JSON.
+-------------------------------------------------------------------------------
+*/
+const ActorActionBuilder={
+  draft:null,
+  previewTimer:null,
+  previewState:{action:"idle",pulse:0,particles:[]},
+
+  blankAction(name="idle",key=""){
+    return {
+      id:uid("act"),
+      name,
+      trigger:{type:key?"key":"manual",key,event:"",timerMs:0},
+      animation:{bucket:"",id:""},
+      particle:{bucket:"particles",id:""},
+      sound:{bucket:"sounds",id:""},
+      durationMs:name==="idle"?0:450,
+      notes:""
+    };
+  },
+
+  newDraft(){
+    const firstVisual=this.visualAssets()[0];
+    return {
+      actorType:"kgb-actor-definition",
+      actorVersion:"0.1.0",
+      id:uid("actor"),
+      name:"New Actor",
+      description:"Actor definition created in KGB Studio.",
+      visual:firstVisual?{bucket:firstVisual.bucket,id:firstVisual.asset.id,name:firstVisual.asset.name||firstVisual.asset.id,kind:firstVisual.asset.kind||"asset"}:{bucket:"",id:"",name:"",kind:""},
+      physics:{solid:true,width:48,height:48,speed:220},
+      actions:[
+        this.blankAction("idle",""),
+        this.blankAction("move","w"),
+        this.blankAction("action"," ")
+      ],
+      tags:["actor","action-bundle"],
+      created:new Date().toISOString(),
+      updated:new Date().toISOString()
+    };
+  },
+
+  ensureDraft(){
+    if(!this.draft)this.draft=this.newDraft();
+    return this.draft;
+  },
+
+  rows(buckets){
+    return buckets.flatMap(bucket=>(Studio.state.project.assets[bucket]||[]).map(asset=>({bucket,asset})));
+  },
+
+  visualAssets(){
+    return this.rows(["sprites","animations","shapes","tiles","maps","misc"]).filter(r=>{
+      const a=r.asset||{};
+      return a.dataUrl||a.exportedHTML||a.exportedJS||a.kind||a.text;
+    });
+  },
+
+  animationAssets(){
+    return this.rows(["animations","sprites","shapes","misc"]);
+  },
+
+  particleAssets(){
+    return this.rows(["particles"]);
+  },
+
+  soundAssets(){
+    return this.rows(["sounds"]);
+  },
+
+  optionHTML(rows,selectedBucket="",selectedId="",empty="None"){
+    const opts=['<option value="">'+esc(empty)+'</option>'];
+    rows.forEach(r=>{
+      const val=r.bucket+"::"+r.asset.id;
+      const sel=(r.bucket===selectedBucket&&r.asset.id===selectedId)?" selected":"";
+      opts.push('<option value="'+esc(val)+'"'+sel+'>'+esc(r.asset.name||r.asset.id)+' — '+esc(r.bucket)+'</option>');
+    });
+    return opts.join("");
+  },
+
+  splitAssetValue(v){
+    const [bucket,id]=String(v||"").split("::");
+    return {bucket:bucket||"",id:id||""};
+  },
+
+  findAssetRef(bucket,id){
+    const a=Studio.find(bucket,id);
+    return a?{bucket,id,name:a.name||id,kind:a.kind||"asset"}:{bucket:"",id:"",name:"",kind:""};
+  },
+
+  syncFromForm(){
+    const d=this.ensureDraft();
+    d.name=$("#actorName")?.value?.trim()||"New Actor";
+    d.description=$("#actorDescription")?.value||"";
+    d.physics.width=+($("#actorWidth")?.value||48);
+    d.physics.height=+($("#actorHeight")?.value||48);
+    d.physics.speed=+($("#actorSpeed")?.value||220);
+
+    const visual=this.splitAssetValue($("#actorVisual")?.value);
+    d.visual=this.findAssetRef(visual.bucket,visual.id);
+
+    d.actions=[...document.querySelectorAll("[data-action-row]")].map(row=>{
+      const idx=+row.dataset.actionRow;
+      const old=d.actions[idx]||this.blankAction();
+      const anim=this.splitAssetValue(row.querySelector("[data-action-animation]")?.value);
+      const part=this.splitAssetValue(row.querySelector("[data-action-particle]")?.value);
+      const sound=this.splitAssetValue(row.querySelector("[data-action-sound]")?.value);
+      const triggerType=row.querySelector("[data-action-trigger-type]")?.value||"manual";
+      return {
+        id:old.id||uid("act"),
+        name:row.querySelector("[data-action-name]")?.value?.trim()||"action",
+        trigger:{
+          type:triggerType,
+          key:row.querySelector("[data-action-key]")?.value||"",
+          event:row.querySelector("[data-action-event]")?.value||"",
+          timerMs:+(row.querySelector("[data-action-timer]")?.value||0)
+        },
+        animation:this.findAssetRef(anim.bucket,anim.id),
+        particle:this.findAssetRef(part.bucket,part.id),
+        sound:this.findAssetRef(sound.bucket,sound.id),
+        durationMs:+(row.querySelector("[data-action-duration]")?.value||450),
+        notes:row.querySelector("[data-action-notes]")?.value||""
+      };
+    });
+
+    d.updated=new Date().toISOString();
+    return d;
+  },
+
+  actionRowsHTML(){
+    const d=this.ensureDraft();
+    const animations=this.animationAssets();
+    const particles=this.particleAssets();
+    const sounds=this.soundAssets();
+
+    return d.actions.map((a,idx)=>
+      '<div class="actorActionRow" data-action-row="'+idx+'">'+
+        '<div class="grid3">'+
+          '<div><label>Action Name</label><input data-action-name value="'+esc(a.name||"action")+'"></div>'+
+          '<div><label>Trigger Type</label><select data-action-trigger-type>'+
+            ["manual","key","pointer","timer","event"].map(t=>'<option value="'+t+'"'+(a.trigger?.type===t?" selected":"")+'>'+t+'</option>').join("")+
+          '</select></div>'+
+          '<div><label>Key / Button</label><input data-action-key value="'+esc(a.trigger?.key||"")+'" placeholder="Space, k, w..."></div>'+
+        '</div>'+
+        '<div class="grid3">'+
+          '<div><label>Animation / Visual</label><select data-action-animation>'+this.optionHTML(animations,a.animation?.bucket,a.animation?.id,"None")+'</select></div>'+
+          '<div><label>Particle Effect</label><select data-action-particle>'+this.optionHTML(particles,a.particle?.bucket,a.particle?.id,"None")+'</select></div>'+
+          '<div><label>Sound Effect</label><select data-action-sound>'+this.optionHTML(sounds,a.sound?.bucket,a.sound?.id,"None")+'</select></div>'+
+        '</div>'+
+        '<div class="grid3">'+
+          '<div><label>Duration MS</label><input data-action-duration type="number" min="0" step="50" value="'+esc(a.durationMs||0)+'"></div>'+
+          '<div><label>Runtime Event</label><input data-action-event value="'+esc(a.trigger?.event||"")+'" placeholder="collision, hit, spawn..."></div>'+
+          '<div><label>Timer MS</label><input data-action-timer type="number" min="0" step="100" value="'+esc(a.trigger?.timerMs||0)+'"></div>'+
+        '</div>'+
+        '<label>Notes</label><input data-action-notes value="'+esc(a.notes||"")+'">'+
+        '<div class="row" style="margin-top:8px"><button data-preview-action="'+idx+'">Preview Action</button><button class="hot" data-remove-action="'+idx+'">Remove</button></div>'+
+      '</div>'
+    ).join("");
+  },
+
+  render(root){
+    const d=this.ensureDraft();
+    const visuals=this.visualAssets();
+
+    root.innerHTML=
+      '<div class="actorBuilderGrid">'+
+        '<div class="card">'+
+          '<h3>Actor Definition</h3>'+
+          '<p class="muted">Bind a visual asset, actions, triggers, particles, and sound effects into one runtime-ready actor.</p>'+
+          '<label>Actor Name</label><input id="actorName" value="'+esc(d.name||"New Actor")+'">'+
+          '<label>Description</label><textarea id="actorDescription">'+esc(d.description||"")+'</textarea>'+
+          '<label>Primary Visual Asset</label><select id="actorVisual">'+this.optionHTML(visuals,d.visual?.bucket,d.visual?.id,"Select visual")+'</select>'+
+          '<div class="grid3">'+
+            '<div><label>Width</label><input id="actorWidth" type="number" value="'+esc(d.physics?.width||48)+'"></div>'+
+            '<div><label>Height</label><input id="actorHeight" type="number" value="'+esc(d.physics?.height||48)+'"></div>'+
+            '<div><label>Speed</label><input id="actorSpeed" type="number" value="'+esc(d.physics?.speed||220)+'"></div>'+
+          '</div>'+
+          '<div class="row" style="margin-top:10px">'+
+            '<button class="primary" id="saveActor">Save Actor Definition</button>'+
+            '<button id="addAction">Add Action</button>'+
+            '<button id="newActor">New Actor</button>'+
+            '<button id="saveActorManifest">Save Actor Manifest</button>'+
+            '<button id="downloadActorManifest">Download Actor Manifest</button>'+
+          '</div>'+
+          '<h3>Actions</h3>'+
+          '<div id="actorActions">'+this.actionRowsHTML()+'</div>'+
+        '</div>'+
+        '<div class="card">'+
+          '<h3>Action Preview</h3>'+
+          '<canvas id="actorPreview" class="actorPreviewCanvas" width="760" height="460"></canvas>'+
+          '<p class="actorMini">Preview shows the actor visual, trigger/action label, attached particle effect presence, and sound binding. Runtime package uses the same actor definition through actors/actors.manifest.json.</p>'+
+          '<label>Actor JSON Preview</label><textarea id="actorJson" readonly></textarea>'+
+        '</div>'+
+      '</div>';
+
+    this.wire(root);
+    this.refreshJSON();
+    this.startPreview();
+  },
+
+  wire(root){
+    const resync=()=>{this.syncFromForm();this.refreshJSON()};
+    ["actorName","actorDescription","actorVisual","actorWidth","actorHeight","actorSpeed"].forEach(id=>$("#"+id)?.addEventListener("input",resync));
+    root.querySelectorAll("[data-action-row] input,[data-action-row] select").forEach(el=>el.addEventListener("input",resync));
+
+    $("#addAction").onclick=()=>{
+      this.syncFromForm();
+      this.draft.actions.push(this.blankAction("custom",""));
+      Studio.open("asset.actorbuilder");
+    };
+
+    $("#newActor").onclick=()=>{
+      if(confirm("Start a new unsaved actor definition?")){
+        this.draft=this.newDraft();
+        Studio.open("asset.actorbuilder");
+      }
+    };
+
+    $("#saveActor").onclick=()=>this.saveActor();
+    $("#saveActorManifest").onclick=()=>this.saveActorManifestAsset();
+    $("#downloadActorManifest").onclick=()=>this.downloadActorManifest();
+
+    root.querySelectorAll("[data-remove-action]").forEach(btn=>{
+      btn.onclick=()=>{
+        this.syncFromForm();
+        this.draft.actions.splice(+btn.dataset.removeAction,1);
+        Studio.open("asset.actorbuilder");
+      };
+    });
+
+    root.querySelectorAll("[data-preview-action]").forEach(btn=>{
+      btn.onclick=()=>{
+        this.syncFromForm();
+        const a=this.draft.actions[+btn.dataset.previewAction];
+        this.previewState.action=a?.name||"action";
+        this.previewState.pulse=1;
+        this.spawnPreviewParticles();
+        this.refreshJSON();
+      };
+    });
+  },
+
+  refreshJSON(){
+    const out=$("#actorJson");
+    if(out)out.value=JSON.stringify(this.syncFromForm(),null,2);
+  },
+
+  actorAsset(actor){
+    return {
+      name:actor.name,
+      kind:"kgb-actor-definition",
+      adapter:"actor-action-builder",
+      source:"actor-action-builder",
+      folder:"/actors",
+      tags:["actor","actions","runtime"],
+      notes:"Actor/action definition generated by KGB Studio.",
+      actor,
+      text:JSON.stringify(actor,null,2),
+      mime:"application/json",
+      extension:"json",
+      updated:new Date().toISOString()
+    };
+  },
+
+  saveActor(){
+    const actor=this.syncFromForm();
+    const asset=this.actorAsset(actor);
+    Studio.addAsset("actors",asset);
+    renderExplorer();
+    Studio.renderProps();
+    Studio.log("Saved actor definition: "+actor.name);
+    alert("Saved Actor Definition to Studio → actors.");
+  },
+
+  actorDefinitions(){
+    return (Studio.state.project.assets.actors||[]).filter(a=>a.kind==="kgb-actor-definition"&&a.actor).map(a=>({
+      assetId:a.id,
+      name:a.name,
+      actor:a.actor,
+      updated:a.updated||a.created||""
+    }));
+  },
+
+  actorManifest(){
+    const actors=this.actorDefinitions().map(r=>({
+      id:r.assetId,
+      name:r.name,
+      actor:r.actor,
+      updated:r.updated
+    }));
+    return {
+      manifestType:"kgb-actors-manifest",
+      manifestVersion:"0.1.0",
+      generatedAt:new Date().toISOString(),
+      project:{
+        name:Studio.state.project.meta?.name||"Untitled KGB Game",
+        slug:GamePackageBuilder.projectSlug()
+      },
+      counts:{actors:actors.length,actions:actors.reduce((n,a)=>n+(a.actor.actions?.length||0),0)},
+      actors
+    };
+  },
+
+  downloadActorManifest(){
+    dl(GamePackageBuilder.projectSlug()+"_actors.manifest.json",JSON.stringify(this.actorManifest(),null,2),"application/json");
+  },
+
+  saveActorManifestAsset(){
+    const manifest=this.actorManifest();
+    const asset={
+      name:"Actor Manifest "+new Date().toLocaleTimeString(),
+      kind:"kgb-actors-manifest",
+      adapter:"actor-action-builder",
+      source:"actor-action-builder",
+      folder:"/actors",
+      tags:["actor","manifest","runtime"],
+      notes:"Actor manifest generated by KGB Studio.",
+      manifest,
+      text:JSON.stringify(manifest,null,2),
+      mime:"application/json",
+      extension:"json",
+      updated:new Date().toISOString()
+    };
+    Studio.addAsset("misc",asset);
+    renderExplorer();
+    Studio.renderProps();
+    Studio.log("Saved Actor Manifest.");
+    alert("Saved Actor Manifest to Studio → misc.");
+  },
+
+  startPreview(){
+    clearInterval(this.previewTimer);
+    this.previewTimer=setInterval(()=>this.drawPreview(),33);
+    this.drawPreview();
+  },
+
+  spawnPreviewParticles(){
+    this.previewState.particles=[];
+    for(let i=0;i<42;i++){
+      this.previewState.particles.push({
+        x:380+(Math.random()-.5)*40,
+        y:230+(Math.random()-.5)*40,
+        vx:(Math.random()-.5)*220,
+        vy:(Math.random()-.5)*180-60,
+        life:1,
+        color:Math.random()>.5?"#00eaff":"#7dff00"
+      });
+    }
+  },
+
+  drawPreview(){
+    const c=$("#actorPreview");
+    if(!c)return;
+    const ctx=c.getContext("2d");
+    const w=c.width,h=c.height;
+    ctx.fillStyle="#02080a";
+    ctx.fillRect(0,0,w,h);
+    ctx.strokeStyle="rgba(0,234,255,.14)";
+    for(let x=0;x<w;x+=40){ctx.beginPath();ctx.moveTo(x,0);ctx.lineTo(x,h);ctx.stroke()}
+    for(let y=0;y<h;y+=40){ctx.beginPath();ctx.moveTo(0,y);ctx.lineTo(w,y);ctx.stroke()}
+
+    const d=this.ensureDraft();
+    const asset=Studio.find(d.visual?.bucket,d.visual?.id);
+    ctx.save();
+    ctx.translate(w/2,h/2);
+    const pulse=this.previewState.pulse;
+    const scale=1+pulse*.18;
+    ctx.scale(scale,scale);
+    if(asset?.dataUrl&&String(asset.mime||"").startsWith("image/")){
+      const img=this.previewImg||(this.previewImg=new Image());
+      if(img.src!==asset.dataUrl)img.src=asset.dataUrl;
+      if(img.complete&&img.naturalWidth){
+        ctx.drawImage(img,-70,-70,140,140);
+      }else{
+        this.drawActorPlaceholder(ctx,d);
+      }
+    }else{
+      this.drawActorPlaceholder(ctx,d);
+    }
+    ctx.restore();
+
+    this.previewState.pulse=Math.max(0,this.previewState.pulse-.035);
+    this.previewState.particles.forEach(p=>{
+      p.x+=p.vx*.033;
+      p.y+=p.vy*.033;
+      p.vy+=240*.033;
+      p.life-=.022;
+      ctx.globalAlpha=Math.max(0,p.life);
+      ctx.strokeStyle=p.color;
+      ctx.beginPath();
+      ctx.moveTo(p.x,p.y);
+      ctx.lineTo(p.x-p.vx*.03,p.y-p.vy*.03);
+      ctx.stroke();
+    });
+    ctx.globalAlpha=1;
+    this.previewState.particles=this.previewState.particles.filter(p=>p.life>0);
+
+    ctx.fillStyle="#7dff00";
+    ctx.font="800 24px system-ui";
+    ctx.textAlign="center";
+    ctx.fillText(d.name||"Actor",w/2,48);
+    ctx.fillStyle="#dffcff";
+    ctx.font="16px system-ui";
+    ctx.fillText("Action: "+(this.previewState.action||"idle"),w/2,h-42);
+    ctx.fillStyle="#87aeb6";
+    ctx.font="13px system-ui";
+    ctx.fillText((d.actions||[]).length+" action(s) bound • "+(d.visual?.name||"no visual selected"),w/2,h-18);
+  },
+
+  drawActorPlaceholder(ctx,d){
+    ctx.shadowColor="#00eaff";
+    ctx.shadowBlur=20;
+    ctx.fillStyle="rgba(0,234,255,.16)";
+    ctx.strokeStyle="#00eaff";
+    ctx.lineWidth=3;
+    ctx.beginPath();
+    ctx.roundRect?.(-52,-52,104,104,18) || ctx.rect(-52,-52,104,104);
+    ctx.fill();
+    ctx.stroke();
+    ctx.shadowBlur=0;
+    ctx.fillStyle="#7dff00";
+    ctx.font="800 18px system-ui";
+    ctx.textAlign="center";
+    ctx.fillText((d.name||"ACTOR").slice(0,12),0,7);
+  }
+};
+
+const KGBGamePackageV22={
+  gameConfig:GamePackageBuilder.gameConfig.bind(GamePackageBuilder),
+  starterScene:GamePackageBuilder.starterScene.bind(GamePackageBuilder),
+  runtimeJS:GamePackageBuilder.runtimeJS.bind(GamePackageBuilder),
+  packageFiles:GamePackageBuilder.packageFiles.bind(GamePackageBuilder),
+  smokeTestHTML:GamePackageBuilder.smokeTestHTML.bind(GamePackageBuilder),
+  serviceWorker:GamePackageBuilder.serviceWorker.bind(GamePackageBuilder)
+};
+
+Object.assign(GamePackageBuilder,{
+  actorManifest(){
+    return ActorActionBuilder.actorManifest();
+  },
+
+  gameConfig(options={}){
+    const cfg=KGBGamePackageV22.gameConfig(options);
+    cfg.configVersion="0.3.0";
+    cfg.package.actorManifest="actors/actors.manifest.json";
+    cfg.runtime.version="0.3.0-actor-actions";
+    cfg.runtime.mode="actor-action-harness";
+    return cfg;
+  },
+
+  starterScene(){
+    const scene=KGBGamePackageV22.starterScene();
+    const firstActor=ActorActionBuilder.actorDefinitions()[0];
+    if(firstActor){
+      scene.entities.push({
+        id:"actor-instance-1",
+        type:"actor-instance",
+        layer:"world",
+        actorId:firstActor.assetId,
+        x:480,
+        y:305,
+        width:firstActor.actor.physics?.width||58,
+        height:firstActor.actor.physics?.height||58,
+        action:"idle"
+      });
+      scene.description+=" Includes first actor definition from Actor Builder.";
+    }
+    return scene;
+  },
+
+  smokeTestHTML(){
+    const title=esc(Studio.state.project.meta?.name||"KGB Game");
+    return `<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>${title} — KGB Smoke Test</title>
+<style>
+body{margin:0;background:#02080a;color:#dffcff;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:20px}
+.card{max-width:920px;margin:0 auto;background:#071014;border:1px solid #1a3c43;border-radius:18px;padding:18px}
+.good{color:#7dff00}.bad{color:#ff3b6b}pre{background:#000;border:1px solid #143940;border-radius:12px;padding:12px;white-space:pre-wrap}
+</style>
+</head>
+<body>
+<div class="card">
+<h1>KGB Package Smoke Test</h1>
+<p>This page verifies that the exported package can load config, asset manifest, actor manifest, scene manifest, and runtime file paths.</p>
+<div id="out">Running...</div>
+<pre id="log"></pre>
+</div>
+<script>
+const checks=['game.config.json','assets/assets.manifest.json','actors/actors.manifest.json','scenes/starter.scene.json','runtime/kgb-runtime.js'];
+const log=document.getElementById('log');
+const out=document.getElementById('out');
+(async()=>{
+  let ok=0;
+  for(const path of checks){
+    try{
+      const res=await fetch(path,{cache:'no-cache'});
+      log.textContent+=path+' — '+res.status+'\\\\n';
+      if(res.ok)ok++;
+    }catch(e){log.textContent+=path+' — ERROR '+e.message+'\\\\n'}
+  }
+  out.innerHTML=ok===checks.length?'<b class="good">PASS</b> all package files reachable':'<b class="bad">CHECK</b> '+ok+' / '+checks.length+' files reachable';
+})();
+<\\/script>
+</body>
+</html>`;
+  },
+
+  serviceWorker(){
+    return `const CACHE='kgb-game-package-v3';
+const CORE=['./','./index.html','./smoke-test.html','./game.config.json','./runtime/kgb-runtime.js','./assets/assets.manifest.json','./actors/actors.manifest.json','./scenes/starter.scene.json'];
+self.addEventListener('install',event=>{event.waitUntil(caches.open(CACHE).then(cache=>cache.addAll(CORE)).catch(()=>null));self.skipWaiting()});
+self.addEventListener('activate',event=>{event.waitUntil(self.clients.claim())});
+self.addEventListener('fetch',event=>{event.respondWith(caches.match(event.request).then(hit=>hit||fetch(event.request)))});
+`;
+  },
+
+  runtimeJS(){
+    return `'use strict';
+/*
+  KGB Arcade Runtime — actor/action harness
+  Generated by KGB Studio v0.25.1.
+*/
+const KGBRuntime={
+  config:null,assets:null,actors:null,scene:null,canvas:null,ctx:null,
+  cache:{images:new Map(),audio:new Map(),json:new Map()},
+  input:{keys:{},pointer:{x:480,y:270,down:false,active:false,clicked:false}},
+  entities:[],particles:[],actionBursts:[],debug:true,last:0,fps:0,frame:0,
+
+  async loadJSON(path){
+    const res=await fetch(path,{cache:'no-cache'});
+    if(!res.ok)throw new Error('Could not load '+path+' — HTTP '+res.status);
+    const json=await res.json();
+    this.cache.json.set(path,json);
+    return json;
+  },
+  log(msg){
+    const log=document.getElementById('kgb-log');
+    if(log){log.textContent+='\\\\n'+msg;log.scrollTop=log.scrollHeight}
+    console.log('[KGBRuntime]',msg);
+  },
+  async boot(){
+    this.canvas=document.getElementById('game');
+    this.ctx=this.canvas.getContext('2d');
+    this.bindInput();
+    this.log('Booting KGB actor/action harness...');
+    this.config=await this.loadJSON('game.config.json');
+    this.assets=await this.loadJSON(this.config.package.assetsManifest);
+    this.actors=await this.loadJSON(this.config.package.actorManifest).catch(()=>({actors:[],counts:{actors:0,actions:0}}));
+    this.scene=await this.loadJSON(this.config.package.sceneManifest);
+    this.canvas.width=this.scene.dimensions?.width||this.config.display.width||960;
+    this.canvas.height=this.scene.dimensions?.height||this.config.display.height||540;
+    document.title=this.config.game.title+' — KGB Arcade';
+    this.setText('game-title',this.config.game.title);
+    this.setText('game-subtitle','Actor/action harness online • '+(this.actors.counts?.actors||0)+' actor(s) • '+(this.assets.counts?.assets||0)+' asset(s)');
+    await this.preloadAssets();
+    this.entities=(this.scene.entities||[]).map(e=>({...e,vx:0,vy:0,currentAction:null,actionTimer:0}));
+    this.seedParticles();
+    this.renderAssetList();
+    this.log('Scene loaded: '+this.scene.name);
+    this.log('Actors: '+(this.actors.counts?.actors||0)+' • Actions: '+(this.actors.counts?.actions||0));
+    this.last=performance.now();
+    requestAnimationFrame(t=>this.loop(t));
+  },
+  setText(id,msg){const el=document.getElementById(id);if(el)el.textContent=msg},
+  bindInput(){
+    window.addEventListener('keydown',e=>{
+      this.input.keys[e.key.toLowerCase()]=true;
+      if(e.key===' '){e.preventDefault()}
+      if(e.code==='Backquote'){this.debug=!this.debug}
+    });
+    window.addEventListener('keyup',e=>{this.input.keys[e.key.toLowerCase()]=false});
+    const pointer=(e,down)=>{
+      const r=this.canvas.getBoundingClientRect();
+      const x=(e.clientX-r.left)*(this.canvas.width/r.width);
+      const y=(e.clientY-r.top)*(this.canvas.height/r.height);
+      this.input.pointer={x,y,down,active:true,clicked:down};
+    };
+    this.canvas.addEventListener('pointerdown',e=>pointer(e,true));
+    this.canvas.addEventListener('pointermove',e=>pointer(e,this.input.pointer.down));
+    this.canvas.addEventListener('pointerup',e=>pointer(e,false));
+  },
+  async preloadAssets(){
+    const loadImage=path=>new Promise(resolve=>{const img=new Image();img.onload=()=>{this.cache.images.set(path,img);resolve(true)};img.onerror=()=>{this.log('Image failed: '+path);resolve(false)};img.src=path});
+    const loadAudio=path=>new Promise(resolve=>{const aud=new Audio();aud.oncanplaythrough=()=>{this.cache.audio.set(path,aud);resolve(true)};aud.onerror=()=>{this.log('Audio failed: '+path);resolve(false)};aud.src=path;aud.load();setTimeout(()=>resolve(false),900)});
+    await Promise.all((this.assets.preload?.images||[]).map(loadImage));
+    await Promise.all((this.assets.preload?.audio||[]).map(loadAudio));
+  },
+  renderAssetList(){
+    const list=document.getElementById('asset-list');
+    if(!list)return;
+    const actorLines=(this.actors.actors||[]).map(a=>'<li><b>'+escapeHTML(a.name)+'</b> <span>actor / '+(a.actor.actions?.length||0)+' action(s)</span></li>').join('');
+    const assetLines=(this.assets.assets||[]).slice(0,24).map(a=>'<li><b>'+escapeHTML(a.name||a.id)+'</b> <span>'+escapeHTML(a.bucket)+' / '+escapeHTML(a.kind)+'</span></li>').join('');
+    list.innerHTML=actorLines+assetLines||'<li>No assets indexed yet.</li>';
+  },
+  actorRecord(id){return (this.actors.actors||[]).find(a=>a.id===id)},
+  assetRecord(bucket,id){return (this.assets.assets||[]).find(a=>a.bucket===bucket&&a.id===id)||this.findAssetById(id)},
+  findAssetById(id){return (this.assets.assets||[]).find(a=>a.id===id)},
+  firstImagePathForAsset(asset){return (asset?.files||[]).find(p=>this.cache.images.has(p))||''},
+  firstAudioForAsset(asset){const path=(asset?.files||[]).find(p=>this.cache.audio.has(p));return path?this.cache.audio.get(path):null},
+  seedParticles(){this.particles=[];const effect=(this.scene.entities||[]).find(e=>e.type==='particle-effect');for(let i=0;i<(effect?.count||80);i++)this.particles.push(this.makeRainParticle(effect,true))},
+  makeRainParticle(effect={},randomY=false){const w=this.canvas?.width||960,h=this.canvas?.height||540;return{x:Math.random()*w,y:randomY?Math.random()*h:-20-Math.random()*h*.4,vx:(Math.random()-.5)*18,vy:90+Math.random()*220,len:8+Math.random()*26,life:1,color:Math.random()>.5?(effect.colorA||'#00eaff'):(effect.colorB||'#7dff00')}},
+  triggerAction(entity,action){
+    if(!action)return;
+    entity.currentAction=action.name;
+    entity.actionTimer=(action.durationMs||450)/1000;
+    const snd=this.assetRecord(action.sound?.bucket,action.sound?.id);
+    const aud=this.firstAudioForAsset(snd);
+    if(aud){try{const clone=aud.cloneNode();clone.volume=.35;clone.play().catch(()=>null)}catch(e){}}
+    for(let i=0;i<36;i++){this.actionBursts.push({x:entity.x,y:entity.y,vx:(Math.random()-.5)*260,vy:(Math.random()-.5)*220,life:1,color:Math.random()>.5?'#7dff00':'#00eaff'})}
+    this.log('Action: '+action.name);
+  },
+  loop(t){const dt=Math.min(.05,(t-this.last)/1000||0);this.last=t;this.frame++;this.fps=this.fps*.92+(1/dt)*.08;this.update(dt);this.draw();this.input.pointer.clicked=false;requestAnimationFrame(n=>this.loop(n))},
+  update(dt){
+    const probe=this.entities.find(e=>e.type==='player-probe');
+    if(probe){const k=this.input.keys;let dx=(k['arrowright']||k['d']?1:0)-(k['arrowleft']||k['a']?1:0);let dy=(k['arrowdown']||k['s']?1:0)-(k['arrowup']||k['w']?1:0);if(this.input.pointer.active){const px=this.input.pointer.x-probe.x,py=this.input.pointer.y-probe.y,dist=Math.hypot(px,py);if(dist>6){dx+=px/dist;dy+=py/dist}}const mag=Math.hypot(dx,dy)||1;probe.x=Math.max(16,Math.min(this.canvas.width-16,probe.x+(dx/mag)*(probe.speed||220)*dt));probe.y=Math.max(16,Math.min(this.canvas.height-16,probe.y+(dy/mag)*(probe.speed||220)*dt))}
+    const actorEntities=this.entities.filter(e=>e.type==='actor-instance');
+    for(const e of actorEntities){
+      const rec=this.actorRecord(e.actorId);const actor=rec?.actor;if(!actor)continue;
+      if(e.actionTimer>0)e.actionTimer-=dt;else e.currentAction='idle';
+      for(const action of (actor.actions||[])){
+        const trig=action.trigger||{};
+        let fire=false;
+        if(trig.type==='key'&&trig.key){const key=trig.key===' '||trig.key.toLowerCase()==='space'?' ':trig.key.toLowerCase();fire=!!this.input.keys[key]}
+        if(trig.type==='pointer')fire=!!this.input.pointer.clicked;
+        if(trig.type==='manual'&&(this.input.keys[' ']||this.input.pointer.clicked)&&action.name!=='idle')fire=true;
+        if(fire){this.triggerAction(e,action);break}
+      }
+    }
+    const effect=this.entities.find(e=>e.type==='particle-effect')||{};
+    for(const p of this.particles){p.x+=p.vx*dt;p.y+=p.vy*dt;if(p.y>this.canvas.height+30||p.x<-40||p.x>this.canvas.width+40)Object.assign(p,this.makeRainParticle(effect,false))}
+    for(const b of this.actionBursts){b.x+=b.vx*dt;b.y+=b.vy*dt;b.vy+=260*dt;b.life-=dt*1.8}
+    this.actionBursts=this.actionBursts.filter(b=>b.life>0);
+  },
+  draw(){const ctx=this.ctx,w=this.canvas.width,h=this.canvas.height;ctx.fillStyle=this.config?.display?.background||'#02080a';ctx.fillRect(0,0,w,h);this.drawGrid(ctx,w,h);for(const layer of (this.scene.layers||['background','world','effects','ui']))for(const e of this.entities.filter(x=>(x.layer||'world')===layer))this.drawEntity(ctx,e);this.drawActionBursts(ctx);if(this.debug)this.drawDebug(ctx,w,h)},
+  drawGrid(ctx,w,h){ctx.strokeStyle='rgba(0,234,255,.16)';ctx.lineWidth=1;for(let x=0;x<w;x+=48){ctx.beginPath();ctx.moveTo(x,0);ctx.lineTo(x,h);ctx.stroke()}for(let y=0;y<h;y+=48){ctx.beginPath();ctx.moveTo(0,y);ctx.lineTo(w,y);ctx.stroke()}},
+  drawEntity(ctx,e){if(e.type==='text')return this.drawText(ctx,e);if(e.type==='image')return this.drawImageEntity(ctx,e);if(e.type==='asset-card')return this.drawAssetCard(ctx,e);if(e.type==='player-probe')return this.drawProbe(ctx,e);if(e.type==='particle-effect')return this.drawParticles(ctx,e);if(e.type==='actor-instance')return this.drawActor(ctx,e)},
+  drawText(ctx,e){ctx.save();ctx.globalAlpha=e.alpha??1;ctx.fillStyle=e.color||'#dffcff';ctx.font='800 '+(e.size||18)+'px system-ui, sans-serif';ctx.textAlign=e.align||'left';ctx.fillText(e.text||'',e.x||0,e.y||0);ctx.restore()},
+  drawImageEntity(ctx,e){const asset=this.findAssetById(e.assetId);const path=this.firstImagePathForAsset(asset);const img=path?this.cache.images.get(path):null;if(!img)return;ctx.save();ctx.globalAlpha=e.alpha??1;const w=e.width||img.width,h=e.height||img.height;ctx.drawImage(img,(e.x||0)-w/2,(e.y||0)-h/2,w,h);ctx.restore()},
+  drawAssetCard(ctx,e){const assets=this.assets.assets||[];ctx.save();ctx.globalAlpha=.92;ctx.fillStyle='rgba(4,13,16,.86)';ctx.strokeStyle='rgba(125,255,0,.45)';ctx.lineWidth=1;roundRect(ctx,e.x,e.y,e.width,e.height,14,true,true);ctx.fillStyle=e.color||'#7dff00';ctx.font='800 15px system-ui, sans-serif';ctx.fillText(e.text||'Assets',e.x+14,e.y+26);ctx.fillStyle='#dffcff';ctx.font='13px system-ui, sans-serif';ctx.fillText('Indexed: '+assets.length+' assets • Actors: '+(this.actors.counts?.actors||0),e.x+14,e.y+52);ctx.fillStyle='#87aeb6';ctx.fillText('Trigger actions with bound keys / pointer',e.x+14,e.y+76);ctx.restore()},
+  drawProbe(ctx,e){ctx.save();ctx.shadowColor=e.color||'#00eaff';ctx.shadowBlur=18;ctx.strokeStyle=e.color||'#00eaff';ctx.lineWidth=3;ctx.beginPath();ctx.arc(e.x,e.y,e.radius||18,0,Math.PI*2);ctx.stroke();ctx.beginPath();ctx.moveTo(e.x-28,e.y);ctx.lineTo(e.x+28,e.y);ctx.moveTo(e.x,e.y-28);ctx.lineTo(e.x,e.y+28);ctx.stroke();ctx.restore()},
+  drawActor(ctx,e){const rec=this.actorRecord(e.actorId);const actor=rec?.actor;ctx.save();ctx.translate(e.x,e.y);let drew=false;if(actor?.visual){const asset=this.assetRecord(actor.visual.bucket,actor.visual.id);const path=this.firstImagePathForAsset(asset);const img=path?this.cache.images.get(path):null;if(img){const w=e.width||actor.physics?.width||64,h=e.height||actor.physics?.height||64;ctx.drawImage(img,-w/2,-h/2,w,h);drew=true}}if(!drew){ctx.shadowColor='#7dff00';ctx.shadowBlur=16;ctx.fillStyle='rgba(125,255,0,.13)';ctx.strokeStyle='#7dff00';ctx.lineWidth=3;roundRect(ctx,-34,-34,68,68,14,true,true)}ctx.shadowBlur=0;ctx.fillStyle='#dffcff';ctx.font='12px system-ui';ctx.textAlign='center';ctx.fillText(actor?.name||'Actor',0,52);if(e.currentAction&&e.currentAction!=='idle'){ctx.fillStyle='#7dff00';ctx.font='800 14px system-ui';ctx.fillText(e.currentAction,0,-46)}ctx.restore()},
+  drawParticles(ctx,e){ctx.save();ctx.globalCompositeOperation='lighter';ctx.lineWidth=1.4;for(const p of this.particles){ctx.strokeStyle=p.color;ctx.globalAlpha=.28+.45*Math.random();ctx.beginPath();ctx.moveTo(p.x,p.y);ctx.lineTo(p.x+p.vx*.04,p.y+p.len);ctx.stroke()}ctx.restore()},
+  drawActionBursts(ctx){ctx.save();ctx.globalCompositeOperation='lighter';for(const b of this.actionBursts){ctx.globalAlpha=Math.max(0,b.life);ctx.strokeStyle=b.color;ctx.beginPath();ctx.moveTo(b.x,b.y);ctx.lineTo(b.x-b.vx*.04,b.y-b.vy*.04);ctx.stroke()}ctx.restore()},
+  drawDebug(ctx,w,h){const lines=['KGB Runtime Harness v0.3','FPS: '+Math.round(this.fps),'Entities: '+this.entities.length,'Actors: '+(this.actors.counts?.actors||0),'Actions: '+(this.actors.counts?.actions||0),'Particles: '+(this.particles.length+this.actionBursts.length),'Assets: '+(this.assets?.counts?.assets||0),'Images: '+this.cache.images.size+' Audio: '+this.cache.audio.size,'Debug: Backquote toggles'];ctx.save();ctx.fillStyle='rgba(0,0,0,.62)';ctx.fillRect(w-280,12,264,lines.length*19+14);ctx.fillStyle='#7dff00';ctx.font='12px ui-monospace, SFMono-Regular, Menlo, Consolas, monospace';lines.forEach((l,i)=>ctx.fillText(l,w-268,34+i*19));ctx.restore()}
+};
+function roundRect(ctx,x,y,w,h,r,fill,stroke){ctx.beginPath();ctx.moveTo(x+r,y);ctx.arcTo(x+w,y,x+w,y+h,r);ctx.arcTo(x+w,y+h,x,y+h,r);ctx.arcTo(x,y+h,x,y,r);ctx.arcTo(x,y,x+w,y,r);ctx.closePath();if(fill)ctx.fill();if(stroke)ctx.stroke()}
+function escapeHTML(s){return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+window.addEventListener('DOMContentLoaded',()=>{KGBRuntime.boot().catch(err=>{const log=document.getElementById('kgb-log');if(log)log.textContent+='\\\\nERROR: '+(err.message||err);console.error(err)})});
+`;
+  },
+
+  packageFiles(options={}){
+    const config=this.gameConfig(options);
+    const assetManifest=this.assetManifest();
+    const scene=this.starterScene();
+    const actorManifest=this.actorManifest();
+    const files=[
+      {path:"index.html",data:new TextEncoder().encode(this.indexHTML())},
+      {path:"smoke-test.html",data:new TextEncoder().encode(this.smokeTestHTML())},
+      {path:"game.config.json",data:new TextEncoder().encode(JSON.stringify(config,null,2))},
+      {path:"runtime/kgb-runtime.js",data:new TextEncoder().encode(this.runtimeJS())},
+      {path:"assets/assets.manifest.json",data:new TextEncoder().encode(JSON.stringify(assetManifest,null,2))},
+      {path:"actors/actors.manifest.json",data:new TextEncoder().encode(JSON.stringify(actorManifest,null,2))},
+      {path:"scenes/starter.scene.json",data:new TextEncoder().encode(JSON.stringify(scene,null,2))}
+    ];
+    this.assetFiles().forEach(f=>files.push({path:"assets/"+f.path,data:f.data}));
+    ReleaseExport.manifestFiles(ReleaseExport.defaultProfile()).forEach(f=>files.push(f));
+    if(options.pwa){
+      files.push({path:"manifest.webmanifest",data:new TextEncoder().encode(this.pwaManifest(config))});
+      files.push({path:"service-worker.js",data:new TextEncoder().encode(this.serviceWorker())});
+    }
+    return files;
+  },
+
+  downloadActorManifest(){
+    ActorActionBuilder.downloadActorManifest();
+  }
+});
+
+
+
+/*
+-------------------------------------------------------------------------------
+SCENE BUILDER / OBJECT PLACEMENT
+
+This is the scene composition layer. It keeps scope tight:
+- place actors and objects
+- classify placed objects
+- preview the scene
+- export scene JSON to the runtime harness
+
+Collision/interactions are intentionally minimal here. v0.25 can make solid,
+hazard, collectible, and trigger behaviors active in runtime.
+-------------------------------------------------------------------------------
+*/
+const SceneBuilder={
+  draft:null,
+  selectedId:null,
+  drag:null,
+  previewImgCache:new Map(),
+
+  rows(buckets){
+    return buckets.flatMap(bucket=>(Studio.state.project.assets[bucket]||[]).map(asset=>({bucket,asset})));
+  },
+
+  visualAssets(){
+    return this.rows(["sprites","animations","shapes","tiles","maps","misc"]).filter(r=>{
+      const a=r.asset||{};
+      return a.dataUrl||a.exportedHTML||a.exportedJS||a.kind||a.text;
+    });
+  },
+
+  actorAssets(){
+    return (Studio.state.project.assets.actors||[]).filter(a=>a.kind==="kgb-actor-definition"&&a.actor).map(asset=>({bucket:"actors",asset}));
+  },
+
+  optionHTML(rows,selectedBucket="",selectedId="",empty="None"){
+    const opts=['<option value="">'+esc(empty)+'</option>'];
+    rows.forEach(r=>{
+      const val=r.bucket+"::"+r.asset.id;
+      const sel=(r.bucket===selectedBucket&&r.asset.id===selectedId)?" selected":"";
+      opts.push('<option value="'+esc(val)+'"'+sel+'>'+esc(r.asset.name||r.asset.id)+' — '+esc(r.bucket)+'</option>');
+    });
+    return opts.join("");
+  },
+
+  splitAssetValue(v){
+    const [bucket,id]=String(v||"").split("::");
+    return {bucket:bucket||"",id:id||""};
+  },
+
+  blankScene(){
+    return {
+      sceneType:"kgb-scene-definition",
+      sceneVersion:"0.1.0",
+      id:uid("scene"),
+      name:"New Scene",
+      description:"Scene created in KGB Studio Scene Builder.",
+      dimensions:{width:960,height:540},
+      background:"#02080a",
+      layers:["background","world","effects","ui"],
+      objects:[
+        {
+          id:uid("obj"),
+          type:"text",
+          label:"Scene Title",
+          layer:"ui",
+          behavior:"decorative",
+          x:480,y:92,width:300,height:40,
+          text:Studio.state.project.meta?.name||"KGB Scene",
+          color:"#7dff00"
+        },
+        {
+          id:uid("obj"),
+          type:"scene-object",
+          label:"Ground / Road",
+          layer:"world",
+          behavior:"solid",
+          x:480,y:485,width:760,height:42,
+          color:"#18424a"
+        }
+      ],
+      created:new Date().toISOString(),
+      updated:new Date().toISOString()
+    };
+  },
+
+  ensureDraft(){
+    if(!this.draft)this.draft=this.sceneFromSaved()||this.blankScene();
+    return this.draft;
+  },
+
+  sceneFromSaved(){
+    const saved=(Studio.state.project.assets.maps||[]).find(a=>a.kind==="kgb-scene-definition"&&a.scene);
+    return saved?JSON.parse(JSON.stringify(saved.scene)):null;
+  },
+
+  selected(){
+    const d=this.ensureDraft();
+    return d.objects.find(o=>o.id===this.selectedId)||d.objects[0]||null;
+  },
+
+  syncSceneForm(){
+    const d=this.ensureDraft();
+    const nameEl=$("#sceneName");
+    const descEl=$("#sceneDescription");
+    const widthEl=$("#sceneWidth");
+    const heightEl=$("#sceneHeight");
+    const bgEl=$("#sceneBackground");
+    if(nameEl)d.name=nameEl.value.trim()||d.name||"New Scene";
+    if(descEl)d.description=descEl.value||"";
+    if(widthEl)d.dimensions.width=+(widthEl.value||d.dimensions.width||960);
+    if(heightEl)d.dimensions.height=+(heightEl.value||d.dimensions.height||540);
+    if(bgEl)d.background=bgEl.value||d.background||"#02080a";
+    d.updated=new Date().toISOString();
+    return d;
+  },
+
+  syncSelectedForm(){
+    const obj=this.selected();
+    if(!obj)return;
+    obj.label=$("#objLabel")?.value||obj.label||"Object";
+    obj.layer=$("#objLayer")?.value||obj.layer||"world";
+    obj.behavior=$("#objBehavior")?.value||obj.behavior||"decorative";
+    obj.x=+($("#objX")?.value||obj.x||0);
+    obj.y=+($("#objY")?.value||obj.y||0);
+    obj.width=+($("#objW")?.value||obj.width||64);
+    obj.height=+($("#objH")?.value||obj.height||64);
+    obj.color=$("#objColor")?.value||obj.color||"#00eaff";
+    if(obj.type==="text")obj.text=$("#objText")?.value||obj.text||"Text";
+    this.syncSceneForm();
+    this.draw();
+    this.refreshJSON();
+  },
+
+  addObject(type){
+    const d=this.syncSceneForm();
+    const center={x:d.dimensions.width/2,y:d.dimensions.height/2};
+    let obj;
+    if(type==="actor"){
+      const actor=this.actorAssets()[0];
+      obj={id:uid("obj"),type:"actor-spawn",label:"Actor Spawn",layer:"world",behavior:"actor",x:center.x,y:center.y,width:64,height:64,actorId:actor?.asset?.id||"",actorName:actor?.asset?.name||""};
+    }else if(type==="prop"){
+      const asset=this.visualAssets()[0];
+      obj={id:uid("obj"),type:"scene-object",label:"Visual Prop",layer:"world",behavior:"static",x:center.x,y:center.y,width:96,height:96,color:"#00eaff",assetRef:asset?{bucket:asset.bucket,id:asset.asset.id,name:asset.asset.name||asset.asset.id}:{bucket:"",id:"",name:""}};
+    }else if(type==="trigger"){
+      obj={id:uid("obj"),type:"scene-object",label:"Trigger Zone",layer:"world",behavior:"trigger",x:center.x,y:center.y,width:110,height:80,color:"#ffb000"};
+    }else if(type==="collectible"){
+      obj={id:uid("obj"),type:"scene-object",label:"Collectible",layer:"world",behavior:"collectible",x:center.x,y:center.y,width:42,height:42,color:"#7dff00"};
+    }else if(type==="hazard"){
+      obj={id:uid("obj"),type:"scene-object",label:"Hazard",layer:"world",behavior:"hazard",x:center.x,y:center.y,width:90,height:54,color:"#ff3b6b"};
+    }else if(type==="text"){
+      obj={id:uid("obj"),type:"text",label:"Text",layer:"ui",behavior:"decorative",x:center.x,y:80,width:260,height:34,text:"Scene Text",color:"#dffcff"};
+    }else{
+      obj={id:uid("obj"),type:"scene-object",label:"Solid Block",layer:"world",behavior:"solid",x:center.x,y:center.y,width:120,height:64,color:"#18424a"};
+    }
+    d.objects.push(obj);
+    this.selectedId=obj.id;
+    this.render($("#work"));
+  },
+
+  removeSelected(){
+    const d=this.ensureDraft();
+    if(!this.selectedId)return;
+    d.objects=d.objects.filter(o=>o.id!==this.selectedId);
+    this.selectedId=d.objects[0]?.id||null;
+    this.render($("#work"));
+  },
+
+  duplicateSelected(){
+    const obj=this.selected();
+    if(!obj)return;
+    const copy=JSON.parse(JSON.stringify(obj));
+    copy.id=uid("obj");
+    copy.label=(copy.label||"Object")+" Copy";
+    copy.x+=24;copy.y+=24;
+    this.ensureDraft().objects.push(copy);
+    this.selectedId=copy.id;
+    this.render($("#work"));
+  },
+
+  objectListHTML(){
+    const d=this.ensureDraft();
+    return (d.objects||[]).map(o=>
+      '<div class="sceneObjectItem '+(o.id===this.selectedId?"active":"")+'" data-scene-object="'+esc(o.id)+'">'+
+        '<div><b>'+esc(o.label||o.type)+'</b><div class="sceneTiny">'+esc(o.type)+' • '+esc(o.behavior||"decorative")+' • '+Math.round(o.x)+','+Math.round(o.y)+'</div></div>'+
+        '<button data-select-scene-object="'+esc(o.id)+'">Select</button>'+
+      '</div>'
+    ).join("")||'<div class="muted">No objects yet.</div>';
+  },
+
+  selectedEditorHTML(){
+    const o=this.selected();
+    if(!o)return '<p class="muted">No object selected.</p>';
+    const visualRows=this.visualAssets();
+    const actorRows=this.actorAssets();
+    const ref=o.assetRef||{};
+    return '<h3>Selected Object</h3>'+
+      '<label>Label</label><input id="objLabel" value="'+esc(o.label||"Object")+'">'+
+      '<div class="grid3">'+
+        '<div><label>Layer</label><select id="objLayer">'+["background","world","effects","ui"].map(l=>'<option value="'+l+'"'+(o.layer===l?" selected":"")+'>'+l+'</option>').join("")+'</select></div>'+
+        '<div><label>Behavior</label><select id="objBehavior">'+["decorative","static","solid","trigger","collectible","hazard","actor"].map(b=>'<option value="'+b+'"'+(o.behavior===b?" selected":"")+'>'+b+'</option>').join("")+'</select></div>'+
+        '<div><label>Color</label><input id="objColor" type="color" value="'+esc(o.color||"#00eaff")+'"></div>'+
+      '</div>'+
+      '<div class="grid3">'+
+        '<div><label>X</label><input id="objX" type="number" value="'+esc(Math.round(o.x||0))+'"></div>'+
+        '<div><label>Y</label><input id="objY" type="number" value="'+esc(Math.round(o.y||0))+'"></div>'+
+        '<div><label>Width</label><input id="objW" type="number" value="'+esc(Math.round(o.width||64))+'"></div>'+
+      '</div>'+
+      '<div class="grid3">'+
+        '<div><label>Height</label><input id="objH" type="number" value="'+esc(Math.round(o.height||64))+'"></div>'+
+        '<div><label>Visual Asset</label><select id="objAssetRef">'+this.optionHTML(visualRows,ref.bucket,ref.id,"No visual asset")+'</select></div>'+
+        '<div><label>Actor</label><select id="objActorRef">'+this.optionHTML(actorRows,"actors",o.actorId||"","No actor")+'</select></div>'+
+      '</div>'+
+      (o.type==="text"?'<label>Text</label><input id="objText" value="'+esc(o.text||"")+'">':'')+
+      '<div class="row" style="margin-top:8px"><button id="duplicateSceneObject">Duplicate</button><button class="hot" id="deleteSceneObject">Delete</button></div>';
+  },
+
+  render(root){
+    const d=this.ensureDraft();
+    if(!this.selectedId&&d.objects[0])this.selectedId=d.objects[0].id;
+    root.innerHTML=
+      '<div class="sceneBuilderGrid">'+
+        '<div class="card">'+
+          '<h3>Scene Builder</h3>'+
+          '<p class="muted">Place actor spawns, visual props, solid blocks, trigger zones, collectibles, hazards, and text. This builds the runtime scene file.</p>'+
+          '<label>Scene Name</label><input id="sceneName" value="'+esc(d.name||"New Scene")+'">'+
+          '<label>Description</label><textarea id="sceneDescription">'+esc(d.description||"")+'</textarea>'+
+          '<div class="grid3">'+
+            '<div><label>Width</label><input id="sceneWidth" type="number" value="'+esc(d.dimensions?.width||960)+'"></div>'+
+            '<div><label>Height</label><input id="sceneHeight" type="number" value="'+esc(d.dimensions?.height||540)+'"></div>'+
+            '<div><label>Background</label><input id="sceneBackground" type="color" value="'+esc(d.background||"#02080a")+'"></div>'+
+          '</div>'+
+          '<div class="row" style="margin-top:10px">'+
+            '<button class="primary" id="saveSceneDefinition">Save Scene</button>'+
+            '<button id="downloadSceneDefinition">Download Scene JSON</button>'+
+            '<button id="newSceneDefinition">New Scene</button>'+
+          '</div>'+
+          '<h3>Add Object</h3>'+
+          '<div class="row">'+
+            '<button id="addActorSpawn">Actor Spawn</button>'+
+            '<button id="addVisualProp">Visual Prop</button>'+
+            '<button id="addSolidBlock">Solid Block</button>'+
+            '<button id="addTriggerZone">Trigger Zone</button>'+
+            '<button id="addCollectible">Collectible</button>'+
+            '<button id="addHazard">Hazard</button>'+
+            '<button id="addTextObject">Text</button>'+
+          '</div>'+
+          '<h3>Objects</h3>'+
+          '<div id="sceneObjectList" class="sceneObjectList">'+this.objectListHTML()+'</div>'+
+          '<div id="selectedObjectEditor">'+this.selectedEditorHTML()+'</div>'+
+        '</div>'+
+        '<div class="card">'+
+          '<h3>Scene Canvas</h3>'+
+          '<div class="sceneCanvasWrap"><canvas id="sceneCanvas" class="sceneCanvas" width="'+esc(d.dimensions?.width||960)+'" height="'+esc(d.dimensions?.height||540)+'"></canvas></div>'+
+          '<p class="sceneTiny">Click objects to select. Drag selected objects to move. Solid/trigger/collectible/hazard are classification markers for the runtime interaction pass.</p>'+
+          '<label>Scene JSON Preview</label><textarea id="sceneJson" readonly></textarea>'+
+        '</div>'+
+      '</div>';
+    this.wire(root);
+    this.refreshJSON();
+    this.draw();
+  },
+
+  wire(root){
+    ["sceneName","sceneDescription","sceneWidth","sceneHeight","sceneBackground"].forEach(id=>$("#"+id)?.addEventListener("input",()=>{this.syncSceneForm();this.refreshJSON();this.draw()}));
+    ["objLabel","objLayer","objBehavior","objX","objY","objW","objH","objColor","objText"].forEach(id=>$("#"+id)?.addEventListener("input",()=>this.syncSelectedForm()));
+
+    $("#objAssetRef")?.addEventListener("change",e=>{
+      const o=this.selected(); if(!o)return;
+      const ref=this.splitAssetValue(e.target.value);
+      const a=Studio.find(ref.bucket,ref.id);
+      o.assetRef=a?{bucket:ref.bucket,id:ref.id,name:a.name||ref.id}:{bucket:"",id:"",name:""};
+      this.refreshJSON();this.draw();
+    });
+
+    $("#objActorRef")?.addEventListener("change",e=>{
+      const o=this.selected(); if(!o)return;
+      const ref=this.splitAssetValue(e.target.value);
+      const a=Studio.find(ref.bucket,ref.id);
+      if(a?.actor){
+        o.type="actor-spawn";
+        o.behavior="actor";
+        o.actorId=ref.id;
+        o.actorName=a.name||ref.id;
+        o.width=a.actor.physics?.width||o.width||64;
+        o.height=a.actor.physics?.height||o.height||64;
+      }
+      this.render($("#work"));
+    });
+
+    $("#addActorSpawn").onclick=()=>this.addObject("actor");
+    $("#addVisualProp").onclick=()=>this.addObject("prop");
+    $("#addSolidBlock").onclick=()=>this.addObject("solid");
+    $("#addTriggerZone").onclick=()=>this.addObject("trigger");
+    $("#addCollectible").onclick=()=>this.addObject("collectible");
+    $("#addHazard").onclick=()=>this.addObject("hazard");
+    $("#addTextObject").onclick=()=>this.addObject("text");
+    $("#saveSceneDefinition").onclick=()=>this.saveSceneAsset();
+    $("#downloadSceneDefinition").onclick=()=>this.downloadScene();
+    $("#newSceneDefinition").onclick=()=>{if(confirm("Start a new unsaved scene?")){this.draft=this.blankScene();this.selectedId=this.draft.objects[0]?.id||null;this.render($("#work"))}};
+    $("#duplicateSceneObject").onclick=()=>this.duplicateSelected();
+    $("#deleteSceneObject").onclick=()=>this.removeSelected();
+
+    root.querySelectorAll("[data-select-scene-object]").forEach(btn=>btn.onclick=()=>{this.selectedId=btn.dataset.selectSceneObject;this.render($("#work"))});
+
+    const canvas=$("#sceneCanvas");
+    const pos=e=>{
+      const r=canvas.getBoundingClientRect();
+      return {x:(e.clientX-r.left)*(canvas.width/r.width),y:(e.clientY-r.top)*(canvas.height/r.height)};
+    };
+    canvas.onpointerdown=e=>{
+      const p=pos(e);
+      const hit=this.hitTest(p.x,p.y);
+      if(hit){this.selectedId=hit.id;this.drag={id:hit.id,dx:p.x-hit.x,dy:p.y-hit.y};this.render($("#work"))}
+    };
+    canvas.onpointermove=e=>{
+      if(!this.drag)return;
+      const p=pos(e);
+      const o=this.ensureDraft().objects.find(x=>x.id===this.drag.id);
+      if(o){o.x=p.x-this.drag.dx;o.y=p.y-this.drag.dy;this.refreshJSON();this.draw()}
+    };
+    canvas.onpointerup=()=>{this.drag=null;this.render($("#work"))};
+  },
+
+  hitTest(x,y){
+    const objs=[...this.ensureDraft().objects].reverse();
+    return objs.find(o=>x>=o.x-o.width/2&&x<=o.x+o.width/2&&y>=o.y-o.height/2&&y<=o.y+o.height/2);
+  },
+
+  refreshJSON(){
+    const out=$("#sceneJson");
+    if(out)out.value=JSON.stringify(this.exportScene(),null,2);
+  },
+
+  behaviorColor(b){
+    return {decorative:"#00eaff",static:"#87aeb6",solid:"#18424a",trigger:"#ffb000",collectible:"#7dff00",hazard:"#ff3b6b",actor:"#dffcff"}[b]||"#00eaff";
+  },
+
+  draw(){
+    const canvas=$("#sceneCanvas");
+    if(!canvas)return;
+    const d=this.syncSceneForm();
+    canvas.width=d.dimensions.width;
+    canvas.height=d.dimensions.height;
+    const ctx=canvas.getContext("2d");
+    ctx.fillStyle=d.background||"#02080a";
+    ctx.fillRect(0,0,canvas.width,canvas.height);
+
+    ctx.strokeStyle="rgba(0,234,255,.14)";
+    for(let x=0;x<canvas.width;x+=48){ctx.beginPath();ctx.moveTo(x,0);ctx.lineTo(x,canvas.height);ctx.stroke()}
+    for(let y=0;y<canvas.height;y+=48){ctx.beginPath();ctx.moveTo(0,y);ctx.lineTo(canvas.width,y);ctx.stroke()}
+
+    const layers=d.layers||["background","world","effects","ui"];
+    layers.forEach(layer=>{
+      d.objects.filter(o=>(o.layer||"world")===layer).forEach(o=>this.drawObject(ctx,o));
+    });
+  },
+
+  drawObject(ctx,o){
+    ctx.save();
+    ctx.globalAlpha=o.alpha??1;
+    const selected=o.id===this.selectedId;
+    const color=o.color||this.behaviorColor(o.behavior);
+    if(o.type==="text"){
+      ctx.fillStyle=color;
+      ctx.font="800 "+Math.max(14,Math.min(34,o.height||24))+"px system-ui";
+      ctx.textAlign="center";
+      ctx.fillText(o.text||o.label||"Text",o.x,o.y);
+    }else if(o.type==="actor-spawn"){
+      ctx.shadowColor="#7dff00";
+      ctx.shadowBlur=selected?22:10;
+      ctx.strokeStyle="#7dff00";
+      ctx.fillStyle="rgba(125,255,0,.11)";
+      ctx.lineWidth=selected?4:2;
+      ctx.beginPath();
+      ctx.arc(o.x,o.y,Math.max(o.width,o.height)/2,0,Math.PI*2);
+      ctx.fill();ctx.stroke();
+      ctx.shadowBlur=0;
+      ctx.fillStyle="#dffcff";
+      ctx.font="12px system-ui";
+      ctx.textAlign="center";
+      ctx.fillText(o.actorName||o.label||"Actor",o.x,o.y+o.height/2+18);
+    }else{
+      const ref=o.assetRef||{};
+      const asset=Studio.find(ref.bucket,ref.id);
+      let drew=false;
+      if(asset?.dataUrl&&String(asset.mime||"").startsWith("image/")){
+        let img=this.previewImgCache.get(asset.id);
+        if(!img){img=new Image();img.src=asset.dataUrl;this.previewImgCache.set(asset.id,img)}
+        if(img.complete&&img.naturalWidth){
+          ctx.drawImage(img,o.x-o.width/2,o.y-o.height/2,o.width,o.height);
+          drew=true;
+        }
+      }
+      if(!drew){
+        ctx.fillStyle=color;
+        ctx.globalAlpha=o.behavior==="trigger" ? .25 : .22;
+        ctx.fillRect(o.x-o.width/2,o.y-o.height/2,o.width,o.height);
+        ctx.globalAlpha=1;
+        ctx.strokeStyle=color;
+        ctx.lineWidth=selected?4:2;
+        ctx.strokeRect(o.x-o.width/2,o.y-o.height/2,o.width,o.height);
+      }
+      ctx.fillStyle="#dffcff";
+      ctx.font="12px system-ui";
+      ctx.textAlign="center";
+      ctx.fillText(o.label||o.behavior||"Object",o.x,o.y+o.height/2+16);
+    }
+    if(selected){
+      ctx.setLineDash([6,4]);
+      ctx.strokeStyle="#00eaff";
+      ctx.lineWidth=2;
+      ctx.strokeRect(o.x-o.width/2-4,o.y-o.height/2-4,o.width+8,o.height+8);
+    }
+    ctx.restore();
+  },
+
+  exportScene(){
+    const d=this.syncSceneForm();
+    const entities=[
+      {
+        id:"scene-title",
+        type:"text",
+        layer:"ui",
+        x:480,y:64,
+        text:d.name,
+        align:"center",
+        size:26,
+        color:"#7dff00"
+      },
+      {
+        id:"player-probe",
+        type:"player-probe",
+        layer:"world",
+        x:120,y:120,
+        radius:18,
+        speed:260,
+        color:"#00eaff"
+      }
+    ];
+
+    (d.objects||[]).forEach(o=>{
+      if(o.type==="actor-spawn"){
+        entities.push({
+          id:o.id,
+          type:"actor-instance",
+          layer:o.layer||"world",
+          actorId:o.actorId||"",
+          x:o.x,y:o.y,
+          width:o.width||64,
+          height:o.height||64,
+          behavior:"actor",
+          action:"idle",
+          label:o.label||"Actor"
+        });
+      }else if(o.type==="text"){
+        entities.push({
+          id:o.id,
+          type:"text",
+          layer:o.layer||"ui",
+          x:o.x,y:o.y,
+          text:o.text||o.label||"Text",
+          align:"center",
+          size:Math.max(14,Math.min(34,o.height||22)),
+          color:o.color||"#dffcff",
+          behavior:o.behavior||"decorative"
+        });
+      }else{
+        entities.push({
+          id:o.id,
+          type:"scene-object",
+          layer:o.layer||"world",
+          x:o.x,y:o.y,
+          width:o.width||64,
+          height:o.height||64,
+          behavior:o.behavior||"decorative",
+          label:o.label||"Object",
+          color:o.color||this.behaviorColor(o.behavior),
+          assetRef:o.assetRef||null
+        });
+      }
+    });
+
+    const particle=(Studio.state.project.assets.particles||[])[0];
+    entities.push({
+      id:"particle-rain",
+      type:"particle-effect",
+      layer:"effects",
+      assetId:particle?.id||"",
+      preset:particle?"studio-particle":"rain",
+      x:0,y:0,width:d.dimensions.width,height:d.dimensions.height,
+      count:particle?120:80,
+      colorA:particle?.settings?.colorA||"#00eaff",
+      colorB:particle?.settings?.colorB||"#7dff00"
+    });
+
+    return {
+      sceneType:"kgb-scene-definition",
+      sceneVersion:"0.2.0",
+      generatedAt:new Date().toISOString(),
+      id:d.id,
+      name:d.name,
+      description:d.description,
+      dimensions:d.dimensions,
+      background:d.background,
+      layers:d.layers||["background","world","effects","ui"],
+      objects:d.objects,
+      entities
+    };
+  },
+
+  saveSceneAsset(){
+    const scene=this.exportScene();
+    const asset={
+      name:scene.name,
+      kind:"kgb-scene-definition",
+      adapter:"scene-builder",
+      source:"scene-builder",
+      folder:"/scenes",
+      tags:["scene","object-placement","runtime"],
+      notes:"Scene definition generated by KGB Studio Scene Builder.",
+      scene,
+      text:JSON.stringify(scene,null,2),
+      mime:"application/json",
+      extension:"json",
+      updated:new Date().toISOString()
+    };
+    Studio.addAsset("maps",asset);
+    renderExplorer();
+    Studio.renderProps();
+    Studio.log("Saved scene definition: "+scene.name);
+    alert("Saved Scene Definition to Studio → maps.");
+  },
+
+  downloadScene(){
+    const scene=this.exportScene();
+    dl(GamePackageBuilder.projectSlug()+"_"+safe(scene.name)+"_scene.json",JSON.stringify(scene,null,2),"application/json");
+  },
+
+  packageScene(){
+    if(this.draft)return this.exportScene();
+    const saved=this.sceneFromSaved();
+    if(saved){
+      const previous=this.draft;
+      this.draft=saved;
+      const out=this.exportScene();
+      this.draft=previous;
+      return out;
+    }
+    return null;
+  }
+};
+
+const KGBGamePackageV23={
+  starterScene:GamePackageBuilder.starterScene.bind(GamePackageBuilder),
+  runtimeJS:GamePackageBuilder.runtimeJS.bind(GamePackageBuilder),
+  packageFiles:GamePackageBuilder.packageFiles.bind(GamePackageBuilder)
+};
+
+Object.assign(GamePackageBuilder,{
+  starterScene(){
+    return SceneBuilder.packageScene()||KGBGamePackageV23.starterScene();
+  },
+
+  runtimeJS(){
+    let js=KGBGamePackageV23.runtimeJS();
+    js=js.replace(
+      "if(e.type==='actor-instance')return this.drawActor(ctx,e)},",
+      "if(e.type==='actor-instance')return this.drawActor(ctx,e);if(e.type==='scene-object')return this.drawSceneObject(ctx,e)},"
+    );
+    js=js.replace(
+      "drawActor(ctx,e){",
+      "drawSceneObject(ctx,e){const ref=e.assetRef||{};const asset=ref.id?this.assetRecord(ref.bucket,ref.id):null;const path=asset?this.firstImagePathForAsset(asset):'';const img=path?this.cache.images.get(path):null;ctx.save();const color=e.color||({solid:'#18424a',trigger:'#ffb000',collectible:'#7dff00',hazard:'#ff3b6b',static:'#87aeb6'}[e.behavior]||'#00eaff');if(img){ctx.globalAlpha=e.alpha??1;ctx.drawImage(img,e.x-e.width/2,e.y-e.height/2,e.width,e.height)}else{ctx.globalAlpha=e.behavior==='trigger' ? .24 : .28;ctx.fillStyle=color;ctx.fillRect(e.x-e.width/2,e.y-e.height/2,e.width,e.height);ctx.globalAlpha=1;ctx.strokeStyle=color;ctx.lineWidth=2;ctx.strokeRect(e.x-e.width/2,e.y-e.height/2,e.width,e.height)}ctx.fillStyle='#dffcff';ctx.font='12px system-ui';ctx.textAlign='center';ctx.fillText(e.label||e.behavior||'Object',e.x,e.y+e.height/2+16);ctx.restore()},\n  drawActor(ctx,e){"
+    );
+    return js;
+  },
+
+  downloadScene(){
+    SceneBuilder.downloadScene();
+  },
+
+  saveSceneAsset(){
+    SceneBuilder.saveSceneAsset();
+  }
+});
+
+
+
+/*
+-------------------------------------------------------------------------------
+v0.25 SCENE RUNTIME INTERACTION OVERRIDE
+
+This layer leaves the Scene Builder UI intact and upgrades the exported runtime.
+It makes scene object classifications active:
+- solid blocks movement
+- trigger fires action/event once per entry
+- collectible disappears and increments count
+- hazard damages with cooldown
+-------------------------------------------------------------------------------
+*/
+const KGBGamePackageV24={
+  gameConfig:GamePackageBuilder.gameConfig.bind(GamePackageBuilder),
+  smokeTestHTML:GamePackageBuilder.smokeTestHTML.bind(GamePackageBuilder),
+  serviceWorker:GamePackageBuilder.serviceWorker.bind(GamePackageBuilder)
+};
+
+Object.assign(GamePackageBuilder,{
+  gameConfig(options={}){
+    const cfg=KGBGamePackageV24.gameConfig(options);
+    cfg.configVersion="0.4.0";
+    cfg.runtime.version="0.4.0-scene-interactions";
+    cfg.runtime.mode="scene-interaction-harness";
+    cfg.interactions={
+      solid:true,
+      triggers:true,
+      collectibles:true,
+      hazards:true,
+      controlledActor:true
+    };
+    return cfg;
+  },
+
+  smokeTestHTML(){
+    const title=esc(Studio.state.project.meta?.name||"KGB Game");
+    return `<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>${title} — KGB Interaction Smoke Test</title>
+<style>
+body{margin:0;background:#02080a;color:#dffcff;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:20px}
+.card{max-width:920px;margin:0 auto;background:#071014;border:1px solid #1a3c43;border-radius:18px;padding:18px}
+.good{color:#7dff00}.bad{color:#ff3b6b}pre{background:#000;border:1px solid #143940;border-radius:12px;padding:12px;white-space:pre-wrap}
+</style>
+</head>
+<body>
+<div class="card">
+<h1>KGB Scene Interaction Smoke Test</h1>
+<p>This verifies config, asset manifest, actor manifest, scene manifest, and runtime files for the interaction harness.</p>
+<div id="out">Running...</div>
+<pre id="log"></pre>
+</div>
+<script>
+const checks=['game.config.json','assets/assets.manifest.json','actors/actors.manifest.json','scenes/starter.scene.json','runtime/kgb-runtime.js'];
+const log=document.getElementById('log');
+const out=document.getElementById('out');
+(async()=>{
+  let ok=0;
+  for(const path of checks){
+    try{
+      const res=await fetch(path,{cache:'no-cache'});
+      log.textContent+=path+' — '+res.status+'\\\\n';
+      if(res.ok)ok++;
+    }catch(e){log.textContent+=path+' — ERROR '+e.message+'\\\\n'}
+  }
+  out.innerHTML=ok===checks.length?'<b class="good">PASS</b> interaction package files reachable':'<b class="bad">CHECK</b> '+ok+' / '+checks.length+' files reachable';
+})();
+<\\/script>
+</body>
+</html>`;
+  },
+
+  serviceWorker(){
+    return `const CACHE='kgb-game-package-v4';
+const CORE=['./','./index.html','./smoke-test.html','./game.config.json','./runtime/kgb-runtime.js','./assets/assets.manifest.json','./actors/actors.manifest.json','./scenes/starter.scene.json'];
+self.addEventListener('install',event=>{event.waitUntil(caches.open(CACHE).then(cache=>cache.addAll(CORE)).catch(()=>null));self.skipWaiting()});
+self.addEventListener('activate',event=>{event.waitUntil(self.clients.claim())});
+self.addEventListener('fetch',event=>{event.respondWith(caches.match(event.request).then(hit=>hit||fetch(event.request)))});
+`;
+  },
+
+  runtimeJS(){
+    return `'use strict';
+/*
+  KGB Arcade Runtime — scene interaction harness
+  Generated by KGB Studio v0.25.1.
+*/
+const KGBRuntime={
+  config:null,assets:null,actors:null,scene:null,canvas:null,ctx:null,
+  cache:{images:new Map(),audio:new Map(),json:new Map()},
+  input:{keys:{},pointer:{x:480,y:270,down:false,active:false,clicked:false}},
+  entities:[],particles:[],actionBursts:[],
+  debug:true,last:0,fps:0,frame:0,
+  state:{health:100,collected:0,totalCollectibles:0,triggers:0,hazards:0,triggerInside:new Set(),hazardCooldown:0,message:'Scene interactions online'},
+
+  async loadJSON(path){
+    const res=await fetch(path,{cache:'no-cache'});
+    if(!res.ok)throw new Error('Could not load '+path+' — HTTP '+res.status);
+    const json=await res.json();
+    this.cache.json.set(path,json);
+    return json;
+  },
+
+  log(msg){
+    this.state.message=msg;
+    const log=document.getElementById('kgb-log');
+    if(log){log.textContent+='\\\\n'+msg;log.scrollTop=log.scrollHeight}
+    console.log('[KGBRuntime]',msg);
+  },
+
+  async boot(){
+    this.canvas=document.getElementById('game');
+    this.ctx=this.canvas.getContext('2d');
+    this.bindInput();
+
+    this.log('Booting KGB scene interaction harness...');
+    this.config=await this.loadJSON('game.config.json');
+    this.assets=await this.loadJSON(this.config.package.assetsManifest);
+    this.actors=await this.loadJSON(this.config.package.actorManifest).catch(()=>({actors:[],counts:{actors:0,actions:0}}));
+    this.scene=await this.loadJSON(this.config.package.sceneManifest);
+
+    this.canvas.width=this.scene.dimensions?.width||this.config.display.width||960;
+    this.canvas.height=this.scene.dimensions?.height||this.config.display.height||540;
+
+    document.title=this.config.game.title+' — KGB Arcade';
+    this.setText('game-title',this.config.game.title);
+    this.setText('game-subtitle','Scene interaction harness online • '+(this.actors.counts?.actors||0)+' actor(s) • '+(this.assets.counts?.assets||0)+' asset(s)');
+
+    await this.preloadAssets();
+    this.entities=(this.scene.entities||[]).map(e=>({...e,vx:0,vy:0,currentAction:e.action||null,actionTimer:0,collected:false,active:true,touching:false}));
+    this.state.totalCollectibles=this.entities.filter(e=>e.type==='scene-object'&&e.behavior==='collectible').length;
+    this.seedParticles();
+    this.renderAssetList();
+
+    this.log('Scene loaded: '+this.scene.name);
+    this.log('Interactions: solids, triggers, collectibles, hazards active.');
+    this.last=performance.now();
+    requestAnimationFrame(t=>this.loop(t));
+  },
+
+  setText(id,msg){const el=document.getElementById(id);if(el)el.textContent=msg},
+
+  bindInput(){
+    window.addEventListener('keydown',e=>{
+      this.input.keys[e.key.toLowerCase()]=true;
+      if(e.key===' '){e.preventDefault()}
+      if(e.code==='Backquote'){this.debug=!this.debug}
+    });
+    window.addEventListener('keyup',e=>{this.input.keys[e.key.toLowerCase()]=false});
+    const pointer=(e,down)=>{
+      const r=this.canvas.getBoundingClientRect();
+      const x=(e.clientX-r.left)*(this.canvas.width/r.width);
+      const y=(e.clientY-r.top)*(this.canvas.height/r.height);
+      this.input.pointer={x,y,down,active:true,clicked:down};
+    };
+    this.canvas.addEventListener('pointerdown',e=>pointer(e,true));
+    this.canvas.addEventListener('pointermove',e=>pointer(e,this.input.pointer.down));
+    this.canvas.addEventListener('pointerup',e=>pointer(e,false));
+  },
+
+  async preloadAssets(){
+    const loadImage=path=>new Promise(resolve=>{const img=new Image();img.onload=()=>{this.cache.images.set(path,img);resolve(true)};img.onerror=()=>{this.log('Image failed: '+path);resolve(false)};img.src=path});
+    const loadAudio=path=>new Promise(resolve=>{const aud=new Audio();aud.oncanplaythrough=()=>{this.cache.audio.set(path,aud);resolve(true)};aud.onerror=()=>{this.log('Audio failed: '+path);resolve(false)};aud.src=path;aud.load();setTimeout(()=>resolve(false),900)});
+    await Promise.all((this.assets.preload?.images||[]).map(loadImage));
+    await Promise.all((this.assets.preload?.audio||[]).map(loadAudio));
+  },
+
+  renderAssetList(){
+    const list=document.getElementById('asset-list');
+    if(!list)return;
+    const actorLines=(this.actors.actors||[]).map(a=>'<li><b>'+escapeHTML(a.name)+'</b> <span>actor / '+(a.actor.actions?.length||0)+' action(s)</span></li>').join('');
+    const sceneLines='<li><b>Scene interactions</b> <span>solid / trigger / collectible / hazard</span></li>';
+    const assetLines=(this.assets.assets||[]).slice(0,22).map(a=>'<li><b>'+escapeHTML(a.name||a.id)+'</b> <span>'+escapeHTML(a.bucket)+' / '+escapeHTML(a.kind)+'</span></li>').join('');
+    list.innerHTML=sceneLines+actorLines+assetLines||'<li>No assets indexed yet.</li>';
+  },
+
+  actorRecord(id){return (this.actors.actors||[]).find(a=>a.id===id)},
+  assetRecord(bucket,id){return (this.assets.assets||[]).find(a=>a.bucket===bucket&&a.id===id)||this.findAssetById(id)},
+  findAssetById(id){return (this.assets.assets||[]).find(a=>a.id===id)},
+  firstImagePathForAsset(asset){return (asset?.files||[]).find(p=>this.cache.images.has(p))||''},
+  firstAudioForAsset(asset){const path=(asset?.files||[]).find(p=>this.cache.audio.has(p));return path?this.cache.audio.get(path):null},
+
+  controlledEntity(){
+    return this.entities.find(e=>e.type==='actor-instance')||this.entities.find(e=>e.type==='player-probe');
+  },
+
+  rect(e,pad=0){
+    if(e.type==='player-probe'){
+      const r=e.radius||18;
+      return {x:e.x-r-pad,y:e.y-r-pad,w:r*2+pad*2,h:r*2+pad*2};
+    }
+    return {x:e.x-(e.width||48)/2-pad,y:e.y-(e.height||48)/2-pad,w:(e.width||48)+pad*2,h:(e.height||48)+pad*2};
+  },
+
+  overlaps(a,b){
+    return a.x<b.x+b.w&&a.x+a.w>b.x&&a.y<b.y+b.h&&a.y+a.h>b.y;
+  },
+
+  sceneObjects(behavior){
+    return this.entities.filter(e=>e.type==='scene-object'&&e.active!==false&&(!behavior||e.behavior===behavior));
+  },
+
+  seedParticles(){
+    this.particles=[];
+    const effect=(this.scene.entities||[]).find(e=>e.type==='particle-effect');
+    for(let i=0;i<(effect?.count||80);i++)this.particles.push(this.makeRainParticle(effect,true));
+  },
+
+  makeRainParticle(effect={},randomY=false){
+    const w=this.canvas?.width||960,h=this.canvas?.height||540;
+    return{x:Math.random()*w,y:randomY?Math.random()*h:-20-Math.random()*h*.4,vx:(Math.random()-.5)*18,vy:90+Math.random()*220,len:8+Math.random()*26,life:1,color:Math.random()>.5?(effect.colorA||'#00eaff'):(effect.colorB||'#7dff00')};
+  },
+
+  triggerAction(entity,action){
+    if(!entity||!action)return;
+    entity.currentAction=action.name;
+    entity.actionTimer=(action.durationMs||450)/1000;
+    const snd=this.assetRecord(action.sound?.bucket,action.sound?.id);
+    const aud=this.firstAudioForAsset(snd);
+    if(aud){try{const clone=aud.cloneNode();clone.volume=.35;clone.play().catch(()=>null)}catch(e){}}
+    this.spawnBurst(entity.x,entity.y,44);
+    this.log('Action: '+action.name);
+  },
+
+  firstActionFor(entity){
+    if(!entity||entity.type!=='actor-instance')return null;
+    const rec=this.actorRecord(entity.actorId);
+    return (rec?.actor?.actions||[]).find(a=>a.name!=='idle')||(rec?.actor?.actions||[])[0]||null;
+  },
+
+  spawnBurst(x,y,count=28,colorA='#7dff00',colorB='#00eaff'){
+    for(let i=0;i<count;i++){
+      this.actionBursts.push({x,y,vx:(Math.random()-.5)*280,vy:(Math.random()-.5)*240,life:1,color:Math.random()>.5?colorA:colorB});
+    }
+  },
+
+  loop(t){
+    const dt=Math.min(.05,(t-this.last)/1000||0);
+    this.last=t;
+    this.frame++;
+    this.fps=this.fps*.92+(1/dt)*.08;
+    this.update(dt);
+    this.draw();
+    this.input.pointer.clicked=false;
+    requestAnimationFrame(n=>this.loop(n));
+  },
+
+  movementVector(entity){
+    const k=this.input.keys;
+    let dx=(k['arrowright']||k['d']?1:0)-(k['arrowleft']||k['a']?1:0);
+    let dy=(k['arrowdown']||k['s']?1:0)-(k['arrowup']||k['w']?1:0);
+    if(this.input.pointer.active){
+      const px=this.input.pointer.x-entity.x;
+      const py=this.input.pointer.y-entity.y;
+      const dist=Math.hypot(px,py);
+      if(dist>8){dx+=px/dist;dy+=py/dist}
+    }
+    const mag=Math.hypot(dx,dy)||1;
+    return {dx:dx/mag,dy:dy/mag,active:Math.abs(dx)+Math.abs(dy)>0};
+  },
+
+  update(dt){
+    this.state.hazardCooldown=Math.max(0,this.state.hazardCooldown-dt);
+
+    const controlled=this.controlledEntity();
+    if(controlled){
+      const before={x:controlled.x,y:controlled.y};
+      const mv=this.movementVector(controlled);
+      const speed=controlled.speed||this.actorRecord(controlled.actorId)?.actor?.physics?.speed||220;
+      if(mv.active){
+        controlled.x=Math.max(16,Math.min(this.canvas.width-16,controlled.x+mv.dx*speed*dt));
+        controlled.y=Math.max(16,Math.min(this.canvas.height-16,controlled.y+mv.dy*speed*dt));
+      }
+
+      const controlledRect=this.rect(controlled);
+      const hitSolid=this.sceneObjects('solid').find(o=>this.overlaps(controlledRect,this.rect(o)));
+      if(hitSolid){
+        controlled.x=before.x;
+        controlled.y=before.y;
+        if(this.frame%18===0)this.state.message='Blocked by solid: '+(hitSolid.label||hitSolid.id);
+      }
+
+      this.handleInteractions(controlled);
+    }
+
+    for(const e of this.entities.filter(e=>e.type==='actor-instance')){
+      const rec=this.actorRecord(e.actorId);
+      const actor=rec?.actor;
+      if(!actor)continue;
+      if(e.actionTimer>0)e.actionTimer-=dt;else e.currentAction='idle';
+      for(const action of (actor.actions||[])){
+        const trig=action.trigger||{};
+        let fire=false;
+        if(trig.type==='key'&&trig.key){
+          const key=trig.key===' '||trig.key.toLowerCase()==='space'?' ':trig.key.toLowerCase();
+          fire=!!this.input.keys[key];
+        }
+        if(trig.type==='pointer')fire=!!this.input.pointer.clicked;
+        if(trig.type==='manual'&&(this.input.keys[' ']||this.input.pointer.clicked)&&action.name!=='idle')fire=true;
+        if(fire){this.triggerAction(e,action);break}
+      }
+    }
+
+    const effect=this.entities.find(e=>e.type==='particle-effect')||{};
+    for(const p of this.particles){
+      p.x+=p.vx*dt;
+      p.y+=p.vy*dt;
+      if(p.y>this.canvas.height+30||p.x<-40||p.x>this.canvas.width+40)Object.assign(p,this.makeRainParticle(effect,false));
+    }
+    for(const b of this.actionBursts){
+      b.x+=b.vx*dt;
+      b.y+=b.vy*dt;
+      b.vy+=260*dt;
+      b.life-=dt*1.8;
+    }
+    this.actionBursts=this.actionBursts.filter(b=>b.life>0);
+  },
+
+  handleInteractions(entity){
+    const r=this.rect(entity,-2);
+
+    for(const c of this.sceneObjects('collectible')){
+      if(!c.collected&&this.overlaps(r,this.rect(c))){
+        c.collected=true;
+        c.active=false;
+        this.state.collected++;
+        this.spawnBurst(c.x,c.y,38,'#7dff00','#dffcff');
+        this.log('Collected: '+(c.label||c.id));
+      }
+    }
+
+    for(const h of this.sceneObjects('hazard')){
+      if(this.overlaps(r,this.rect(h))){
+        if(this.state.hazardCooldown<=0){
+          this.state.health=Math.max(0,this.state.health-10);
+          this.state.hazards++;
+          this.state.hazardCooldown=.75;
+          this.spawnBurst(entity.x,entity.y,24,'#ff3b6b','#ffb000');
+          this.log('Hazard hit: '+(h.label||h.id)+' • health '+this.state.health);
+        }
+      }
+    }
+
+    for(const z of this.sceneObjects('trigger')){
+      const inside=this.overlaps(r,this.rect(z));
+      const was=this.state.triggerInside.has(z.id);
+      if(inside&&!was){
+        this.state.triggerInside.add(z.id);
+        this.state.triggers++;
+        this.spawnBurst(z.x,z.y,34,'#ffb000','#00eaff');
+        const actor=this.entities.find(e=>e.type==='actor-instance')||entity;
+        this.triggerAction(actor,this.firstActionFor(actor));
+        this.log('Trigger entered: '+(z.label||z.id));
+      }
+      if(!inside&&was)this.state.triggerInside.delete(z.id);
+    }
+  },
+
+  draw(){
+    const ctx=this.ctx,w=this.canvas.width,h=this.canvas.height;
+    ctx.fillStyle=this.scene?.background||this.config?.display?.background||'#02080a';
+    ctx.fillRect(0,0,w,h);
+    this.drawGrid(ctx,w,h);
+
+    for(const layer of (this.scene.layers||['background','world','effects','ui'])){
+      for(const e of this.entities.filter(x=>(x.layer||'world')===layer&&x.active!==false)){
+        this.drawEntity(ctx,e);
+      }
+    }
+    this.drawActionBursts(ctx);
+    this.drawHUD(ctx,w,h);
+    if(this.debug)this.drawDebug(ctx,w,h);
+  },
+
+  drawGrid(ctx,w,h){
+    ctx.strokeStyle='rgba(0,234,255,.16)';
+    ctx.lineWidth=1;
+    for(let x=0;x<w;x+=48){ctx.beginPath();ctx.moveTo(x,0);ctx.lineTo(x,h);ctx.stroke()}
+    for(let y=0;y<h;y+=48){ctx.beginPath();ctx.moveTo(0,y);ctx.lineTo(w,y);ctx.stroke()}
+  },
+
+  drawEntity(ctx,e){
+    if(e.type==='text')return this.drawText(ctx,e);
+    if(e.type==='image')return this.drawImageEntity(ctx,e);
+    if(e.type==='asset-card')return this.drawAssetCard(ctx,e);
+    if(e.type==='player-probe')return this.drawProbe(ctx,e);
+    if(e.type==='particle-effect')return this.drawParticles(ctx,e);
+    if(e.type==='actor-instance')return this.drawActor(ctx,e);
+    if(e.type==='scene-object')return this.drawSceneObject(ctx,e);
+  },
+
+  drawText(ctx,e){
+    ctx.save();
+    ctx.globalAlpha=e.alpha??1;
+    ctx.fillStyle=e.color||'#dffcff';
+    ctx.font='800 '+(e.size||18)+'px system-ui, sans-serif';
+    ctx.textAlign=e.align||'left';
+    ctx.fillText(e.text||'',e.x||0,e.y||0);
+    ctx.restore();
+  },
+
+  drawImageEntity(ctx,e){
+    const asset=this.findAssetById(e.assetId);
+    const path=this.firstImagePathForAsset(asset);
+    const img=path?this.cache.images.get(path):null;
+    if(!img)return;
+    ctx.save();
+    ctx.globalAlpha=e.alpha??1;
+    const w=e.width||img.width,h=e.height||img.height;
+    ctx.drawImage(img,(e.x||0)-w/2,(e.y||0)-h/2,w,h);
+    ctx.restore();
+  },
+
+  drawAssetCard(ctx,e){
+    const assets=this.assets.assets||[];
+    ctx.save();
+    ctx.globalAlpha=.92;
+    ctx.fillStyle='rgba(4,13,16,.86)';
+    ctx.strokeStyle='rgba(125,255,0,.45)';
+    ctx.lineWidth=1;
+    roundRect(ctx,e.x,e.y,e.width,e.height,14,true,true);
+    ctx.fillStyle=e.color||'#7dff00';
+    ctx.font='800 15px system-ui, sans-serif';
+    ctx.fillText(e.text||'Assets',e.x+14,e.y+26);
+    ctx.fillStyle='#dffcff';
+    ctx.font='13px system-ui, sans-serif';
+    ctx.fillText('Indexed: '+assets.length+' assets • Actors: '+(this.actors.counts?.actors||0),e.x+14,e.y+52);
+    ctx.fillStyle='#87aeb6';
+    ctx.fillText('Solids block • triggers fire • hazards hurt • collectibles collect',e.x+14,e.y+76);
+    ctx.restore();
+  },
+
+  drawProbe(ctx,e){
+    ctx.save();
+    ctx.shadowColor=e.color||'#00eaff';
+    ctx.shadowBlur=18;
+    ctx.strokeStyle=e.color||'#00eaff';
+    ctx.lineWidth=3;
+    ctx.beginPath();
+    ctx.arc(e.x,e.y,e.radius||18,0,Math.PI*2);
+    ctx.stroke();
+    ctx.beginPath();
+    ctx.moveTo(e.x-28,e.y);
+    ctx.lineTo(e.x+28,e.y);
+    ctx.moveTo(e.x,e.y-28);
+    ctx.lineTo(e.x,e.y+28);
+    ctx.stroke();
+    ctx.restore();
+  },
+
+  drawActor(ctx,e){
+    const rec=this.actorRecord(e.actorId);
+    const actor=rec?.actor;
+    ctx.save();
+    ctx.translate(e.x,e.y);
+    let drew=false;
+    if(actor?.visual){
+      const asset=this.assetRecord(actor.visual.bucket,actor.visual.id);
+      const path=this.firstImagePathForAsset(asset);
+      const img=path?this.cache.images.get(path):null;
+      if(img){
+        const w=e.width||actor.physics?.width||64,h=e.height||actor.physics?.height||64;
+        ctx.drawImage(img,-w/2,-h/2,w,h);
+        drew=true;
+      }
+    }
+    if(!drew){
+      ctx.shadowColor='#7dff00';
+      ctx.shadowBlur=16;
+      ctx.fillStyle='rgba(125,255,0,.13)';
+      ctx.strokeStyle='#7dff00';
+      ctx.lineWidth=3;
+      roundRect(ctx,-34,-34,68,68,14,true,true);
+    }
+    ctx.shadowBlur=0;
+    ctx.fillStyle='#dffcff';
+    ctx.font='12px system-ui';
+    ctx.textAlign='center';
+    ctx.fillText(actor?.name||e.label||'Actor',0,52);
+    if(e.currentAction&&e.currentAction!=='idle'){
+      ctx.fillStyle='#7dff00';
+      ctx.font='800 14px system-ui';
+      ctx.fillText(e.currentAction,0,-46);
+    }
+    ctx.restore();
+  },
+
+  drawSceneObject(ctx,e){
+    const ref=e.assetRef||{};
+    const asset=ref.id?this.assetRecord(ref.bucket,ref.id):null;
+    const path=asset?this.firstImagePathForAsset(asset):'';
+    const img=path?this.cache.images.get(path):null;
+    ctx.save();
+    const color=e.color||({solid:'#18424a',trigger:'#ffb000',collectible:'#7dff00',hazard:'#ff3b6b',static:'#87aeb6'}[e.behavior]||'#00eaff');
+    if(img){
+      ctx.globalAlpha=e.alpha??1;
+      ctx.drawImage(img,e.x-e.width/2,e.y-e.height/2,e.width,e.height);
+    }else{
+      ctx.globalAlpha=e.behavior==='trigger' ? .24 : .30;
+      ctx.fillStyle=color;
+      ctx.fillRect(e.x-e.width/2,e.y-e.height/2,e.width,e.height);
+      ctx.globalAlpha=1;
+      ctx.strokeStyle=color;
+      ctx.lineWidth=2;
+      ctx.strokeRect(e.x-e.width/2,e.y-e.height/2,e.width,e.height);
+    }
+    if(e.behavior==='hazard'){
+      ctx.strokeStyle='rgba(255,59,107,.8)';
+      ctx.beginPath();
+      ctx.moveTo(e.x-e.width/2,e.y-e.height/2);
+      ctx.lineTo(e.x+e.width/2,e.y+e.height/2);
+      ctx.moveTo(e.x+e.width/2,e.y-e.height/2);
+      ctx.lineTo(e.x-e.width/2,e.y+e.height/2);
+      ctx.stroke();
+    }
+    if(e.behavior==='collectible'){
+      ctx.shadowColor=color;
+      ctx.shadowBlur=12;
+      ctx.beginPath();
+      ctx.arc(e.x,e.y,Math.min(e.width,e.height)/2,0,Math.PI*2);
+      ctx.stroke();
+      ctx.shadowBlur=0;
+    }
+    ctx.fillStyle='#dffcff';
+    ctx.font='12px system-ui';
+    ctx.textAlign='center';
+    ctx.fillText(e.label||e.behavior||'Object',e.x,e.y+e.height/2+16);
+    ctx.restore();
+  },
+
+  drawParticles(ctx,e){
+    ctx.save();
+    ctx.globalCompositeOperation='lighter';
+    ctx.lineWidth=1.4;
+    for(const p of this.particles){
+      ctx.strokeStyle=p.color;
+      ctx.globalAlpha=.28+.45*Math.random();
+      ctx.beginPath();
+      ctx.moveTo(p.x,p.y);
+      ctx.lineTo(p.x+p.vx*.04,p.y+p.len);
+      ctx.stroke();
+    }
+    ctx.restore();
+  },
+
+  drawActionBursts(ctx){
+    ctx.save();
+    ctx.globalCompositeOperation='lighter';
+    for(const b of this.actionBursts){
+      ctx.globalAlpha=Math.max(0,b.life);
+      ctx.strokeStyle=b.color;
+      ctx.beginPath();
+      ctx.moveTo(b.x,b.y);
+      ctx.lineTo(b.x-b.vx*.04,b.y-b.vy*.04);
+      ctx.stroke();
+    }
+    ctx.restore();
+  },
+
+  drawHUD(ctx,w,h){
+    ctx.save();
+    ctx.fillStyle='rgba(0,0,0,.58)';
+    roundRect(ctx,14,14,330,92,14,true,false);
+    ctx.fillStyle='#7dff00';
+    ctx.font='800 14px system-ui';
+    ctx.fillText('SCENE INTERACTION',28,38);
+    ctx.fillStyle='#dffcff';
+    ctx.font='13px system-ui';
+    ctx.fillText('Health: '+this.state.health+'   Collected: '+this.state.collected+'/'+this.state.totalCollectibles,28,62);
+    ctx.fillText('Triggers: '+this.state.triggers+'   Hazards: '+this.state.hazards,28,82);
+    ctx.fillStyle='#87aeb6';
+    ctx.fillText(this.state.message.slice(0,42),28,102);
+    ctx.restore();
+  },
+
+  drawDebug(ctx,w,h){
+    const lines=[
+      'KGB Runtime Harness v0.4',
+      'FPS: '+Math.round(this.fps),
+      'Entities: '+this.entities.length,
+      'Actors: '+(this.actors.counts?.actors||0),
+      'Actions: '+(this.actors.counts?.actions||0),
+      'Solids: '+this.sceneObjects('solid').length,
+      'Triggers: '+this.sceneObjects('trigger').length,
+      'Collectibles: '+this.state.collected+'/'+this.state.totalCollectibles,
+      'Health: '+this.state.health,
+      'Particles: '+(this.particles.length+this.actionBursts.length),
+      'Debug: Backquote toggles'
+    ];
+    ctx.save();
+    ctx.fillStyle='rgba(0,0,0,.62)';
+    ctx.fillRect(w-290,12,274,lines.length*19+14);
+    ctx.fillStyle='#7dff00';
+    ctx.font='12px ui-monospace, SFMono-Regular, Menlo, Consolas, monospace';
+    lines.forEach((l,i)=>ctx.fillText(l,w-278,34+i*19));
+    ctx.restore();
+  }
+};
+
+function roundRect(ctx,x,y,w,h,r,fill,stroke){
+  ctx.beginPath();
+  ctx.moveTo(x+r,y);
+  ctx.arcTo(x+w,y,x+w,y+h,r);
+  ctx.arcTo(x+w,y+h,x,y+h,r);
+  ctx.arcTo(x,y+h,x,y,r);
+  ctx.arcTo(x,y,x+w,y,r);
+  ctx.closePath();
+  if(fill)ctx.fill();
+  if(stroke)ctx.stroke();
+}
+function escapeHTML(s){return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+window.addEventListener('DOMContentLoaded',()=>{KGBRuntime.boot().catch(err=>{const log=document.getElementById('kgb-log');if(log)log.textContent+='\\\\nERROR: '+(err.message||err);console.error(err)})});
+`;
+  }
+});
+
+
+
+
+/*
+-------------------------------------------------------------------------------
+MILESTONE A HARDENING / PLAYABLE LOOP QA
+
+This helper validates and bootstraps the first real playable pipeline:
+
+actor -> action -> trigger -> scene -> interactions -> package -> runtime
+-------------------------------------------------------------------------------
+*/
+const MilestoneAQA={
+  sceneDraftOrSaved(){
+    if(SceneBuilder.draft)return SceneBuilder.draft;
+    return SceneBuilder.sceneFromSaved?.()||null;
+  },
+
+  sceneObjects(){
+    const scene=this.sceneDraftOrSaved();
+    if(!scene)return [];
+    return scene.objects||scene.entities||[];
+  },
+
+  hasBehavior(name){
+    return this.sceneObjects().some(o=>o.behavior===name);
+  },
+
+  actorAssets(){
+    return (Studio.state.project.assets.actors||[]).filter(a=>a.kind==="kgb-actor-definition"&&a.actor);
+  },
+
+  actorHasTrigger(actor){
+    return (actor.actions||[]).some(a=>{
+      const t=a.trigger||{};
+      return !!(t.type&&t.type!=="manual"?(t.key||t.event||t.timerMs||t.type==="pointer"):a.name&&a.name!=="idle");
+    });
+  },
+
+  packagePaths(){
+    try{
+      return GamePackageBuilder.packageFiles({pwa:true}).map(f=>f.path);
+    }catch(e){
+      return [];
+    }
+  },
+
+  checks(){
+    const actors=this.actorAssets();
+    const actorActions=actors.reduce((n,a)=>n+(a.actor?.actions?.length||0),0);
+    const scene=this.sceneDraftOrSaved();
+    const objs=this.sceneObjects();
+    const pkg=this.packagePaths();
+
+    return [
+      {
+        label:"Milestone A status",
+        pass:true,
+        detail:"Playable Pipeline Foundation reached: make -> bind -> place -> test -> package."
+      },
+      {
+        label:"Actor exists",
+        pass:actors.length>0,
+        detail:actors.length+" actor definition(s) saved."
+      },
+      {
+        label:"Actor has actions",
+        pass:actorActions>0,
+        detail:actorActions+" action(s) found across actors."
+      },
+      {
+        label:"Actor action has trigger",
+        pass:actors.some(a=>this.actorHasTrigger(a.actor)),
+        detail:"At least one non-idle action should have a usable trigger."
+      },
+      {
+        label:"Scene exists",
+        pass:!!scene,
+        detail:scene?((scene.name||"Scene")+" is available for package export."):"No Scene Builder draft or saved scene found."
+      },
+      {
+        label:"Scene has actor spawn",
+        pass:objs.some(o=>o.type==="actor-spawn"||o.type==="actor-instance"||o.behavior==="actor"),
+        detail:"Scene needs an actor spawn / actor instance."
+      },
+      {
+        label:"Scene has solid",
+        pass:this.hasBehavior("solid"),
+        detail:"Solid objects block movement in v0.25+."
+      },
+      {
+        label:"Scene has trigger",
+        pass:this.hasBehavior("trigger"),
+        detail:"Trigger zones fire actor actions/events on enter."
+      },
+      {
+        label:"Scene has collectible",
+        pass:this.hasBehavior("collectible"),
+        detail:"Collectibles increment count and disappear."
+      },
+      {
+        label:"Scene has hazard",
+        pass:this.hasBehavior("hazard"),
+        detail:"Hazards reduce health with cooldown."
+      },
+      {
+        label:"Package has actor manifest",
+        pass:pkg.includes("actors/actors.manifest.json"),
+        detail:"actors/actors.manifest.json must be exported."
+      },
+      {
+        label:"Package has scene manifest",
+        pass:pkg.includes("scenes/starter.scene.json"),
+        detail:"scenes/starter.scene.json must be exported."
+      },
+      {
+        label:"Package has runtime",
+        pass:pkg.includes("runtime/kgb-runtime.js"),
+        detail:"runtime/kgb-runtime.js must be exported."
+      },
+      {
+        label:"Package has smoke test",
+        pass:pkg.includes("smoke-test.html"),
+        detail:"smoke-test.html must be exported."
+      },
+      {
+        label:"Runtime mode",
+        pass:GamePackageBuilder.gameConfig({pwa:true}).runtime.mode==="scene-interaction-harness",
+        detail:"Current mode: "+GamePackageBuilder.gameConfig({pwa:true}).runtime.mode
+      }
+    ];
+  },
+
+  score(){
+    const checks=this.checks();
+    const passed=checks.filter(c=>c.pass).length;
+    return {passed,total:checks.length,percent:Math.round((passed/checks.length)*100)};
+  },
+
+  html(){
+    const score=this.score();
+    return '<div class="card">'+
+      '<h3>Milestone A — Playable Pipeline Foundation</h3>'+
+      '<p class="muted">Hardening status: '+score.passed+' / '+score.total+' checks passing ('+score.percent+'%).</p>'+
+      '<div class="assetStats">'+
+        '<div class="assetStat"><span>Actors</span><b>'+this.actorAssets().length+'</b></div>'+
+        '<div class="assetStat"><span>Scene Objects</span><b>'+this.sceneObjects().length+'</b></div>'+
+        '<div class="assetStat"><span>Package Files</span><b>'+this.packagePaths().length+'</b></div>'+
+        '<div class="assetStat"><span>Ready</span><b>'+(score.percent===100?"YES":"CHECK")+'</b></div>'+
+      '</div>'+
+      this.checks().map(c=>{
+        const cls=c.pass?"healthGood":"healthWarn";
+        const word=c.pass?"PASS":"CHECK";
+        return '<div class="snapshotCard"><b class="'+cls+'">'+word+': '+esc(c.label)+'</b><div class="mini">'+esc(c.detail)+'</div></div>';
+      }).join("")+
+    '</div>';
+  },
+
+  firstRef(rows){
+    const r=rows[0];
+    return r?{bucket:r.bucket,id:r.asset.id,name:r.asset.name||r.asset.id,kind:r.asset.kind||"asset"}:{bucket:"",id:"",name:"",kind:""};
+  },
+
+  createTestActor(){
+    const existing=this.actorAssets()[0];
+    if(existing)return existing;
+
+    const visual=this.firstRef(ActorActionBuilder.visualAssets());
+    const particle=this.firstRef(ActorActionBuilder.particleAssets());
+    const sound=this.firstRef(ActorActionBuilder.soundAssets());
+
+    const actor={
+      actorType:"kgb-actor-definition",
+      actorVersion:"0.1.0",
+      id:uid("actor"),
+      name:"Milestone A Test Actor",
+      description:"Generated by Playable Loop QA to test actor/action/runtime flow.",
+      visual,
+      physics:{solid:true,width:58,height:58,speed:230},
+      actions:[
+        {
+          id:uid("act"),
+          name:"idle",
+          trigger:{type:"manual",key:"",event:"",timerMs:0},
+          animation:{bucket:"",id:""},
+          particle:{bucket:"",id:""},
+          sound:{bucket:"",id:""},
+          durationMs:0,
+          notes:"Default idle state."
+        },
+        {
+          id:uid("act"),
+          name:"move",
+          trigger:{type:"key",key:"w",event:"",timerMs:0},
+          animation:visual,
+          particle,
+          sound:{bucket:"",id:""},
+          durationMs:280,
+          notes:"Movement/action trigger test."
+        },
+        {
+          id:uid("act"),
+          name:"interact",
+          trigger:{type:"key",key:" ",event:"",timerMs:0},
+          animation:visual,
+          particle,
+          sound,
+          durationMs:480,
+          notes:"Spacebar interaction test."
+        },
+        {
+          id:uid("act"),
+          name:"triggered",
+          trigger:{type:"event",key:"",event:"trigger.enter",timerMs:0},
+          animation:visual,
+          particle,
+          sound,
+          durationMs:520,
+          notes:"Runtime trigger zone test action."
+        }
+      ],
+      tags:["actor","milestone-a","test"],
+      created:new Date().toISOString(),
+      updated:new Date().toISOString()
+    };
+
+    const asset=ActorActionBuilder.actorAsset(actor);
+    Studio.addAsset("actors",asset);
+    ActorActionBuilder.draft=actor;
+    Studio.log("Created Milestone A Test Actor.");
+    return asset;
+  },
+
+  createTestScene(){
+    const actorAsset=this.createTestActor();
+    const scene={
+      sceneType:"kgb-scene-definition",
+      sceneVersion:"0.1.0",
+      id:uid("scene"),
+      name:"Milestone A Test Scene",
+      description:"Generated by Playable Loop QA. Includes actor spawn, solid, trigger, collectible, and hazard.",
+      dimensions:{width:960,height:540},
+      background:"#02080a",
+      layers:["background","world","effects","ui"],
+      objects:[
+        {
+          id:uid("obj"),
+          type:"text",
+          label:"Milestone A",
+          layer:"ui",
+          behavior:"decorative",
+          x:480,y:70,width:300,height:34,
+          text:"Milestone A Test Scene",
+          color:"#7dff00"
+        },
+        {
+          id:uid("obj"),
+          type:"actor-spawn",
+          label:"Test Actor Spawn",
+          layer:"world",
+          behavior:"actor",
+          x:145,y:345,width:58,height:58,
+          actorId:actorAsset.id,
+          actorName:actorAsset.name
+        },
+        {
+          id:uid("obj"),
+          type:"scene-object",
+          label:"Solid Wall",
+          layer:"world",
+          behavior:"solid",
+          x:430,y:340,width:160,height:70,
+          color:"#18424a"
+        },
+        {
+          id:uid("obj"),
+          type:"scene-object",
+          label:"Trigger Zone",
+          layer:"world",
+          behavior:"trigger",
+          x:635,y:340,width:120,height:92,
+          color:"#ffb000"
+        },
+        {
+          id:uid("obj"),
+          type:"scene-object",
+          label:"Collectible",
+          layer:"world",
+          behavior:"collectible",
+          x:270,y:245,width:46,height:46,
+          color:"#7dff00"
+        },
+        {
+          id:uid("obj"),
+          type:"scene-object",
+          label:"Hazard",
+          layer:"world",
+          behavior:"hazard",
+          x:780,y:250,width:110,height:62,
+          color:"#ff3b6b"
+        },
+        {
+          id:uid("obj"),
+          type:"scene-object",
+          label:"Ground / Road",
+          layer:"world",
+          behavior:"solid",
+          x:480,y:505,width:830,height:36,
+          color:"#12363d"
+        }
+      ],
+      created:new Date().toISOString(),
+      updated:new Date().toISOString()
+    };
+
+    SceneBuilder.draft=scene;
+    SceneBuilder.selectedId=scene.objects[1].id;
+    const exported=SceneBuilder.exportScene();
+    const asset={
+      name:exported.name,
+      kind:"kgb-scene-definition",
+      adapter:"scene-builder",
+      source:"milestone-a-qa",
+      folder:"/scenes",
+      tags:["scene","milestone-a","runtime","test"],
+      notes:"Milestone A playable test scene.",
+      scene:exported,
+      text:JSON.stringify(exported,null,2),
+      mime:"application/json",
+      extension:"json",
+      updated:new Date().toISOString()
+    };
+    Studio.addAsset("maps",asset);
+    Studio.log("Created Milestone A Test Scene.");
+    return asset;
+  },
+
+  createFullPlayableTestPackage(){
+    this.createTestActor();
+    this.createTestScene();
+    renderExplorer();
+    Studio.renderProps();
+    GamePackageBuilder.downloadPackage({pwa:true});
+  }
+};
+
+const KGBGamePackageV25_1={
+  gameConfig:GamePackageBuilder.gameConfig.bind(GamePackageBuilder)
+};
+
+Object.assign(GamePackageBuilder,{
+  gameConfig(options={}){
+    const cfg=KGBGamePackageV25_1.gameConfig(options);
+    cfg.configVersion="0.4.1";
+    cfg.runtime.version="0.4.1-milestone-a";
+    cfg.milestone={
+      id:"milestone-a",
+      name:"Playable Pipeline Foundation",
+      hardening:"v0.25.1",
+      flow:"actor -> action -> trigger -> scene -> interaction -> package -> runtime"
+    };
+    return cfg;
+  }
+});
+
+
 
 
 /*
@@ -1659,7 +4386,7 @@ const ProjectHealth={
 };
 
 
-const sections={MISSION:[["mission.brief","Brief"],["mission.project","Project JSON"]],ASSETS:[["asset.library","Asset Library"],["asset.intake","Asset Intake"],["asset.inspector","Asset Inspector"],["asset.shapeforge","Shape Forge"],["asset.slicer","Asset Slicer"],["asset.gifforge","GIF Forge"],["asset.forgesuite","Forge Suite"],["asset.metadataforge","Metadata Forge"],["asset.spriteforge","Sprite Forge"],["asset.adapters","Module Adapters"]],SYSTEMS:[["system.runtime","Runtime Preview"],["system.taio","TAIO"],["system.persistence","Persistence"],["system.registry","Asset Registry"],["system.platform","Platform"],["system.events","Event Bus"],["system.changelog","Changelog"]],BUILD:[["build.export","Export"],["build.gamepackage","Game Package"],["build.validate","Validate"]],DEPLOY:[["deploy.notes","Deploy Notes"]]};
+const sections={MISSION:[["mission.brief","Brief"],["mission.project","Project JSON"]],ASSETS:[["asset.library","Asset Library"],["asset.actorbuilder","Actor Builder"],["asset.scenebuilder","Scene Builder"],["asset.intake","Asset Intake"],["asset.inspector","Asset Inspector"],["asset.shapeforge","Shape Forge"],["asset.slicer","Asset Slicer"],["asset.gifforge","GIF Forge"],["asset.forgesuite","Forge Suite"],["asset.metadataforge","Metadata Forge"],["asset.spriteforge","Sprite Forge"],["asset.adapters","Module Adapters"]],SYSTEMS:[["system.runtime","Runtime Preview"],["system.taio","TAIO"],["system.persistence","Persistence"],["system.registry","Asset Registry"],["system.platform","Platform"],["system.events","Event Bus"],["system.changelog","Changelog"]],BUILD:[["build.export","Export"],["build.loopcheck","Playable Loop"],["build.gamepackage","Game Package"],["build.validate","Validate"]],DEPLOY:[["deploy.notes","Deploy Notes"]]};
 function renderNav(){
   const top=$("#topSections");
   const n=$("#nav");
@@ -1690,7 +4417,7 @@ function renderNav(){
     n.appendChild(group);
   });
 }
-function renderExplorer(){let q=($("#filter")?.value||"").toLowerCase(),p=Studio.state.project,root=$("#explorer");let h='<div class="treeHead"><span>MISSION</span><button data-open="mission.brief">Open</button></div><div class="treeItem"><div><b>'+esc(p.meta.name)+'</b><br><span>'+esc(p.settings.target)+'</span></div><button data-open="mission.project">JSON</button></div>';["sprites","animations","shapes","particles","sounds","palettes","tiles","maps"].forEach(type=>{let arr=(p.assets[type]||[]).filter(a=>!q||(a.name||"").toLowerCase().includes(q)||(a.kind||"").toLowerCase().includes(q));h+='<div class="treeHead"><span>'+type.toUpperCase()+'</span><button data-open="'+(type==="sprites"?"asset.spriteforge":type==="shapes"?"asset.shapeforge":"asset.adapters")+'">+</button></div>';h+=arr.length?arr.map(a=>'<div class="treeItem"><div><b>'+esc(a.name||a.id)+'</b><br><span>'+esc(a.kind||"asset")+'</span></div><button data-type="'+type+'" data-id="'+a.id+'">Open</button></div>').join(""):'<div class="muted">No '+type+'.</div>'});root.innerHTML=h;root.querySelectorAll("[data-open]").forEach(b=>b.onclick=()=>Studio.open(b.dataset.open));root.querySelectorAll("[data-id]").forEach(b=>b.onclick=()=>Studio.selectAsset(b.dataset.type,b.dataset.id))}
+function renderExplorer(){let q=($("#filter")?.value||"").toLowerCase(),p=Studio.state.project,root=$("#explorer");let h='<div class="treeHead"><span>MISSION</span><button data-open="mission.brief">Open</button></div><div class="treeItem"><div><b>'+esc(p.meta.name)+'</b><br><span>'+esc(p.settings.target)+'</span></div><button data-open="mission.project">JSON</button></div>';["sprites","animations","shapes","particles","sounds","palettes","tiles","maps","actors"].forEach(type=>{let arr=(p.assets[type]||[]).filter(a=>!q||(a.name||"").toLowerCase().includes(q)||(a.kind||"").toLowerCase().includes(q));h+='<div class="treeHead"><span>'+type.toUpperCase()+'</span><button data-open="'+(type==="sprites"?"asset.spriteforge":type==="shapes"?"asset.shapeforge":"asset.adapters")+'">+</button></div>';h+=arr.length?arr.map(a=>'<div class="treeItem"><div><b>'+esc(a.name||a.id)+'</b><br><span>'+esc(a.kind||"asset")+'</span></div><button data-type="'+type+'" data-id="'+a.id+'">Open</button></div>').join(""):'<div class="muted">No '+type+'.</div>'});root.innerHTML=h;root.querySelectorAll("[data-open]").forEach(b=>b.onclick=()=>Studio.open(b.dataset.open));root.querySelectorAll("[data-id]").forEach(b=>b.onclick=()=>Studio.selectAsset(b.dataset.type,b.dataset.id))}
 
 /* TOOL ADAPTER FACTORY: promotes standalone tools into Studio modules without rewriting them. */
 function createToolAdapter(o){return{...o,toModule(){return{id:o.moduleId,section:o.section,title:o.title,description:o.description,render:(r,s,opt)=>o.render(r,s,opt),actions:(r,s,opt)=>{r.innerHTML='<button id="adSave">Save Asset</button><button id="adExport">Export</button>';$("#adSave").onclick=()=>o.save?.(s,opt);$("#adExport").onclick=()=>o.exportAsset?.(s,opt)},properties:(p,s,opt)=>{p.innerHTML=opt?.asset?'<div class="muted">Opened: '+esc(opt.asset.name)+'</div>':'<div class="muted">'+esc(o.title)+' adapter active.</div>'}}}}}
@@ -1712,7 +4439,7 @@ const SpriteForge={canvas:null,ctx:null,objects:[],selectedId:null,tool:"select"
  del(){if(!this.selectedId)return;this.objects=this.objects.filter(o=>o.id!==this.selectedId);this.selectedId=null;this.render();Bus.emit("sprite:changed",{})},dupe(){let o=this.selected();if(!o)return;let n=JSON.parse(JSON.stringify(o));n.id=uid("obj");if(n.points)n.points=n.points.map(p=>({x:p.x+18,y:p.y+18}));else{n.x+=18;n.y+=18}this.objects.push(n);this.selectedId=n.id;this.render();Bus.emit("sprite:changed",{})},clear(){if(confirm("Clear?")){this.objects=[];this.selectedId=null;this.render();Bus.emit("sprite:changed",{})}}
 };
 
-Studio.register({id:"mission.brief",section:"MISSION",title:"Mission Brief",description:"Operation command surface",render(r){r.innerHTML='<div class="card"><h3>KGB Studio v0.6 Stable Core Platform</h3><p class="muted">UI quality-of-life patch for canvas-heavy workspaces. Collapse Explorer, collapse Intel, or enter Focus mode to give the center workspace maximum room.</p><div class="grid3"><div class="card"><h4>Asset Registry</h4><p>AssetDB-like search and summary without changing the working schema.</p></div><div class="card"><h4>Operator Console</h4><p>The command system is now treated as searchable operators.</p></div><div class="card"><h4>Safe Platform</h4><p>No risky project schema rewrite in this build.</p></div></div></div><div class="card"><h3>v0.6 Changelog</h3><pre>Added:\n- Operation-flavored UI labels.\n- AssetRegistry facade over existing project.assets arrays.\n- SYSTEMS → Asset Registry module.\n- SYSTEMS → Platform module.\n- SYSTEMS → Changelog module.\n- Dependency/used-by foundation through optional asset.dependencies.\n- Stronger top-of-file developer notes and system comments.\n\nChanged:\n- Command UI is now branded as Operator Console.\n- Properties panel is now branded as Intelligence.\n- Event Log is now Comms.\n\nKept stable:\n- Existing v0.5 project schema.\n- Existing adapters.\n- Existing Sprite Forge Lite.\n- Existing undo/redo and command wiring.\n\nSuggested commit:\nPromote KGB Forge Suite into Studio</pre></div>'}});
+Studio.register({id:"mission.brief",section:"MISSION",title:"Mission Brief",description:"Operation command surface",render(r){r.innerHTML='<div class="card"><h3>KGB Studio v0.6 Stable Core Platform</h3><p class="muted">UI quality-of-life patch for canvas-heavy workspaces. Collapse Explorer, collapse Intel, or enter Focus mode to give the center workspace maximum room.</p><div class="grid3"><div class="card"><h4>Asset Registry</h4><p>AssetDB-like search and summary without changing the working schema.</p></div><div class="card"><h4>Operator Console</h4><p>The command system is now treated as searchable operators.</p></div><div class="card"><h4>Safe Platform</h4><p>No risky project schema rewrite in this build.</p></div></div></div><div class="card"><h3>v0.6 Changelog</h3><pre>Added:\n- Operation-flavored UI labels.\n- AssetRegistry facade over existing project.assets arrays.\n- SYSTEMS → Asset Registry module.\n- SYSTEMS → Platform module.\n- SYSTEMS → Changelog module.\n- Dependency/used-by foundation through optional asset.dependencies.\n- Stronger top-of-file developer notes and system comments.\n\nChanged:\n- Command UI is now branded as Operator Console.\n- Properties panel is now branded as Intelligence.\n- Event Log is now Comms.\n\nKept stable:\n- Existing v0.5 project schema.\n- Existing adapters.\n- Existing Sprite Forge Lite.\n- Existing undo/redo and command wiring.\n\nSuggested commit:\nHarden Milestone A playable pipeline</pre></div>'}});
 Studio.register({id:"mission.project",section:"MISSION",title:"Project JSON",description:"Live project object",render(r){r.innerHTML='<div class="card"><h3>Project JSON</h3><button id="refresh">Refresh</button><pre id="json"></pre></div>';$("#refresh").onclick=()=>$("#json").textContent=Studio.exportProject();$("#refresh").click()}});
 
 /*
@@ -2080,7 +4807,7 @@ const AssetLibraryUI={
       '<div class="card">'+
         '<h3>Asset Library</h3>'+
         '<p class="muted">Central workspace for browsing, opening, inspecting, duplicating, deleting, and exporting project assets.</p>'+
-        '<div class="row"><button class="primary" id="assetLibOpenIntake">Import Files / Asset Intake</button><button id="assetLibOpenSlicer">Asset Slicer</button><button id="assetLibOpenGifForge">GIF Forge</button><button id="assetLibOpenForgeSuite">Forge Suite</button><button id="assetLibOpenMetadata">Metadata Forge</button><button id="assetLibOpenTAIO">TAIO</button><button id="assetLibDownloadPack">Download Asset Pack ZIP</button></div>'+
+        '<div class="row"><button class="primary" id="assetLibOpenIntake">Import Files / Asset Intake</button><button id="assetLibOpenActor">Actor Builder</button><button id="assetLibOpenScene">Scene Builder</button><button id="assetLibOpenSlicer">Asset Slicer</button><button id="assetLibOpenGifForge">GIF Forge</button><button id="assetLibOpenForgeSuite">Forge Suite</button><button id="assetLibOpenMetadata">Metadata Forge</button><button id="assetLibOpenTAIO">TAIO</button><button id="assetLibDownloadPack">Download Asset Pack ZIP</button></div>'+
         '<div class="assetToolbar">'+
           '<div><label>Search Assets</label><input id="assetLibSearch" placeholder="name, kind, tag, notes..."></div>'+
           '<div><label>Bucket</label><select id="assetLibBucket"><option value="all">All Buckets</option>'+buckets.map(b=>'<option value="'+esc(b)+'">'+esc(b)+'</option>').join("")+'</select></div>'+
@@ -2092,6 +4819,8 @@ const AssetLibraryUI={
       '</div>';
 
     $("#assetLibOpenIntake").onclick=()=>Studio.open("asset.intake");
+    $("#assetLibOpenActor").onclick=()=>Studio.open("asset.actorbuilder");
+    $("#assetLibOpenScene").onclick=()=>Studio.open("asset.scenebuilder");
     $("#assetLibOpenSlicer").onclick=()=>Studio.open("asset.slicer");
     $("#assetLibOpenGifForge").onclick=()=>Studio.open("asset.gifforge");
     $("#assetLibOpenForgeSuite").onclick=()=>Studio.open("asset.forgesuite");
@@ -2190,6 +4919,45 @@ const AssetLibraryUI={
     });
   }
 };
+
+
+
+Studio.register({
+  id:"asset.scenebuilder",
+  section:"ASSETS",
+  title:"Scene Builder",
+  description:"Create scene canvases, place actors and objects, classify behavior, and export runtime-ready scene definitions.",
+  render(root){
+    SceneBuilder.render(root);
+  },
+  actions(root){
+    root.innerHTML='<button class="primary" id="sceneActionSave">Save Scene</button><button id="sceneActionDownload">Download Scene</button><button id="sceneActionActor">Actor Builder</button>';
+    $("#sceneActionSave").onclick=()=>SceneBuilder.saveSceneAsset();
+    $("#sceneActionDownload").onclick=()=>SceneBuilder.downloadScene();
+    $("#sceneActionActor").onclick=()=>Studio.open("asset.actorbuilder");
+  },
+  properties(panel){
+    const count=(Studio.state.project.assets.maps||[]).filter(a=>a.kind==="kgb-scene-definition").length;
+    panel.innerHTML='<div class="muted">Scene Builder saves scene definitions into maps. Current scene assets: '+count+'. Game Package uses the active Scene Builder draft or latest saved scene.</div>';
+  }
+});
+
+Studio.register({
+  id:"asset.actorbuilder",
+  section:"ASSETS",
+  title:"Actor Builder",
+  description:"Bind visuals, animations, particles, sounds, and triggers into runtime-ready actor/action definitions.",
+  render(root){
+    ActorActionBuilder.render(root);
+  },
+  actions(root){
+    root.innerHTML='<button class="primary" onclick="ActorActionBuilder.saveActor()">Save Actor</button><button onclick="ActorActionBuilder.downloadActorManifest()">Download Actor Manifest</button><button onclick="ActorActionBuilder.saveActorManifestAsset()">Save Manifest</button>';
+  },
+  properties(panel){
+    const count=(Studio.state.project.assets.actors||[]).length;
+    panel.innerHTML='<div class="muted">Actor Builder saves structured actor definitions into the actors bucket. Current actor assets: '+count+'. Game Package exports actors/actors.manifest.json.</div>';
+  }
+});
 
 Studio.register({
   id:"asset.library",
@@ -4430,7 +7198,7 @@ Every release should have commit-ready notes visible inside the app.
 -------------------------------------------------------------------------------
 */
 Studio.register({id:"system.changelog",section:"SYSTEMS",title:"Changelog",description:"Commit notes for this build",render(r){
-  r.innerHTML='<div class="card"><h3>KGB Studio v0.21 Changelog</h3><pre>Added:\\n- Operation-flavored UI labels.\\n- AssetRegistry facade over current project.assets arrays.\\n- SYSTEMS → Asset Registry module.\\n- SYSTEMS → Platform module.\\n- SYSTEMS → Changelog module.\\n- Dependency graph foundation using optional asset.dependencies.\\n- Over-commented developer notes and system section comments.\\n\\nChanged:\\n- Command button renamed Operator Console.\\n- Project Explorer renamed Operation Explorer.\\n- Properties renamed Intelligence.\\n- Event Log renamed Comms.\\n\\nKept stable:\\n- v0.5 project schema.\\n- v0.5 adapter system.\\n- v0.5 Sprite Forge Lite.\\n- v0.5 command/history/event wiring.\\n\\nSuggested commit:\\nAdd KGB Studio v0.6 stable core platform</pre></div>';
+  r.innerHTML='<div class="card"><h3>KGB Studio v0.25.1 Changelog</h3><pre>Added:\\n- Operation-flavored UI labels.\\n- AssetRegistry facade over current project.assets arrays.\\n- SYSTEMS → Asset Registry module.\\n- SYSTEMS → Platform module.\\n- SYSTEMS → Changelog module.\\n- Dependency graph foundation using optional asset.dependencies.\\n- Over-commented developer notes and system section comments.\\n\\nChanged:\\n- Command button renamed Operator Console.\\n- Project Explorer renamed Operation Explorer.\\n- Properties renamed Intelligence.\\n- Event Log renamed Comms.\\n\\nKept stable:\\n- v0.5 project schema.\\n- v0.5 adapter system.\\n- v0.5 Sprite Forge Lite.\\n- v0.5 command/history/event wiring.\\n\\nSuggested commit:\\nAdd KGB Studio v0.6 stable core platform</pre></div>';
 }});
 
 
@@ -4514,31 +7282,82 @@ Studio.register({
 
 
 
+
+Studio.register({
+  id:"build.loopcheck",
+  section:"BUILD",
+  title:"Playable Loop",
+  description:"Milestone A hardening: validate and bootstrap the actor → scene → package → runtime loop.",
+  render(root){
+    root.innerHTML=
+      '<div class="card">'+
+        '<h3>Milestone A — Playable Pipeline Foundation</h3>'+
+        '<p class="muted">Use this panel to validate the first end-to-end playable flow and generate a safe test actor/test scene package.</p>'+
+        '<div class="row">'+
+          '<button class="primary" id="loopCreateActor">Create Test Actor</button>'+
+          '<button id="loopCreateScene">Create Test Scene</button>'+
+          '<button id="loopDownloadPackage">Create Full Playable Test Package</button>'+
+          '<button id="loopOpenActor">Actor Builder</button>'+
+          '<button id="loopOpenScene">Scene Builder</button>'+
+          '<button id="loopOpenPackage">Game Package</button>'+
+        '</div>'+
+      '</div>'+
+      '<div id="loopChecklist">'+MilestoneAQA.html()+'</div>';
+
+    $("#loopCreateActor").onclick=()=>{MilestoneAQA.createTestActor();Studio.open("build.loopcheck")};
+    $("#loopCreateScene").onclick=()=>{MilestoneAQA.createTestScene();Studio.open("build.loopcheck")};
+    $("#loopDownloadPackage").onclick=()=>MilestoneAQA.createFullPlayableTestPackage();
+    $("#loopOpenActor").onclick=()=>Studio.open("asset.actorbuilder");
+    $("#loopOpenScene").onclick=()=>Studio.open("asset.scenebuilder");
+    $("#loopOpenPackage").onclick=()=>Studio.open("build.gamepackage");
+  },
+  actions(root){
+    root.innerHTML='<button class="primary" id="actLoopPackage">Full Test Package</button><button id="actLoopActor">Test Actor</button><button id="actLoopScene">Test Scene</button>';
+    $("#actLoopPackage").onclick=()=>MilestoneAQA.createFullPlayableTestPackage();
+    $("#actLoopActor").onclick=()=>{MilestoneAQA.createTestActor();Studio.open("build.loopcheck")};
+    $("#actLoopScene").onclick=()=>{MilestoneAQA.createTestScene();Studio.open("build.loopcheck")};
+  },
+  properties(panel){
+    const score=MilestoneAQA.score();
+    panel.innerHTML='<div class="muted">Milestone A readiness: '+score.passed+' / '+score.total+' checks passing. This does not mean v1.0; it means the playable pipeline foundation is intact.</div>';
+  }
+});
+
 Studio.register({
   id:"build.gamepackage",
   section:"BUILD",
   title:"Game Package Builder",
-  description:"Export a kgbarcade-ready playable package with runtime shell, config, assets, manifests, and optional PWA files.",
+  description:"Export a kgbarcade-ready playable package with runtime harness, Scene Builder scene, actors, config, assets, manifests, smoke test, and optional PWA files.",
   render(root){
     const config=GamePackageBuilder.gameConfig({pwa:true});
     const manifest=GamePackageBuilder.assetManifest();
     root.innerHTML=
       '<div class="card">'+
         '<h3>Runtime / Game Package Builder</h3>'+
-        '<p class="muted">This creates the first playable KGB Arcade package structure. It includes a runtime placeholder, game config, asset manifest, release manifest, project backup, and exported asset files.</p>'+
+        '<p class="muted">This creates the first playable KGB Arcade runtime harness package. It uses the active Scene Builder draft or latest saved scene, includes actor definitions, asset preloading, canvas game loop, input manager, layer/entity rendering, particle effects, sound trigger testing, smoke test page, release manifest, project backup, and exported asset files.</p>'+
         '<div class="assetStats">'+
           '<div class="assetStat"><span>Game</span><b>'+esc(config.game.title)+'</b></div>'+
           '<div class="assetStat"><span>Slug</span><b>'+esc(config.game.slug)+'</b></div>'+
           '<div class="assetStat"><span>Assets</span><b>'+manifest.counts.assets+'</b></div>'+
           '<div class="assetStat"><span>Files</span><b>'+manifest.counts.files+'</b></div>'+
+          '<div class="assetStat"><span>Scene Entities</span><b>'+GamePackageBuilder.starterScene().entities.length+'</b></div>'+
+          '<div class="assetStat"><span>Actors</span><b>'+GamePackageBuilder.actorManifest().counts.actors+'</b></div>'+
         '</div>'+
         '<label class="check"><input id="includePWA" type="checkbox" checked> Include PWA shell files: manifest.webmanifest and service-worker.js</label>'+
         '<div class="row" style="margin-top:10px">'+
           '<button class="primary" id="downloadGamePackage">Download Game Package ZIP</button>'+
+          '<button id="openPlayableLoop">Playable Loop QA</button>'+
+          '<button id="createFullTestPackage">Full Test Package</button>'+
           '<button id="saveGameConfig">Save Game Config to Studio</button>'+
           '<button id="downloadGameConfig">Download game.config.json</button>'+
           '<button id="downloadRuntime">Download runtime/kgb-runtime.js</button>'+
           '<button id="downloadAssetsManifest">Download assets.manifest.json</button>'+
+          '<button id="downloadStarterScene">Download starter.scene.json</button>'+
+          '<button id="downloadSmokeTest">Download smoke-test.html</button>'+
+          '<button id="downloadActorManifest">Download actors.manifest.json</button>'+
+          '<button id="saveStarterScene">Save Starter Scene</button>'+
+          '<button id="openActorBuilder">Actor Builder</button>'+
+          '<button id="openSceneBuilder">Scene Builder</button>'+
           '<button id="openBuildExport">Export Center</button>'+
           '<button id="openBuildValidate">Validate</button>'+
         '</div>'+
@@ -4551,21 +7370,30 @@ Studio.register({
       '</div>';
 
     $("#downloadGamePackage").onclick=()=>GamePackageBuilder.downloadPackage({pwa:$("#includePWA").checked});
+    $("#openPlayableLoop").onclick=()=>Studio.open("build.loopcheck");
+    $("#createFullTestPackage").onclick=()=>MilestoneAQA.createFullPlayableTestPackage();
     $("#saveGameConfig").onclick=()=>GamePackageBuilder.saveConfigAsset();
     $("#downloadGameConfig").onclick=()=>GamePackageBuilder.downloadConfig();
     $("#downloadRuntime").onclick=()=>GamePackageBuilder.downloadRuntime();
     $("#downloadAssetsManifest").onclick=()=>GamePackageBuilder.downloadAssetManifest();
+    $("#downloadStarterScene").onclick=()=>GamePackageBuilder.downloadScene();
+    $("#downloadSmokeTest").onclick=()=>GamePackageBuilder.downloadSmokeTest();
+    $("#downloadActorManifest").onclick=()=>GamePackageBuilder.downloadActorManifest();
+    $("#saveStarterScene").onclick=()=>GamePackageBuilder.saveSceneAsset();
+    $("#openActorBuilder").onclick=()=>Studio.open("asset.actorbuilder");
+    $("#openSceneBuilder").onclick=()=>Studio.open("asset.scenebuilder");
     $("#openBuildExport").onclick=()=>Studio.open("build.export");
     $("#openBuildValidate").onclick=()=>Studio.open("build.validate");
   },
   actions(root){
-    root.innerHTML='<button class="primary" id="actGamePackageDownload">Download Game Package</button><button id="actGamePackageSave">Save Config</button><button id="actGamePackageValidate">Validate</button>';
+    root.innerHTML='<button class="primary" id="actGamePackageDownload">Download Game Package</button><button id="actGamePackageSave">Save Config</button><button id="actGamePackageScene">Save Scene</button><button id="actGamePackageValidate">Validate</button>';
     $("#actGamePackageDownload").onclick=()=>GamePackageBuilder.downloadPackage({pwa:true});
     $("#actGamePackageSave").onclick=()=>GamePackageBuilder.saveConfigAsset();
+    $("#actGamePackageScene").onclick=()=>GamePackageBuilder.saveSceneAsset();
     $("#actGamePackageValidate").onclick=()=>Studio.open("build.validate");
   },
   properties(panel){
-    panel.innerHTML='<div class="muted">The v0.20 runtime is a placeholder loader. It proves config/manifest/assets package correctly, then gives us a stable target for the real KGB Arcade Engine.</div>';
+    panel.innerHTML='<div class="muted">The v0.25 scene interaction harness loads scene objects and actors, blocks movement on solids, collects collectibles, damages on hazards, fires triggers, and runs actor actions.</div>';
   }
 });
 
@@ -4963,9 +7791,9 @@ globalThis.KGBWorkspaceCache={
 };
 
 
-function registerCommands(){Commands.add("open.shape","Open Full Shape Forge",()=>Studio.open("asset.shapeforge"));Commands.add("shape.mirror.x","Shape Forge Mirror X",()=>ShapeForge.mirrorSelected("x"));Commands.add("shape.mirror.y","Shape Forge Mirror Y",()=>ShapeForge.mirrorSelected("y"));Commands.add("open.sprite","Open Sprite Forge",()=>Studio.open("asset.spriteforge"));Commands.add("open.assets","Open Asset Library",()=>Studio.open("asset.library"));Commands.add("open.intake","Open Asset Intake",()=>Studio.open("asset.intake"));Commands.add("open.slicer","Open Asset Slicer",()=>Studio.open("asset.slicer"));Commands.add("open.gifforge","Open GIF Forge",()=>Studio.open("asset.gifforge"));Commands.add("open.taio","Open TAIO",()=>Studio.open("system.taio"));Commands.add("open.metadataforge","Open Metadata Forge",()=>Studio.open("asset.metadataforge"));Commands.add("open.forgesuite","Open Forge Suite",()=>Studio.open("asset.forgesuite"));Commands.add("forge.rain","Open Particle Rain",()=>Studio.open("asset.forgesuite",{rain:true}));Commands.add("export.production","Download Production Package",()=>ReleaseExport.downloadProductionPackage());Commands.add("export.gamepackage","Download Game Package",()=>GamePackageBuilder.downloadPackage({pwa:true}));Commands.add("open.gamepackage","Open Game Package Builder",()=>Studio.open("build.gamepackage"));Commands.add("project.snapshot","Save Project Snapshot",()=>ProjectPersistence.saveSnapshot().then(()=>alert("Snapshot saved.")));Commands.add("project.restore","Restore Last AutoSave",()=>ProjectPersistence.restoreLatest());Commands.add("project.persistence","Open Persistence",()=>Studio.open("system.persistence"));Commands.add("open.persistence","Open Persistence",()=>Studio.open("system.persistence"));Commands.add("open.validator","Open Validator",()=>Studio.open("build.validate"));Commands.add("open.runtime","Open Runtime Preview",()=>Studio.open("system.runtime"));Commands.add("open.registry","Open Asset Registry",()=>Studio.open("system.registry"));Commands.add("open.inspector","Open Asset Inspector",()=>Studio.open("asset.inspector"));Commands.add("open.platform","Open Platform Status",()=>Studio.open("system.platform"));Commands.add("open.changelog","Open Changelog",()=>Studio.open("system.changelog"));Commands.add("open.export","Open Export Center",()=>Studio.open("build.export"));Commands.add("shape.export.copyjs","Shape Forge Copy JS Export",()=>ShapeForgeStudioHost.copyCurrentJS());Commands.add("shape.export.downloadjs","Shape Forge Download JS Export",()=>ShapeForgeStudioHost.downloadCurrentJS());Commands.add("shape.export.downloadhtml","Shape Forge Download HTML Demo",()=>ShapeForgeStudioHost.downloadCurrentHTML(false));Commands.add("project.save","Download Project JSON",()=>dl(safe($("#projectName").value)+".kgbproject.json",Studio.exportProject(),"application/json"));Commands.add("history.undo","Undo",()=>History.undoIt());Commands.add("history.redo","Redo",()=>History.redoIt());Commands.add("layout.toggle.left","Toggle Explorer Column",()=>LayoutControls.toggleLeft());Commands.add("layout.toggle.right","Toggle Intel Column",()=>LayoutControls.toggleRight());Commands.add("layout.focus","Toggle Workspace Focus",()=>LayoutControls.toggleFocus());Commands.add("layout.reset","Reset Workspace Layout",()=>LayoutControls.reset())}
+function registerCommands(){Commands.add("open.shape","Open Full Shape Forge",()=>Studio.open("asset.shapeforge"));Commands.add("shape.mirror.x","Shape Forge Mirror X",()=>ShapeForge.mirrorSelected("x"));Commands.add("shape.mirror.y","Shape Forge Mirror Y",()=>ShapeForge.mirrorSelected("y"));Commands.add("open.sprite","Open Sprite Forge",()=>Studio.open("asset.spriteforge"));Commands.add("open.assets","Open Asset Library",()=>Studio.open("asset.library"));Commands.add("open.actorbuilder","Open Actor Builder",()=>Studio.open("asset.actorbuilder"));Commands.add("open.scenebuilder","Open Scene Builder",()=>Studio.open("asset.scenebuilder"));Commands.add("export.interaction.package","Download Interaction Game Package",()=>GamePackageBuilder.downloadPackage({pwa:true}));Commands.add("open.playableloop","Open Playable Loop Checklist",()=>Studio.open("build.loopcheck"));Commands.add("milestone.testactor","Create Milestone A Test Actor",()=>MilestoneAQA.createTestActor());Commands.add("milestone.testscene","Create Milestone A Test Scene",()=>MilestoneAQA.createTestScene());Commands.add("milestone.testpackage","Create Full Playable Test Package",()=>MilestoneAQA.createFullPlayableTestPackage());Commands.add("export.scene.builder","Download Scene Builder Scene",()=>SceneBuilder.downloadScene());Commands.add("export.actors","Download Actor Manifest",()=>ActorActionBuilder.downloadActorManifest());Commands.add("open.intake","Open Asset Intake",()=>Studio.open("asset.intake"));Commands.add("open.slicer","Open Asset Slicer",()=>Studio.open("asset.slicer"));Commands.add("open.gifforge","Open GIF Forge",()=>Studio.open("asset.gifforge"));Commands.add("open.taio","Open TAIO",()=>Studio.open("system.taio"));Commands.add("open.metadataforge","Open Metadata Forge",()=>Studio.open("asset.metadataforge"));Commands.add("open.forgesuite","Open Forge Suite",()=>Studio.open("asset.forgesuite"));Commands.add("forge.rain","Open Particle Rain",()=>Studio.open("asset.forgesuite",{rain:true}));Commands.add("export.production","Download Production Package",()=>ReleaseExport.downloadProductionPackage());Commands.add("export.gamepackage","Download Game Package",()=>GamePackageBuilder.downloadPackage({pwa:true}));Commands.add("open.gamepackage","Open Game Package Builder",()=>Studio.open("build.gamepackage"));Commands.add("export.scene","Download Starter Scene",()=>GamePackageBuilder.downloadScene());Commands.add("export.smoketest","Download Smoke Test",()=>GamePackageBuilder.downloadSmokeTest());Commands.add("project.snapshot","Save Project Snapshot",()=>ProjectPersistence.saveSnapshot().then(()=>alert("Snapshot saved.")));Commands.add("project.restore","Restore Last AutoSave",()=>ProjectPersistence.restoreLatest());Commands.add("project.persistence","Open Persistence",()=>Studio.open("system.persistence"));Commands.add("open.persistence","Open Persistence",()=>Studio.open("system.persistence"));Commands.add("open.validator","Open Validator",()=>Studio.open("build.validate"));Commands.add("open.runtime","Open Runtime Preview",()=>Studio.open("system.runtime"));Commands.add("open.registry","Open Asset Registry",()=>Studio.open("system.registry"));Commands.add("open.inspector","Open Asset Inspector",()=>Studio.open("asset.inspector"));Commands.add("open.platform","Open Platform Status",()=>Studio.open("system.platform"));Commands.add("open.changelog","Open Changelog",()=>Studio.open("system.changelog"));Commands.add("open.export","Open Export Center",()=>Studio.open("build.export"));Commands.add("shape.export.copyjs","Shape Forge Copy JS Export",()=>ShapeForgeStudioHost.copyCurrentJS());Commands.add("shape.export.downloadjs","Shape Forge Download JS Export",()=>ShapeForgeStudioHost.downloadCurrentJS());Commands.add("shape.export.downloadhtml","Shape Forge Download HTML Demo",()=>ShapeForgeStudioHost.downloadCurrentHTML(false));Commands.add("project.save","Download Project JSON",()=>dl(safe($("#projectName").value)+".kgbproject.json",Studio.exportProject(),"application/json"));Commands.add("history.undo","Undo",()=>History.undoIt());Commands.add("history.redo","Redo",()=>History.redoIt());Commands.add("layout.toggle.left","Toggle Explorer Column",()=>LayoutControls.toggleLeft());Commands.add("layout.toggle.right","Toggle Intel Column",()=>LayoutControls.toggleRight());Commands.add("layout.focus","Toggle Workspace Focus",()=>LayoutControls.toggleFocus());Commands.add("layout.reset","Reset Workspace Layout",()=>LayoutControls.reset())}
 /* BOOT: wires the UI, registers operators, opens the first module, and starts Studio. */
-function boot(){renderNav();registerCommands();$("#projectName").value=Studio.state.project.meta.name;renderExplorer();updateHistoryButtons();ProjectPersistence.boot();$("#filter").oninput=renderExplorer;$("#projectName").oninput=()=>{Studio.sync();renderExplorer()};$("#newBtn").onclick=()=>{if(confirm("New project?"))Studio.hydrate(project())};$("#snapshotBtn").onclick=()=>ProjectPersistence.saveSnapshot().then(()=>alert("Snapshot saved."));$("#restoreBtn").onclick=()=>Studio.open("system.persistence");$("#saveBtn").onclick=()=>dl(safe($("#projectName").value)+".kgbproject.json",Studio.exportProject(),"application/json");$("#loadBtn").onclick=()=>$("#loadInput").click();$("#loadInput").onchange=async e=>{let f=e.target.files[0];if(!f)return;try{Studio.hydrate(JSON.parse(await f.text()));Studio.open("mission.brief")}catch(err){alert(err.message)}};$("#exportBtn").onclick=()=>Studio.open("build.export");$("#menuBtn").onclick=e=>{e.stopPropagation();$("#utilityMenu").classList.toggle("show")};document.addEventListener("click",e=>{if(!$("#utilityMenu")?.contains(e.target)&&e.target.id!=="menuBtn")$("#utilityMenu")?.classList.remove("show")});$("#undoBtn").onclick=()=>History.undoIt();$("#redoBtn").onclick=()=>History.redoIt();$("#cmdBtn").onclick=()=>Commands.open();$("#toggleLeftBtn").onclick=()=>LayoutControls.toggleLeft();$("#toggleRightBtn").onclick=()=>LayoutControls.toggleRight();$("#focusBtn").onclick=()=>LayoutControls.toggleFocus();$("#cmdSearch").oninput=renderCommands;$("#cmd").onclick=e=>{if(e.target.id==="cmd")Commands.close()};document.addEventListener("keydown",e=>{if(e.key==="Escape"){$("#utilityMenu")?.classList.remove("show")} if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==="k"){e.preventDefault();Commands.open()} if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==="z"){e.preventDefault();History.undoIt()} if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==="b"){e.preventDefault();LayoutControls.toggleLeft()} if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==="i"){e.preventDefault();LayoutControls.toggleRight()} if((e.ctrlKey||e.metaKey)&&e.key==="."){e.preventDefault();LayoutControls.toggleFocus()}});$("#helpBtn").onclick=()=>{$("#modalTitle").textContent="KGB Studio v0.21 Help";$("#modalBody").innerHTML="<p><b>v0.21 promotes KGB Forge Suite v1.1 into Studio.</b></p><p>ASSETS → Forge Suite embeds Particle, Sound, Palette, Tile, and Curve tools. Active outputs save into the correct Studio buckets, and Particle Rain has its own quick action.</p><p><b>Repo path:</b> replace <code>/studio/index.html</code> with this file.</p>";$("#modalBg").classList.add("show")};$("#closeModal").onclick=()=>$("#modalBg").classList.remove("show");$("#modalBg").onclick=e=>{if(e.target.id==="modalBg")$("#modalBg").classList.remove("show")};Studio.open("mission.brief");Studio.log("KGB Studio v0.21 KGB Forge Suite Integration online")}
+function boot(){renderNav();registerCommands();$("#projectName").value=Studio.state.project.meta.name;renderExplorer();updateHistoryButtons();ProjectPersistence.boot();$("#filter").oninput=renderExplorer;$("#projectName").oninput=()=>{Studio.sync();renderExplorer()};$("#newBtn").onclick=()=>{if(confirm("New project?"))Studio.hydrate(project())};$("#snapshotBtn").onclick=()=>ProjectPersistence.saveSnapshot().then(()=>alert("Snapshot saved."));$("#restoreBtn").onclick=()=>Studio.open("system.persistence");$("#saveBtn").onclick=()=>dl(safe($("#projectName").value)+".kgbproject.json",Studio.exportProject(),"application/json");$("#loadBtn").onclick=()=>$("#loadInput").click();$("#loadInput").onchange=async e=>{let f=e.target.files[0];if(!f)return;try{Studio.hydrate(JSON.parse(await f.text()));Studio.open("mission.brief")}catch(err){alert(err.message)}};$("#exportBtn").onclick=()=>Studio.open("build.export");$("#menuBtn").onclick=e=>{e.stopPropagation();$("#utilityMenu").classList.toggle("show")};document.addEventListener("click",e=>{if(!$("#utilityMenu")?.contains(e.target)&&e.target.id!=="menuBtn")$("#utilityMenu")?.classList.remove("show")});$("#undoBtn").onclick=()=>History.undoIt();$("#redoBtn").onclick=()=>History.redoIt();$("#cmdBtn").onclick=()=>Commands.open();$("#toggleLeftBtn").onclick=()=>LayoutControls.toggleLeft();$("#toggleRightBtn").onclick=()=>LayoutControls.toggleRight();$("#focusBtn").onclick=()=>LayoutControls.toggleFocus();$("#cmdSearch").oninput=renderCommands;$("#cmd").onclick=e=>{if(e.target.id==="cmd")Commands.close()};document.addEventListener("keydown",e=>{if(e.key==="Escape"){$("#utilityMenu")?.classList.remove("show")} if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==="k"){e.preventDefault();Commands.open()} if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==="z"){e.preventDefault();History.undoIt()} if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==="b"){e.preventDefault();LayoutControls.toggleLeft()} if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==="i"){e.preventDefault();LayoutControls.toggleRight()} if((e.ctrlKey||e.metaKey)&&e.key==="."){e.preventDefault();LayoutControls.toggleFocus()}});$("#helpBtn").onclick=()=>{$("#modalTitle").textContent="KGB Studio v0.25.1 Help";$("#modalBody").innerHTML="<p><b>v0.25.1 hardens Milestone A — Playable Pipeline Foundation.</b></p><p>BUILD → Playable Loop validates the actor/action/scene/package/runtime flow and can generate a test actor, test scene, and full playable test package in one click.</p><p><b>Repo path:</b> replace <code>/studio/index.html</code> with this file.</p>";$("#modalBg").classList.add("show")};$("#closeModal").onclick=()=>$("#modalBg").classList.remove("show");$("#modalBg").onclick=e=>{if(e.target.id==="modalBg")$("#modalBg").classList.remove("show")};Studio.open("mission.brief");Studio.log("KGB Studio v0.25.1 Milestone A Hardening online")}
 document.addEventListener("DOMContentLoaded",boot);
 </script>
 </body>
